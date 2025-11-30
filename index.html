@@ -5,261 +5,680 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSR PMI Politeknik Negeri Jember</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
-    
-    <style>
-     :root{
-  --primary-maroon:#7a1f1f;
-  --dark-maroon:#5a1414;
-  --light-cream:#fafafa;
-  --text-dark:#2c2c2c;
-  --white:#ffffff;
-  --border-red:#b30000;
-  --accent-cyan:#00acc1;
-}
+<!-- Bootstrap CSS (dari Tentang-Ksr) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons (dari Tentang-Ksr) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
 
-/* =========================
-   Base / Reset
-   ========================= */
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color:var(--text-dark);
-  background:var(--light-cream);
-  font-size:1.15rem;
-  -webkit-font-smoothing:antialiased;
-}
+<!-- Bootstrap CSS (cobacoba – opsional, bisa dihapus jika pakai yang atas saja) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-/* =========================
-   Utilities
-   ========================= */
-.container-hero{width:100%}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.visible{opacity:1;transform:none}
-.section-divider{height:5px;background:linear-gradient(90deg,transparent 0%, var(--primary-maroon) 50%, transparent 100%);margin:40px 0}
+<!-- Font Awesome (untuk icon di header cobacoba, kalau diperlukan) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* =========================
-   Header / Navigation
-   ========================= */
-.header-wrapper {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 15px 0;
-}
+<style>
+    :root {
+        --primary-maroon: #7a1f1f;
+        --dark-maroon: #5a1414;
+        --light-cream: #fafafa;
+        --text-dark: #2c2c2c;
+        --white: #ffffff;
+        --border-red: #b30000;
+        --accent-cyan: #00acc1;
+    }
 
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    /* Base Reset */
+    * {
+        box-sizing: border-box;
+    }
 
-.header-logos {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-dark);
+        background: var(--light-cream);
+        font-size: 1.15rem;
+        -webkit-font-smoothing: antialiased;
+    }
 
-.header-logos img {
-  height: 50px;
-}
+    /* Header cobacoba */
+    .header-wrapper {
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-.navbar {
-  background-color: transparent;
-  box-shadow: none;
-  padding: 0;
-}
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.navbar-nav .nav-link {
-  color: #333;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s;
-  font-size: 0.95rem;
-}
+    .header-logos {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--primary-maroon);
-}
+    .header-logos img {
+        height: 50px;
+    }
 
-/* =========================
-   Header / Contact
-   ========================= */
-.header-contact{
-  background:linear-gradient(90deg,#4dd0e1 0%, #26c6da 100%);
-  border:3px solid var(--accent-cyan);
-  padding:15px 0;
-}
-.contact-info{display:flex;align-items:center;gap:20px}
-.contact-info .map-placeholder{width:120px;height:80px;background:#e0e0e0;border-radius:8px}
-.contact-text p{margin:0;font-size:14px;font-weight:500;color:var(--text-dark)}
-.contact-text .title{font-weight:700;font-size:15px}
-.social-links{display:flex;gap:15px}
-.social-icon{width:60px;height:60px;border-radius:10px;overflow:hidden;transition:transform .3s}
-.social-icon:hover{transform:scale(1.1)}
-.social-icon img{width:100%;height:100%;object-fit:cover}
+        .navbar {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
 
-/* =========================
-   Hero
-   ========================= */
-.hero-header{padding:40px 0;text-align:center}
-.hero-header h1{font-size:5rem;font-weight:800;color:var(--border-red);margin:0}
-.hero-image-section{width:100%;height:65vh;min-height:450px;overflow:hidden;display:block}
-.hero-image-section img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+        .navbar-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
 
-/* hero image inside card */
-.hero-image-in-card{width:100%;height:300px;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.2)}
-.hero-image-in-card img{width:100%;height:100%;border-top:6px solid var(--border-red);border-bottom:6px solid var(--border-red);border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,.25);transition:transform .3s,box-shadow .3s}
-.hero-image-in-card img:hover{transform:scale(1.05);box-shadow:0 15px 40px rgba(0,0,0,.35)}
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-maroon);
+        }
 
-/* =========================
-   Sejarah / Info Cards
-   ========================= */
-.sejarah-card{
-  border-top:8px solid var(--border-red);
-  border-bottom:8px solid var(--border-red);
-  border-radius:20px;
-  padding:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-  transition:transform .3s,box-shadow .3s;
-}
-.sejarah-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,0,0,.35)}
-.sejarah-card h2{color:var(--primary-maroon);font-size:2rem;font-weight:700;margin-top:0}
-.sejarah-card p{font-size:1.1rem;text-align:justify;line-height:1.7;margin:0}
+    /* Fade-in (Tentang-Ksr) */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity .6s ease, transform .6s ease;
+    }
 
-/* info / visi / misi */
-.info-card{padding:30px;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,.15);background:var(--white);height:100%}
-.logo-card{border-left:8px solid var(--border-red);background:var(--light-cream)}
-.logo-container{width:180px;height:180px;border-radius:20px;overflow:hidden;margin:auto;border:3px solid var(--border-red)}
-.logo-container img{width:100%;height:100%;object-fit:contain}
-.visi-card{border-top:8px solid var(--border-red)}
-.misi-card{border-right:8px solid var(--border-red);background:var(--light-cream)}
-.info-card h3{color:var(--border-red);font-size:2rem;font-weight:700;text-align:center;margin-bottom:20px}
-.info-card p,.info-card ul{font-size:1rem;text-align:justify;line-height:1.7;margin:0}
+    .fade-in.visible {
+        opacity: 1;
+        transform: none;
+    }
 
-/* =========================
-   Leader (Ketua/Wakil) Cards
-   ========================= */
-.leader-card{border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,.15);background:var(--white);margin-bottom:40px;padding:1.25rem}
-.ketua-card{border-left:10px solid var(--border-red)}
-.wakil-card{border-right:10px solid var(--primary-maroon)}
-.leader-photo{width:180px;height:220px;border-radius:20px;overflow:hidden;border:4px solid var(--border-red)}
-.leader-photo img{width:100%;height:100%;object-fit:cover}
-.leader-card h2{font-weight:700;color:var(--border-red);font-size:1.6rem;margin:0 0 .5rem 0}
-.leader-card h4{font-weight:700;color:var(--border-red);margin-top:1rem}
-.leader-card p, .leader-card ul{font-size:1rem;line-height:1.6}
+    .section-divider {
+        height: 5px;
+        background: linear-gradient(90deg, transparent 0%, var(--primary-maroon) 50%, transparent 100%);
+        margin: 40px 0;
+    }
 
-/* =========================
-   Stats / Badges
-   ========================= */
-.stats-section{padding:60px 0;background:var(--light-cream)}
-.stat-card{background:#f0f4ff;padding:30px;border-radius:20px;text-align:center;transition:transform .3s,box-shadow .3s;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-.stat-card:hover{transform:translateY(-10px);box-shadow:0 8px 25px rgba(0,0,0,.2)}
-.stat-icon img{width:80px;height:80px}
-.stat-number{font-size:2.5rem;font-weight:700;color:var(--primary-maroon)}
-.stat-label{font-size:1.1rem;color:var(--text-dark);font-weight:600}
+    /* Header Contact (lama Tentang-Ksr – masih disimpan jika ingin pakai di bawah) */
+    .header-contact {
+        background: linear-gradient(90deg, #4dd0e1 0%, #26c6da 100%);
+        border: 3px solid var(--accent-cyan);
+        padding: 15px 0;
+    }
 
-/* =========================
-   Kepengurusan (wrapper + cards)
-   ========================= */
-.kepengurusan-section{padding:60px 0;background:#fafafa}
-.kepengurusan-title{text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:40px}
-.kepengurusan-container{max-width:1100px;margin:auto}
-.kepengurusan-grid{display:flex;flex-direction:column;gap:35px}
-.kepengurusan-row{display:grid;grid-template-columns:1fr 1fr;gap:25px}
-.kepengurusan-card{background:var(--white);padding:25px;border-radius:20px;box-shadow:0 6px 25px rgba(0,0,0,.1);text-align:center;transition:transform .3s}
-.kepengurusan-card:hover{transform:scale(1.03)}
-.kepengurusan-card img{width:100%;height:330px;object-fit:cover;object-position:center;border-radius:15px;margin-bottom:15px}
-.pembina-card{width:70%;margin:auto}
-.pembina-card img{height:450px;object-fit:cover;display:block}
-.kepengurusan-card h3{font-size:1.2rem;margin-bottom:10px;font-weight:700;color:#8b0000}
-.kepengurusan-card p{margin:5px 0;font-size:1rem}
+    .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 
-/* =========================
-   Keanggotaan (member cards)
-   ========================= */
-.keanggotaan-section{
-  background:linear-gradient(135deg,var(--primary-maroon) 0%, var(--dark-maroon) 100%);
-  padding:80px 0;color:var(--white);position:relative;overflow:hidden
-}
-.keanggotaan-title{font-size:3.5rem;font-weight:800;margin-bottom:20px;text-align:center;letter-spacing:4px;text-transform:uppercase}
-.keanggotaan-subtitle{font-size:2rem;font-weight:700;color:var(--white);margin:40px 0 25px;padding-left:20px;border-left:5px solid var(--white)}
-.keanggotaan-scroll{max-height:1000px;overflow-y:auto;padding-right:15px}
-.keanggotaan-row{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-bottom:30px}
-.keanggotaan-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.22);transition:transform .4s,box-shadow .4s;position:relative}
-.keanggotaan-card:hover{transform:translateY(-12px);box-shadow:0 15px 40px rgba(0,0,0,.4)}
-.keanggotaan-image{position:relative;height:220px;background:linear-gradient(135deg,#e0e0e0 0%,#f5f5f5 100%);overflow:hidden}
-.keanggotaan-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.keanggotaan-card:hover .keanggotaan-image img{transform:scale(1.1)}
-.keanggotaan-ribbon{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--primary-maroon) 0%,var(--dark-maroon) 100%);color:var(--white);padding:8px 20px;font-weight:700;font-size:.85rem;text-transform:uppercase;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.3);z-index:2;transition:all .3s}
-.keanggotaan-card:hover .keanggotaan-ribbon{background:#fff;color:var(--primary-maroon);transform:translateX(-50%) translateY(-5px)}
-.keanggotaan-info{padding:20px;color:var(--text-dark);background:var(--white)}
-.keanggotaan-info p{margin:8px 0;font-size:1rem;line-height:1.6}
-.keanggotaan-info strong{font-weight:600;color:var(--primary-maroon)}
+    .contact-info .map-placeholder {
+        width: 120px;
+        height: 80px;
+        background: #e0e0e0;
+        border-radius: 8px;
+    }
 
-/* alternative horizontal (keanggotaan-mobile) - keep for smaller tweaks */
-.keanggotaan-row--scroll{display:flex;gap:30px;padding:20px;overflow-x:auto;scroll-snap-type:x mandatory}
-.keanggotaan-card--wide{min-width:350px;scroll-snap-align:start}
+    .contact-text p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-dark);
+    }
 
-/* =========================
-   Scroll / animation helpers
-   ========================= */
-.scroll-effect{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
-.scroll-visible{opacity:1;transform:none}
+    .contact-text .title {
+        font-weight: 700;
+        font-size: 15px;
+    }
 
-/* =========================
-   Responsive
-   ========================= */
-@media(max-width:1200px){.keanggotaan-row{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:992px){
-  .keanggotaan-row{grid-template-columns:repeat(2,1fr)}
-  .hero-header h1{font-size:3rem}
-  .keanggotaan-title{font-size:2.5rem}
-  .keanggotaan-subtitle{font-size:1.5rem}
-  .kepengurusan-row{grid-template-columns:1fr}
-}
-@media(max-width:768px){
-  .keanggotaan-row{grid-template-columns:1fr}
-  .contact-info{flex-direction:column;text-align:center}
-  .hero-header h1{font-size:2rem}
-  .keanggotaan-title{font-size:2rem}
-  .hero-image-in-card{height:200px}
-  .leader-photo{width:140px;height:180px}
-}@media(max-width:480px){
-    .contact-info .map-placeholder{width:100px;height:70px}
-    .social-icon{width:50px;height:50px}
-    .leader-photo{width:120px;height:160px}
-}
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
 
-/* =========================
-   Footer
-   ========================= */
-footer {
-  background: var(--dark-maroon);
-  color: var(--white);
-  padding: 60px 0 20px;
-}
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform .3s;
+    }
 
-footer .social-icon {
-  background: rgba(255,255,255,0.1);
-  transition: all 0.3s;
-}
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
 
-footer .social-icon i {
-  font-size: 24px;
-  color: #ffffff;
-}
+    .social-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-footer a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-    </style>
+    /* Hero */
+    .hero-header {
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .hero-header h1 {
+        font-size: 5rem;
+        font-weight: 800;
+        color: var(--border-red);
+        margin: 0;
+    }
+
+    .hero-image-section {
+        width: 100%;
+        height: 65vh;
+        min-height: 450px;
+        overflow: hidden;
+        display: block;
+    }
+
+    .hero-image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    /* Hero image inside card */
+    .hero-image-in-card {
+        width: 100%;
+        height: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero-image-in-card img {
+        width: 100%;
+        height: 100%;
+        border-top: 6px solid var(--border-red);
+        border-bottom: 6px solid var(--border-red);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        transition: transform .3s, box-shadow .3s;
+    }
+
+    .hero-image-in-card img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    /* Sejarah Card */
+    .sejarah-card {
+        border-top: 8px solid var(--border-red);
+        border-bottom: 8px solid var(--border-red);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        transition: transform .3s, box-shadow .3s;
+    }
+
+    .sejarah-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+    }
+
+    .sejarah-card h2 {
+        color: var(--primary-maroon);
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 0;
+    }
+
+    .sejarah-card p {
+        font-size: 1.1rem;
+        text-align: justify;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* Info Visi Misi */
+    .info-card {
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        background: var(--white);
+        height: 100%;
+    }
+
+    .logo-card {
+        border-left: 8px solid var(--border-red);
+        background: var(--light-cream);
+    }
+
+    .logo-container {
+        width: 180px;
+        height: 180px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 0 auto;
+        border: 3px solid var(--border-red);
+    }
+
+    .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .visi-card {
+        border-top: 8px solid var(--border-red);
+    }
+
+    .misi-card {
+        border-right: 8px solid var(--border-red);
+        background: var(--light-cream);
+    }
+
+    .info-card h3 {
+        color: var(--border-red);
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .info-card p,
+    .info-card ul {
+        font-size: 1rem;
+        text-align: justify;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* Leader Cards */
+    .leader-card {
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        background: var(--white);
+        margin-bottom: 40px;
+        padding: 1.25rem;
+    }
+
+    .ketua-card {
+        border-left: 10px solid var(--border-red);
+    }
+
+    .wakil-card {
+        border-right: 10px solid var(--primary-maroon);
+    }
+
+    .leader-photo {
+        width: 180px;
+        height: 220px;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 4px solid var(--border-red);
+    }
+
+    .leader-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .leader-card h2 {
+        font-weight: 700;
+        color: var(--border-red);
+        font-size: 1.6rem;
+        margin: 0 0 .5rem 0;
+    }
+
+    .leader-card h4 {
+        font-weight: 700;
+        color: var(--border-red);
+        margin-top: 1rem;
+    }
+
+    .leader-card p,
+    .leader-card ul {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats-section {
+        padding: 60px 0;
+        background: var(--light-cream);
+    }
+
+    .stat-card {
+        background: #f0f4ff;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: transform .3s, box-shadow .3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .stat-icon img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-maroon);
+    }
+
+    .stat-label {
+        font-size: 1.1rem;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    /* Kepengurusan Section */
+    .kepengurusan-section {
+        padding: 60px 0;
+        background: #fafafa;
+    }
+
+    .kepengurusan-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+
+    .kepengurusan-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .kepengurusan-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .kepengurusan-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .kepengurusan-card {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform .3s;
+    }
+
+    .kepengurusan-card:hover {
+        transform: scale(1.03);
+    }
+
+    .kepengurusan-card img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+
+    .pembina-card {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .pembina-card img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+    }
+
+    .kepengurusan-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+        color: #8b0000;
+    }
+
+    .kepengurusan-card p {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+
+    /* Keanggotaan Section */
+    .keanggotaan-section {
+        background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--dark-maroon) 100%);
+        padding: 80px 0;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .keanggotaan-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-align: center;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+    }
+
+    .keanggotaan-subtitle {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--white);
+        margin: 40px 0 25px;
+        padding-left: 20px;
+        border-left: 5px solid var(--white);
+    }
+
+    .keanggotaan-scroll {
+        max-height: 1000px;
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    .keanggotaan-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    .keanggotaan-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.22);
+        transition: transform .4s, box-shadow .4s;
+        position: relative;
+    }
+
+    .keanggotaan-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .keanggotaan-image {
+        position: relative;
+        height: 220px;
+        background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+        overflow: hidden;
+    }
+
+    .keanggotaan-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .4s;
+    }
+
+    .keanggotaan-card:hover .keanggotaan-image img {
+        transform: scale(1.1);
+    }
+
+    .keanggotaan-ribbon {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--dark-maroon) 100%);
+        color: var(--white);
+        padding: 8px 20px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 2;
+        transition: all .3s;
+    }
+
+    .keanggotaan-card:hover .keanggotaan-ribbon {
+        background: #ffffff;
+        color: var(--primary-maroon);
+        transform: translateX(-50%) translateY(-5px);
+    }
+
+    .keanggotaan-info {
+        padding: 20px;
+        color: var(--text-dark);
+        background: var(--white);
+    }
+
+    .keanggotaan-info p {
+        margin: 8px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .keanggotaan-info strong {
+        font-weight: 600;
+        color: var(--primary-maroon);
+    }
+
+    /* Scroll animation helpers */
+    .scroll-effect {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+
+    .scroll-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+        .keanggotaan-row {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 992px) {
+        .keanggotaan-row {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero-header h1 {
+            font-size: 3rem;
+        }
+
+        .keanggotaan-title {
+            font-size: 2.5rem;
+        }
+
+        .keanggotaan-subtitle {
+            font-size: 1.5rem;
+        }
+
+        .kepengurusan-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .keanggotaan-row {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-header h1 {
+            font-size: 2rem;
+        }
+
+        .keanggotaan-title {
+            font-size: 2rem;
+        }
+
+        .hero-image-in-card {
+            height: 200px;
+        }
+
+        .leader-photo {
+            width: 140px;
+            height: 180px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-info .map-placeholder {
+            width: 100px;
+            height: 70px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .leader-photo {
+            width: 120px;
+            height: 160px;
+        }
+    }
+
+    /* Footer (Tentang-Ksr) */
+    footer {
+        background: var(--dark-maroon);
+        color: var(--white);
+        padding: 60px 0 20px;
+    }
+
+    footer .social-icon {
+        background: rgba(255,255,255,0.1);
+        transition: all 0.3s;
+    }
+
+    footer .social-icon i {
+        font-size: 24px;
+        color: #ffffff;
+    }
+
+    footer a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+</style>
 </head>
 <body>
 <script>
@@ -283,43 +702,41 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-    <!-- Header with Navigation and Logos -->
-    <div class="header-wrapper">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-logos">
-                    <img src="LogoKSR.jpg" alt="PMI Logo">
-                    <img src="LogoPolije.jpg" alt="POLIJE Logo">
-                    <img src="logoPMI.png" alt="KSR PMI Logo">
-                </div>
-                <nav class="navbar navbar-expand-lg">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="Tentang-Ksr.html">Tentang</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="timeline.html">Jadwal</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pendaftaran.html">Pendaftaran</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+
+
+<body>
+  <!-- BAR 1: HEADER DARI cobacoba.html -->
+  <div class="header-wrapper">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-logos">
+          <img src="LogoKSR.jpg" alt="PMI Logo">
+          <img src="LogoPolije.jpg" alt="POLIJE Logo">
+            <img src="logoPMI.png" alt="KSR PMI Logo">
         </div>
+        <nav class="navbar navbar-expand-lg">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="beranda.html">Beranda</a></li>
+              <li class="nav-item"><a class="nav-link active" href="tentang.html">Tentang</a></li>
+              <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+              <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+              <li class="nav-item"><a class="nav-link" href="jadwal.html">Jadwal</a></li>
+              <li class="nav-item"><a class="nav-link" href="pendaftaran.html">Pendaftaran</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
+  </div>
 
-    <!-- Hero Title -->
-    <div class="container hero-header">
-        <h1 class="fade-in">\ TENTANG KSR PMI POLIJE /</h1>
-    </div>
-
-        <div class="fade-in">
-                <img src="Gambar/Sejarah..png" alt="Hero Image" class="hero-image-section">
-</div>
-<!-- Sejarah Card + Hero Image dalam 1 Card -->
+  <!-- BAR 2: TETAP SEPERTI SEKARANG (JUDUL + GAMBAR) -->
+  <div class="fade-in">
+    <img src="Gambar/Sejarah..png" alt="Hero Image" class="hero-image-section">
+  </div>
 
 
 <div class="container-fluid px-0 py-5">
@@ -461,7 +878,7 @@ window.addEventListener('load', scrollAnimation);
 
                 <!-- PEMBINA (Card Besar Tengah) -->
                 <div class="kepengurusan-card pembina-card scroll-effect">
-                    <img src="FOTOKSR/Pembina (2).heic" alt="Pembina">
+                    <img class="pembina-photo" src="FOTOKSR/Pembina (2).heic" alt="Pembina">
                     <h3>PEMBINA</h3>
                     <p><strong>Nama:</strong> Nama Pembina</p>
                 </div>
@@ -500,13 +917,13 @@ window.addEventListener('load', scrollAnimation);
                 <!-- BENDAHARA 1 & 2 -->
                 <div class="kepengurusan-row scroll-effect">
                     <div class="kepengurusan-card">
-                        <img src="FOTOKSR/Bendahara1.jpg" alt="Bendahara 1">
+                        <img src="FOTOKSR/Bendahara1.heic" alt="Bendahara 1">
                         <h3>BENDAHARA 1</h3>
                         <p><strong>Nama:</strong> Nama Bendahara 1</p>
                     </div>
 
                     <div class="kepengurusan-card">
-                        <img src="FOTOKSR/Bendahara2.jpg" alt="Bendahara 2">
+                        <img src="FOTOKSR/Bendahara2.heic" alt="Bendahara 2">
                         <h3>BENDAHARA 2</h3>
                         <p><strong>Nama:</strong> Nama Bendahara 2</p>
                     </div>
@@ -789,76 +1206,51 @@ window.addEventListener('load', scrollAnimation);
     </section>
 
     <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 mb-4">
-            <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">
-              KSR PMI POLIJE
-            </h3>
-            <p style="line-height: 1.8; margin-bottom: 20px;">
-              Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan
-              kepalangmerahan di Politeknik Negeri Jember.
-            </p>
-            <div class="social-links">
-              <a href="#" class="social-icon d-flex align-items-center justify-content-center">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="#" class="social-icon d-flex align-items-center justify-content-center">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="#" class="social-icon d-flex align-items-center justify-content-center">
-                <i class="bi bi-youtube"></i>
-              </a>
+    <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">KSR PMI POLIJE</h3>
+                    <p style="line-height: 1.8; margin-bottom: 20px;">
+                        Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember.
+                    </p>
+                    <div class="social-links">
+                        <a href="" class="social-icon" style="background: rgba(255,255,255,0.1); transition: all 0.3s;">
+                            <i class="bi bi-instagram" style="font-size: 24px; color: white;"></i>
+                        </a>
+                        <a href="" class="social-icon" style="background: rgba(255,255,255,0.1); transition: all 0.3s;">
+                            <i class="bi bi-facebook" style="font-size: 24px; color: white;"></i>
+                        </a>
+                        <a href="" class="social-icon" style="background: rgba(255,255,255,0.1); transition: all 0.3s;">
+                            <i class="bi bi-youtube" style="font-size: 24px; color: white;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h4 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">Kontak</h4>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Pollie Mastrip Jalan Aselole</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> 083123456789</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> HASVDGDV@GMAIL.COM</p>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h4 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">Link Cepat</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><a href="" style="color: white; text-decoration: none; transition: color 0.3s;">Tentang Kami</a></li>
+                        <li style="margin-bottom: 10px;"><a href="" style="color: white; text-decoration: none; transition: color 0.3s;">Program Kerja</a></li>
+                        <li style="margin-bottom: 10px;"><a href="" style="color: white; text-decoration: none; transition: color 0.3s;">Kegiatan</a></li>
+                        <li style="margin-bottom: 10px;"><a href="" style="color: white; text-decoration: none; transition: color 0.3s;">Galeri</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
 
-          <div class="col-lg-4 mb-4">
-            <h4 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">
-              Kontak
-            </h4>
-            <p><i class="bi bi-geo-alt-fill me-2"></i> Pollie Mastrip Jalan Aselole</p>
-            <p><i class="bi bi-telephone-fill me-2"></i> 083123456789</p>
-            <p><i class="bi bi-envelope-fill me-2"></i> HASVDGDV@GMAIL.COM</p>
-          </div>
-
-        <div style="text-align: center; padding-top: 30px; margin-top: 30px;
-                    border-top: 1px solid rgba(255,255,255,0.2);">
-          <p style="margin: 0;">
-            © 2024 KSR PMI Politeknik Negeri Jember. All Rights Reserved.
-          </p>
-          <p style="margin: 5px 0 0 0;">
-            Designed by Kelompok 3D Nakama
-          </p>
+            <div style="text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0;">© 2024 KSR PMI Politeknik Negeri Jember. All Rights Reserved.</p>
+                <p style="margin: 5px 0 0 0;">Designed with ❤️ for Humanity</p>
+            </div>
         </div>
-      </div>
     </footer>
-
-    <script>
-        // Social Icon Hover Effect
-        document.querySelectorAll('footer .social-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(255,255,255,0.3)';
-                this.style.transform = 'scale(1.2) rotate(5deg)';
-            });
-            
-            icon.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255,255,255,0.1)';
-                this.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-
-        // Footer Link Hover Effect
-        document.querySelectorAll('footer a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.color = '#ff6b6b';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.color = 'white';
-            });
-        });
-    </script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
@@ -945,6 +1337,39 @@ window.addEventListener('load', scrollAnimation);
                 this.style.color = 'white';
             });
         });
+    </script>
+
+    <script>
+    // Center Pembina face using Face Detection (if available)
+    document.addEventListener('DOMContentLoaded', function() {
+        async function centerFace(img) {
+            if (!img.complete) await new Promise(r => img.onload = r);
+            img.style.objectFit = 'cover';
+            try {
+                if ('FaceDetector' in window) {
+                    const detector = new FaceDetector({fastMode: true, maxDetectedFaces: 1});
+                    const faces = await detector.detect(img);
+                    if (faces && faces.length > 0) {
+                        const box = faces[0].boundingBox;
+                        const cx = box.x + box.width / 2;
+                        const cy = box.y + box.height / 2;
+                        const xPercent = (cx / img.naturalWidth) * 100;
+                        const yPercent = (cy / img.naturalHeight) * 100;
+                        img.style.objectPosition = `${xPercent}% ${yPercent}%`;
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('Face detection failed:', e);
+            }
+            // fallback: center vertically
+            img.style.objectPosition = '50% 40%';
+        }
+
+        document.querySelectorAll('img.pembina-photo').forEach(img => {
+            centerFace(img);
+        });
+    });
     </script>
 
 </body>
