@@ -878,7 +878,7 @@ window.addEventListener('load', scrollAnimation);
 
                 <!-- PEMBINA (Card Besar Tengah) -->
                 <div class="kepengurusan-card pembina-card scroll-effect">
-                    <img src="FOTOKSR/Pembina (2).heic" alt="Pembina">
+                    <img class="pembina-photo" src="FOTOKSR/Pembina (2).heic" alt="Pembina">
                     <h3>PEMBINA</h3>
                     <p><strong>Nama:</strong> Nama Pembina</p>
                 </div>
@@ -1337,6 +1337,39 @@ window.addEventListener('load', scrollAnimation);
                 this.style.color = 'white';
             });
         });
+    </script>
+
+    <script>
+    // Center Pembina face using Face Detection (if available)
+    document.addEventListener('DOMContentLoaded', function() {
+        async function centerFace(img) {
+            if (!img.complete) await new Promise(r => img.onload = r);
+            img.style.objectFit = 'cover';
+            try {
+                if ('FaceDetector' in window) {
+                    const detector = new FaceDetector({fastMode: true, maxDetectedFaces: 1});
+                    const faces = await detector.detect(img);
+                    if (faces && faces.length > 0) {
+                        const box = faces[0].boundingBox;
+                        const cx = box.x + box.width / 2;
+                        const cy = box.y + box.height / 2;
+                        const xPercent = (cx / img.naturalWidth) * 100;
+                        const yPercent = (cy / img.naturalHeight) * 100;
+                        img.style.objectPosition = `${xPercent}% ${yPercent}%`;
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('Face detection failed:', e);
+            }
+            // fallback: center vertically
+            img.style.objectPosition = '50% 40%';
+        }
+
+        document.querySelectorAll('img.pembina-photo').forEach(img => {
+            centerFace(img);
+        });
+    });
     </script>
 
 </body>
