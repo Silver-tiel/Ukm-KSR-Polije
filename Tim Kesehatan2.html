@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tim Kesehatan — KSR</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+
+      --accent:#a70b0b;        /* maroon / red used in design */
+      --accent-dark:#7a0303;
+      --page-bg:#9f0000;      /* cyan surrounding area */
+      --card-bg:#fff;
+      --muted:#6b6b6b;
+      --max-width:980px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,Segoe UI,Roboto,Arial;
+      background:var(--page-bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.3;
+    }
+
+    /* center page "paper" */
+    .page-wrap{
+      max-width:var(--max-width);
+      margin:40px auto;
+      background:var(--card-bg);
+      border-radius:6px;
+      box-shadow:0 6px 30px rgba(0,0,0,0.08);
+      position:relative;
+      overflow:hidden;
+      padding:28px 36px 48px;
+    }
+
+    /* decorative vertical patterned stripes on left & right */
+    .page-wrap::before,
+    .page-wrap::after{
+      content:"";
+      position:absolute;
+      top:0;
+      width:130px;
+      height:100%;
+      background-color:transparent;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,0.06) 0 2px, transparent 2px),
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px);
+      background-blend-mode:overlay;
+      left:-130px;
+      background-color:var(--accent);
+      opacity:0.98;
+    }
+    .page-wrap::after{ right:-130px; left:auto; transform:scaleX(-1); }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:26px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand img{ height:56px; width:auto; display:block; }
+    nav ul{
+      display:flex;
+      gap:18px;
+      list-style:none;
+      margin:0;
+      padding:0;
+      font-weight:600;
+    }
+    nav a{
+      text-decoration:none;
+      color:#111;
+      font-size:15px;
+    }
+
+    /* Main hero/title */
+    .hero{
+      text-align:center;
+      margin:6px 0 28px;
+    }
+    .hero h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:1px;
+      font-weight:800;
+    }
+    .hero p.lead{
+      margin:8px auto 0;
+      color:var(--muted);
+      font-size:13px;
+      max-width:720px;
+    }
+
+    /* content area: left image card + right features */
+    .content{
+      display:flex;
+      gap:28px;
+      align-items:flex-start;
+      justify-content:center;
+      margin-top:22px;
+      flex-wrap:wrap;
+    }
+
+    .left-card{
+      background:var(--accent);
+      width:260px;
+      min-height:260px;
+      border-radius:14px;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+    .left-card .photo{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      overflow:hidden;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px;
+    }
+    .left-card .photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .right-features{
+      flex:1;
+      max-width:520px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:6px;
+    }
+
+    .feature{
+      background:linear-gradient(180deg,var(--accent) 0%, var(--accent-dark) 100%);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:13px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+      align-self:flex-start;
+      max-width:420px;
+    }
+
+    /* paragraph under content */
+    .desc{
+      margin:26px auto;
+      text-align:center;
+      color:#111;
+      font-size:13px;
+      max-width:740px;
+      padding:0 10px;
+    }
+
+    .cta{
+      display:flex;
+      justify-content:center;
+      margin-top:10px;
+    }
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:12px 28px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:0 8px 0 rgba(0,0,0,0.12);
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    /* footer */
+    footer{
+      margin-top:40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-top:18px;
+      border-top:1px solid rgba(0,0,0,0.06);
+    }
+    .contact{
+      font-size:13px;
+    }
+    .socials{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .social{
+      width:54px;
+      height:44px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:8px;
+      background:#f1f1f1;
+      box-shadow:0 3px 10px rgba(0,0,0,0.06);
+    }
+    .social svg{ width:26px; height:26px; display:block; }
+
+    /* responsive */
+    @media (max-width:900px){
+      .page-wrap::before,.page-wrap::after{ display:none; }
+      header{flex-direction:column; align-items:center; gap:16px}
+      nav ul{flex-wrap:wrap; justify-content:center}
+      .content{flex-direction:column; align-items:center}
+      .right-features{max-width:100%}
+      footer{flex-direction:column; gap:18px; align-items:center}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrap">
+    <!-- Header with Navigation and Logos -->
+    <div style="background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 15px 0; margin-bottom: 0;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img src="LogoKSR.jpg" alt="PMI Logo" style="height: 50px;">
+                    <img src="LogoPolije.jpg" alt="POLIJE Logo" style="height: 50px;">
+                    <img src="Logo PMI.png" alt="KSR PMI Logo" style="height: 50px;">
+                </div>
+                <nav style="background-color: transparent; box-shadow: none; padding: 0;">
+                    <ul style="list-style: none; display: flex; gap: 0; margin: 0; padding: 0;">
+                        <li><a href="#beranda" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none; display: inline-block;">Beranda</a></li>
+                        <li><a href="Tentang-Ksr.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none; display: inline-block;">Tentang</a></li>
+                        <li><a href="Layanan.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none; display: inline-block;">Layanan</a></li>
+                        <li><a href="#blog" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none; display: inline-block;">Blog</a></li>
+                        <li><a href="timeline.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none; display: inline-block;">Jadwal</a></li>
+                        <li><a href="pendaftaran.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none; display: inline-block;">Pendaftaran</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" aria-labelledby="title">
+      <h1 id="title">Tim Kesehatan</h1>
+      <p class="lead">Berikut adalah layanan yang tersedia untuk anggota, maupun masyarakat</p>
+
+      <!-- you can add small badges/icons here -->
+      <div style="display:flex; gap:10px; justify-content:center; margin-top:12px;">
+        <img src="e:\Tugas Workshop\Project\Layanan\Lambang.png" alt="badge1" style="height:34px"/>
+        <img src="e:\Tugas Workshop\Project\Layanan\images.png" alt="badge2" style="height:34px"/>
+        <img src="e:\Tugas Workshop\Project\Layanan\LOGO-POLITEKNIK-NEGERI-JEMBER-200x200-1-qp3k01kpg4zxykv9llfm94gtknd2gp09v5rx0qkjio.png" alt="badge3" style="height:34px"/>
+      </div>
+    </section>
+
+    <main class="content" role="main">
+      <div class="left-card" aria-hidden="false">
+        <div class="photo">
+          <!-- Ganti src dengan foto fasilitator -->
+          <img src="e:\Tugas Workshop\Project\Layanan\buniya-removebg-preview.png" alt="Foto Fasilitator">
+        </div>
+      </div>
+
+      <div class="right-features">
+        <div class="feature">Membuat surat permintaan tim kesehatan KSR PMI POLIJE, surat dikirim minimal H-7 hari sebelum kegiatan dimulai.</div>
+        <div class="feature">Surat penerimaan dikirim ke sekretariat UKM KSR PMI POLIJE dan jika berbentuk softfile bisa dikirim ke humas UKM KSR PMI POLIJE.</div>
+        <div class="feature">Surat diterima oleh humas UKM KSR PMI POLIJE dan akan menyiapkan tim kesehatan.</div>
+      </div>
+    </main>
+
+    <p class="desc">Mendukung memenuhi kebutuhan tim kesehatan pada kegiatan terhadap sebuah insiden atau kecelakaan bagi instansi internal.</p>
+
+    <div class="cta" style="display: flex; gap: 12px; justify-content: center;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn alt" >Gunakan Layanan</a>
+      <a href="Layanan.html" class="btn alt" style="background: #6B1717;">Kembali ke Layanan</a>
+    </div>
+
+    <footer style="background: #5a1414; color: white; padding: 60px 0 20px; margin-top: 40px;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 16px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">
+              KSR PMI POLIJE
+            </h3>
+            <p style="line-height: 1.8; margin-bottom: 20px;">
+              Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan
+              kepalangmerahan di Politeknik Negeri Jember.
+            </p>
+            <div style="display: flex; gap: 15px;">
+              <a href="#" style="width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); transition: all 0.3s; text-decoration: none; color: white;">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" style="width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); transition: all 0.3s; text-decoration: none; color: white;">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" style="width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); transition: all 0.3s; text-decoration: none; color: white;">
+                <i class="bi bi-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <h4 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">
+              Kontak
+            </h4>
+            <p style="color: white; text-decoration: none;"><i class="bi bi-geo-alt-fill me-2"></i> Pollie Mastrip Jalan Aselole</p>
+            <p style="color: white; text-decoration: none;"><i class="bi bi-telephone-fill me-2"></i> 083123456789</p>
+            <p style="color: white; text-decoration: none;"><i class="bi bi-envelope-fill me-2"></i> HASVDGDV@GMAIL.COM</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.2);">
+          <p style="margin: 0;">
+            © 2024 KSR PMI Politeknik Negeri Jember. All Rights Reserved.
+          </p>
+          <p style="margin: 5px 0 0 0;">
+            Designed by Kelompok 3D Nakama
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- NOTE:
+       - Ganti 'logo-placeholder.png', 'person-placeholder.jpg' dan 'badge1.png' dll
+         dengan path gambar asli kamu.
+       - Jika ingin background pattern persis seperti desain, ganti ::before/::after
+         dengan background-image: url('pattern.png') dan sesuaikan ukuran.
+       - Untuk menyesuaikan lebar konten ubah --max-width di :root.
+  -->
+</body>
+</html>
