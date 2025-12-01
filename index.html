@@ -69,10 +69,10 @@
 
         .navbar-nav .nav-link {
             color: #333;
-            -weight: 500;
+            font-weight: 500;
             padding: 0.5rem 1rem !important;
             transition: color 0.3s;
-            -size: 0.95rem;
+            font-size: 0.95rem;
         }
 
         .navbar-nav .nav-link:hover {
@@ -81,7 +81,7 @@
 
         .navbar-nav .nav-link.active {
             color: var(--primary-maroon);
-            -weight: 700;
+            font-weight: 700;
         }
 
         /* --- Carousel Styles --- */
@@ -97,7 +97,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 6rem;
+            font-size: 7rem;
             font-weight: 900;
             text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
             text-align: center;
@@ -160,6 +160,126 @@
 
         .news-card:hover img {
             transform: scale(1.05);
+        }
+
+        /* --- GALERI SECTION STYLES --- */
+        .galeri-section {
+            padding: 60px 0;
+            background: #1a1a1a;
+            color: var(--white);
+        }
+
+        .galeri-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .galeri-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 20px;
+        }
+
+        .galeri-tab {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -23px;
+        }
+
+        .galeri-tab.active {
+            color: #b30000;
+            border-bottom-color: #b30000;
+        }
+
+        .galeri-tab:hover {
+            color: var(--white);
+        }
+
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .galeri-card {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .galeri-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .galeri-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(179,0,0,0.4);
+        }
+
+        .galeri-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .galeri-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .galeri-card:hover .galeri-overlay {
+            opacity: 1;
+        }
+
+        .galeri-icon {
+            width: 60px;
+            height: 60px;
+            background: #b30000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .galeri-card:hover .galeri-icon {
+            background: var(--white);
+            color: #b30000;
+            transform: scale(1.1);
         }
 
         /* --- FOOTER STYLES --- */
@@ -279,7 +399,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Tentang.html">Tentang</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Tentang-Ksr.html">Tentang</a></li>
                             <li class="nav-item"><a class="nav-link" href="Layanan.html">Layanan</a></li>
                             <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                             <li class="nav-item"><a class="nav-link" href="timeline.html">Jadwal</a></li>
@@ -382,6 +502,81 @@
         </div>
     </section>
 
+    <!-- Galeri Section -->
+    <section class="galeri-section">
+        <div class="container">
+            <h2 class="galeri-title">GALERI</h2>
+            
+            <div class="galeri-tabs">
+                <div class="galeri-tab active" onclick="filterGaleri('semua')">Semua</div>
+                <div class="galeri-tab" onclick="filterGaleri('foto')">Foto</div>
+                <div class="galeri-tab" onclick="filterGaleri('video')">Video</div>
+            </div>
+
+            <div class="galeri-grid">
+                <!-- Card 1 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/Sejarah..png" alt="Galeri 1">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/visi.png" alt="Galeri 2">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/task.png" alt="Galeri 3">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/kegiatan1.png" alt="Galeri 4">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/kegiatan2.png" alt="Galeri 5">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua video" style="text-decoration: none;">
+                    <img src="Gambar/video1.png" alt="Galeri 6">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -431,8 +626,66 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        // Gallery Filter Function
+        function filterGaleri(category) {
+            const tabs = document.querySelectorAll('.galeri-tab');
+            const items = document.querySelectorAll('.galeri-item');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'semua' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
 
+        // Face Detection Function for Pembina Photos
+        async function centerFace(img) {
+            if (!img.complete) await new Promise(r => img.onload = r);
+            try {
+                if ('FaceDetector' in window) {
+                    const detector = new FaceDetector({fastMode: true, maxDetectedFaces: 1});
+                    const faces = await detector.detect(img);
+                    if (faces && faces.length > 0) {
+                        const box = faces[0].boundingBox;
+                        const cx = box.x + box.width / 2;
+                        const cy = box.y + box.height / 2;
+                        const xPercent = (cx / img.naturalWidth) * 100;
+                        const yPercent = (cy / img.naturalHeight) * 100;
+                        img.style.objectPosition = `${xPercent}% ${yPercent}%`;
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('Face detection failed:', e);
+            }
+            img.style.objectPosition = '50% 40%';
+        }
 
+        // Apply face centering to all Pembina photos
+        document.querySelectorAll('.pembina-photo').forEach(img => centerFace(img));
 
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-effect, .fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
 
