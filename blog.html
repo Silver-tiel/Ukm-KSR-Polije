@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan - KSR PMI POLIJE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Blog - KSR PMI POLIJE</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+
     <style>
         :root {
             --dark-maroon: #5a1414;
-            --primary-maroon: #7a1f1f;
+            --primary-maroon: #6B1717;
             --white: #ffffff;
             --light-bg: #f5f5f5;
         }
@@ -23,13 +26,13 @@
 
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #5C0D0D;
+            background-color: var(--light-bg);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Header Styles - Same as index */
+        /* --- HEADER STYLES --- */
         .header-wrapper {
             background-color: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -82,135 +85,145 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
         }
 
-        .hero-section {
+        /* --- BLOG CONTENT SECTION --- */
+        .blog-section {
             padding: 60px 0;
-            margin: 40px 0;
-        }
-
-        .content-section {
-            padding: 0;
             flex: 1;
         }
 
-        .content-card {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-            margin: 0 auto;
-            max-width: 1100px;
-            width: 100%;
+        .blog-title {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .content-title {
-            text-align: center;
+        .blog-title h1 {
             font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-weight: 900;
             color: var(--dark-maroon);
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
-        .content-subtitle {
-            text-align: center;
+        .blog-title p {
             font-size: 1rem;
             color: #666;
-            margin-bottom: 40px;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .services-list {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .service-item {
+        .blog-grid {
             display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 24px;
-            align-items: center;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #f0f0f0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
         }
 
-        .service-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .service-photo {
-            width: 160px;
-            height: 160px;
+        .blog-card {
+            background: white;
             border-radius: 12px;
-            background: var(--primary-maroon);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .service-photo img {
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.3s;
         }
 
-        .service-info {
-            padding-right: 16px;
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
         }
 
-        .service-info h2 {
-            font-size: 1.5rem;
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-content h3 {
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--dark-maroon);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        .service-info p {
-            color: #666;
+        .blog-card-content p {
             font-size: 0.95rem;
+            color: #666;
             line-height: 1.6;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
-        .service-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            flex-wrap: wrap;
+        .blog-card-content p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .btn-action {
-            padding: 12px 24px;
-            border-radius: 8px;
-            border: none;
-            background: var(--primary-maroon);
-            color: white;
+        .blog-card.expanded {
+            grid-column: 1 / -1;
+        }
+
+        .blog-card.expanded .blog-card-image {
+            float: left;
+            width: 30%;
+            height: 300px;
+            margin-right: 25px;
+            margin-bottom: 15px;
+        }
+
+        .blog-card.expanded .blog-card-content {
+            overflow: auto;
+        }
+
+        .blog-card.expanded .blog-card-content p {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+            text-align: justify;
+        }
+
+        .blog-card-meta {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--dark-maroon);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: color 0.3s;
         }
 
-        .btn-action:hover {
-            background: var(--dark-maroon);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-            color: white;
+        .read-more:hover {
+            color: var(--primary-maroon);
         }
 
-        /* Footer Styles - Same as index */
+        /* --- FOOTER STYLES --- */
         footer {
             background: var(--dark-maroon);
             color: var(--white);
@@ -237,12 +250,6 @@
         .footer-content p {
             line-height: 1.8;
             margin-bottom: 15px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
         }
 
         .social-icon {
@@ -288,29 +295,6 @@
         }
 
         @media (max-width: 768px) {
-            .service-item {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .service-photo {
-                margin: 0 auto;
-                width: 140px;
-                height: 140px;
-            }
-
-            .service-actions {
-                justify-content: center;
-            }
-
-            .content-title {
-                font-size: 1.8rem;
-            }
-
-            .content-card {
-                padding: 25px;
-            }
-
             .header-content {
                 flex-direction: column;
                 gap: 15px;
@@ -321,9 +305,12 @@
                 gap: 10px;
             }
 
-            .hero-section {
-                padding: 40px 0;
-                margin: 20px 0;
+            .blog-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -337,7 +324,7 @@
     </style>
 </head>
 <body>
-    <!-- Header with Navigation and Logos - Same as index -->
+    <!-- Header with Navigation and Logos -->
     <div class="header-wrapper">
         <div class="container">
             <div class="header-content">
@@ -354,8 +341,8 @@
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
                             <li class="nav-item"><a class="nav-link" href="Tentang-Ksr.html">Tentang</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="Layanan.html">Layanan</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Layanan.html">Layanan</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                             <li class="nav-item"><a class="nav-link" href="timeline.html">Jadwal</a></li>
                             <li class="nav-item"><a class="nav-link" href="pendaftaran.html">Pendaftaran</a></li>
                         </ul>
@@ -365,48 +352,58 @@
         </div>
     </div>
 
-    <section class="hero-section">
+    <!-- Blog Section -->
+    <section class="blog-section">
         <div class="container">
-            <article class="content-card" role="main">
-                <div class="content-title">LAYANAN KAMI</div>
-                <p class="content-subtitle">Berikut adalah layanan yang tersedia untuk anggota maupun masyarakat.</p>
+            <div class="blog-title">
+                <h1>BLOG KSR PMI</h1>
+                <p>Berita, artikel, dan cerita terbaru dari KSR PMI POLIJE</p>
+            </div>
 
-                <section class="services-list">
-                    <!-- Service 1: Fasilitator -->
-                    <article class="service-item">
-                        <div class="service-photo">
-                            <img src="1752425258_DIG_0337-removebg-preview.png" alt="Fasilitator">
-                        </div>
-                        <div class="service-info">
-                            <h2>FASILITATOR</h2>
-                            <p>Mendukung memenuhi kebutuhan pemateri pada kegiatan atau assessment yang berkaitan dengan materi kepalang-merahan.</p>
-                            <div class="service-actions">
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn-action">Gunakan Layanan</a>
-                                <a href="Fasilitator.html" class="btn-action">Penjelasan Lengkap</a>
-                            </div>
-                        </div>
-                    </article>
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <div class="blog-card" onclick="toggleExpand(this)">
+                    <div class="blog-card-image">
+                        <img src="FotoBeranda/crousel1.JPG" alt="Blog 1">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Kegiatan Rutin KSR</h3>
+                        <div class="blog-card-meta">1 Desember 2024</div>
+                        <p>Mengikuti kegiatan sosial dan kemanusiaan untuk membantu masyarakat yang membutuhkan pertolongan dalam bidang kesehatan dan kepalangmerahan. KSR PMI POLIJE secara konsisten melakukan kegiatan rutin setiap minggu untuk memberikan edukasi kesehatan kepada komunitas lokal. Tim kami yang berdedikasi bekerja tanpa henti untuk memastikan bahwa setiap individu mendapatkan akses ke informasi kesehatan yang berkualitas dan pertolongan pertama yang tepat saat dibutuhkan.</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation();">Baca Selengkapnya →</a>
+                    </div>
+                </div>
 
-                    <!-- Service 2: Tim Kesehatan -->
-                    <article class="service-item">
-                        <div class="service-photo">
-                            <img src="buniya-removebg-preview.png" alt="Tim Kesehatan">
-                        </div>
-                        <div class="service-info">
-                            <h2>TIM KESEHATAN</h2>
-                            <p>Mendukung memenuhi kebutuhan tim kesehatan pada kegiatan terhadap sebuah insiden atau kecelakaan bagi instansi internal.</p>
-                            <div class="service-actions">
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn-action">Gunakan Layanan</a>
-                                <a href="Tim Kesehatan2.html" class="btn-action">Penjelasan Lengkap</a>
-                            </div>
-                        </div>
-                    </article>
-                </section>
-            </article>
+                <!-- Blog Card 2 -->
+                <div class="blog-card" onclick="toggleExpand(this)">
+                    <div class="blog-card-image">
+                        <img src="FotoBeranda/crousel2.JPG" alt="Blog 2">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Program Edukasi Kesehatan</h3>
+                        <div class="blog-card-meta">28 November 2024</div>
+                        <p>Memberikan edukasi dan pelatihan tentang kesehatan dan pertolongan pertama kepada anggota dan masyarakat umum. Program ini dirancang untuk meningkatkan kesadaran kesehatan masyarakat dan memberikan keterampilan dasar dalam penanganan situasi darurat medis. Melalui workshop, seminar, dan pelatihan langsung, kami membantu masyarakat memahami pentingnya pencegahan penyakit dan gaya hidup sehat.</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation();">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="blog-card" onclick="toggleExpand(this)">
+                    <div class="blog-card-image">
+                        <img src="FotoBeranda/crousel3.jpg" alt="Blog 3">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Kunjungan Membawa Berkah</h3>
+                        <div class="blog-card-meta">25 November 2024</div>
+                        <p>Mengunjungi masyarakat dan memberikan bantuan dalam bentuk edukasi kesehatan dan perhatian kepada mereka yang membutuhkan. Kegiatan kunjungan ini merupakan manifestasi dari komitmen kami untuk melayani dengan sepenuh hati. Kami percaya bahwa kesehatan adalah hak setiap orang, dan melalui program ini kami berusaha menjangkau komunitas yang mungkin terisolasi atau kurang mendapat akses ke layanan kesehatan yang memadai.</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation();">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer - Same as index -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row footer-content">
@@ -455,6 +452,34 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function toggleExpand(card) {
+            // Remove expanded class from all cards
+            document.querySelectorAll('.blog-card').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('expanded');
+                }
+            });
+
+            // Toggle expanded class on clicked card
+            card.classList.toggle('expanded');
+
+            // Scroll to card if expanded
+            if (card.classList.contains('expanded')) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Close expanded card when clicking outside
+        document.addEventListener('click', function(event) {
+            const expandedCard = document.querySelector('.blog-card.expanded');
+            if (expandedCard && !expandedCard.contains(event.target)) {
+                expandedCard.classList.remove('expanded');
+            }
+        });
+    </script>
 </body>
 </html>
