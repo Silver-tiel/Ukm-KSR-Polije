@@ -1,380 +1,429 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LAYANAN KSR NAKAMA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan - KSR PMI POLIJE</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --dark-maroon: #5a1414;
+            --primary-maroon: #7a1f1f;
+            --white: #ffffff;
+            --light-bg: #f5f5f5;
+        }
 
-  <!-- Google Font (opsional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    :root{
-      --page-bg:#9f0000;
-      --primary:#a30404;    /* merah gelap */
-      --accent:#white;
-      --card-bg:#ffffff;
-      --muted:#666;
-      --btn-shadow: 0 6px 0 rgba(0,0,0,0.12);
-      --container-width:900px;
-    }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    /* Reset sederhana */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: "Roboto", "Montserrat", Arial, sans-serif;
-      background: linear-gradient(90deg, var(--bg) 0 60px, transparent 60px 100%) no-repeat,
-                  #f0f8fb; /* base */
-      display:flex;
-      justify-content:center;
-      padding:32px 16px;
-      color:#111;
-    }
+        .header-wrapper {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    /* Center column */
-    .page {
-      width:100%;
-      max-width:1100px;
-      display:flex;
-      flex-direction:column;
-      gap:24px;
-      align-items:center;
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-    /* Header */
-    header{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      background:transparent;
-      padding:12px 8px;
-    }
-    .brand {
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .logos{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .logos img{
-      height:40px;
-      width:auto;
-    }
-    nav ul{
-      list-style:none;
-      display:flex;
-      gap:20px;
-      align-items:center;
-    }
-    nav a{
-      text-decoration:none;
-      color:#0b0b0b;
-      font-weight:600;
-      font-size:14px;
-    }
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-    /* Background pattern area (maroon with repeating pattern) */
-    .hero-bg{
-      width:100%;
-      background-color: #4a1717; /* maroon base */
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02) 0 2px, transparent 2px),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px);
-      padding:56px 24px;
-      display:flex;
-      justify-content:center;
-    }
+        .header-logos img {
+            height: 50px;
+            object-fit: contain;
+        }
 
-    /* Card container */
-    .card {
-      width:100%;
-      max-width:var(--container-width);
-      background:var(--card-bg);
-      border-radius:8px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      padding:28px;
-    }
+        .navbar {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
 
-    .card .title{
-      text-align:center;
-      margin-bottom:12px;
-    }
-    .card .title h1{
-      font-family:"Montserrat",sans-serif;
-      font-size:34px;
-      letter-spacing:1px;
-      margin-bottom:8px;
-    }
-    .card .subtitle{
-      color:#333;
-      font-size:14px;
-      max-width:720px;
-      margin:0 auto 20px auto;
-    }
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Services list */
-    .services{
-      display:flex;
-      flex-direction:column;
-      gap:28px;
-      margin-top:12px;
-    }
+        .nav-item {
+            display: inline-block;
+        }
 
-    .service{
-      display:grid;
-      grid-template-columns:140px 1fr;
-      gap:18px;
-      align-items:center;
-    }
+        .navbar-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
-    .service .photo{
-      width:140px;
-      aspect-ratio:1/1;
-      border-radius:12px;
-      background:var(--primary);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-    }
-    /* fake profile image (replace <img> src with your photo) */
-    .service .photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-maroon);
+        }
 
-    .service .info{
-      padding-right:16px;
-    }
-    .service h2{
-      font-family:"Montserrat",sans-serif;
-      font-size:24px;
-      margin-bottom:8px;
-    }
-    .service p{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.4;
-      margin-bottom:12px;
-    }
+        .navbar-nav .nav-link.active {
+            color: var(--primary-maroon);
+            font-weight: 700;
+        }
 
-    .service .actions{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .btn{
-      padding:10px 16px;
-      border-radius:10px;
-      border:1px solid rgba(0,0,0,0.08);
-      background:#fff;
-      box-shadow: var(--btn-shadow);
-      cursor:pointer;
-      font-weight:600;
-    }
-    .btn.alt{
-      background:var(--primary);
-      color:#fff;
-      border:none;
-      box-shadow: 0 6px 0 rgba(0,0,0,0.15);
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
 
-    /* Footer */
-    footer{
-      width:100%;
-      max-width:var(--container-width);
-      padding:18px 20px;
-      background:#fff;
-      border-radius:8px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .contact{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .contact .map-thumb{
-      width:120px;
-      height:80px;
-      background:#eee;
-      border-radius:6px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:12px;
-      color:#666;
-    }
-    .socials{
-      display:flex;
-      gap:12px;
-    }
-    .socials a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:48px;height:36px;
-      border-radius:8px;
-      background:#f1f1f1;
-      text-decoration:none;
-      color:#111;
-      font-weight:700;
-    }
+        .hero-section {
+            background: linear-gradient(135deg, #4a1717 0%, #5a1414 100%);
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02) 0 2px, transparent 2px),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px);
+            padding: 60px 0;
+            margin: 40px 0;
+        }
 
-    /* Responsive */
-    @media (max-width:880px){
-      .service{ grid-template-columns:110px 1fr; }
-      .card { padding:20px; }
-      .card .title h1{ font-size:28px; }
-    }
-    @media (max-width:560px){
-      .service{ grid-template-columns:1fr; text-align:center; }
-      .service .photo{ margin:0 auto; width:140px; height:140px; }
-      .service .actions{ justify-content:center; }
-      nav ul{ display:none; } /* hide nav on small screen */
-    }
+        .content-section {
+            padding: 0;
+            flex: 1;
+        }
 
-  </style>
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            margin: 0 auto;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .content-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark-maroon);
+        }
+
+        .content-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 24px;
+            align-items: center;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .service-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            background: var(--primary-maroon);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+        }
+
+        .service-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-info {
+            padding-right: 16px;
+        }
+
+        .service-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-maroon);
+            margin-bottom: 12px;
+        }
+
+        .service-info p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .service-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            background: var(--primary-maroon);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .btn-action:hover {
+            background: var(--dark-maroon);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        footer {
+            background: var(--dark-maroon);
+            color: var(--white);
+            padding: 60px 0 20px;
+            margin-top: auto;
+        }
+
+        footer h3, footer h4 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6b6b;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .service-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .service-photo {
+                margin: 0 auto;
+                width: 140px;
+                height: 140px;
+            }
+
+            .service-actions {
+                justify-content: center;
+            }
+
+            .content-title {
+                font-size: 1.8rem;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .header-logos img {
+                height: 40px;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.4rem 0.7rem !important;
+                font-size: 0.85rem;
+            }
+
+            .hero-section {
+                padding: 40px 0;
+                margin: 20px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Header with Navigation and Logos -->
-    <div class="header-wrapper" style="background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 15px 0; margin-bottom: 24px;">
-        <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 16px;">
-            <div class="header-content" style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="header-logos" style="display: flex; align-items: center; gap: 15px;">
-                    <img src="LogoKSR.jpg" alt="PMI Logo" style="height: 50px;">
-                    <img src="LogoPolije.jpg" alt="POLIJE Logo" style="height: 50px;">
-                    <img src="logo PMI.png" alt="KSR PMI Logo" style="height: 50px;">
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logos">
+                    <img src="LogoKSR.jpg" alt="KSR Logo">
+                    <img src="LogoPolije.jpg" alt="POLIJE Logo">
+                    <img src="logoPMI.png" alt="PMI Logo">
                 </div>
-                <nav class="navbar" style="background-color: transparent; box-shadow: none; padding: 0;">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="display: none;">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav" style="display: flex !important;">
-                        <ul class="navbar-nav" style="list-style: none; display: flex; gap: 0; margin: 0; padding: 0;">
-                            <li class="nav-item"><a class="nav-link" href="#beranda" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none;">Beranda</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Tentang-Ksr.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none;">Tentang</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="Layanan.html" style="color: #6B1717; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none;">Layanan</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#blog" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none;">Blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="timeline.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none;">Jadwal</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pendaftaran.html" style="color: #333; font-weight: 500; padding: 0.5rem 1rem; transition: color 0.3s; font-size: 0.95rem; text-decoration: none;">Pendaftaran</a></li>
-                        </ul>
-                    </div>
+                <nav class="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Tentang-Ksr.html">Tentang</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="Layanan.html">Layanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="timeline.html">Jadwal</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pendaftaran.html">Pendaftaran</a></li>
+                    </ul>
                 </nav>
             </div>
         </div>
     </div>
 
-    <!-- Hero area with patterned background -->
-    <div class="hero-bg">
-      <main class="card" role="main" aria-labelledby="layanan-title">
-        <div class="title">
-          <h1 id="layanan-title">LAYANAN KAMI</h1>
-          <p class="subtitle">Berikut adalah layanan yang tersedia untuk anggota maupun masyarakat.</p>
+    <section class="hero-section">
+        <div class="container">
+            <article class="content-card" role="main">
+                <div class="content-title">LAYANAN KAMI</div>
+                <p class="content-subtitle">Berikut adalah layanan yang tersedia untuk anggota maupun masyarakat.</p>
+
+                <section class="services-list">
+                    <!-- Service 1: Fasilitator -->
+                    <article class="service-item">
+                        <div class="service-photo">
+                            <img src="1752425258_DIG_0337-removebg-preview.png" alt="Fasilitator">
+                        </div>
+                        <div class="service-info">
+                            <h2>FASILITATOR</h2>
+                            <p>Mendukung memenuhi kebutuhan pemateri pada kegiatan atau assessment yang berkaitan dengan materi kepalang-merahan.</p>
+                            <div class="service-actions">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn-action">Gunakan Layanan</a>
+                                <a href="Fasilitator.html" class="btn-action">Penjelasan Lengkap</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Service 2: Tim Kesehatan -->
+                    <article class="service-item">
+                        <div class="service-photo">
+                            <img src="buniya-removebg-preview.png" alt="Tim Kesehatan">
+                        </div>
+                        <div class="service-info">
+                            <h2>TIM KESEHATAN</h2>
+                            <p>Mendukung memenuhi kebutuhan tim kesehatan pada kegiatan terhadap sebuah insiden atau kecelakaan bagi instansi internal.</p>
+                            <div class="service-actions">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn-action">Gunakan Layanan</a>
+                                <a href="Tim Kesehatan2.html" class="btn-action">Penjelasan Lengkap</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </article>
         </div>
+    </section>
 
-        <!-- Services -->
-        <section class="services">
+    <footer>
+        <div class="container">
+            <div class="row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                <div class="col-lg-4 mb-4">
+                    <h3>KSR PMI POLIJE</h3>
+                    <p>Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
 
-          <!-- Service 1 -->
-          <article class="service" aria-labelledby="s1-title">
-            <div class="photo" aria-hidden="true">
-              <!-- ganti src ke foto yang benar -->
-              <img src="1752425258_DIG_0337-removebg-preview.png" alt="Foto fasilitator">
+                <div class="col-lg-4 mb-4">
+                    <h4>Kontak</h4>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> 0831-2345-6789</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h4>Tautan Cepat</h4>
+                    <p><a href="index.html">Beranda</a></p>
+                    <p><a href="Tentang-Ksr.html">Tentang Kami</a></p>
+                    <p><a href="pendaftaran.html">Pendaftaran</a></p>
+                    <p><a href="#">Kebijakan Privasi</a></p>
+                </div>
             </div>
 
-            <div class="info">
-              <h2 id="s1-title">FASILITATOR</h2>
-              <p>Mendukung memenuhi kebutuhan pemateri pada kegiatan atau assessment yang berkaitan dengan materi kepalang-merahan.</p>
-
-              <div class="actions">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn alt" >Gunakan Layanan</a>
-                <a href="Fasilitator.html" class="btn alt" >Penjelasan Lengkap</a>
-              </div>
+            <div class="footer-divider">
+                <p style="margin: 0;">© 2024 KSR PMI Politeknik Negeri Jember. All Rights Reserved.</p>
+                <p style="margin: 5px 0 0 0;">Designed by Kelompok 3D Nakama</p>
             </div>
-          </article>
-
-          <!-- Service 2 -->
-          <article class="service" aria-labelledby="s2-title">
-            <div class="photo" aria-hidden="true">
-              <img src="buniya-removebg-preview.png" alt="Foto tim kesehatan">
-            </div>
-
-            <div class="info">
-              <h2 id="s2-title">TIM KESEHATAN</h2>
-              <p>Mendukung memenuhi kebutuhan tim kesehatan pada kegiatan terhadap sebuah insiden atau kecelakaan bagi instansi internal.</p>
-
-              <div class="actions">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-Z_jqoONdFMXjPlLxTfl7lf1jiYkELU3CS6wuJgv0K60cbQ/viewform?usp=header" class="btn alt" >Gunakan Layanan</a>
-                <a href="Tim Kesehatan2.html" class="btn alt" >Penjelasan Lengkap</a>
-              </div>
-            </div>
-          </article>
-
-        </section>
-      </main>
-    </div>
-
-    <!-- Footer -->
-    <footer style="background: #5a1414; color: white; padding: 60px 0 20px; margin-top: 40px;">
-      <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 16px;">
-        <div class="row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
-          <div class="col-lg-4 mb-4">
-            <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">
-              KSR PMI POLIJE
-            </h3>
-            <p style="line-height: 1.8; margin-bottom: 20px;">
-              Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan
-              kepalangmerahan di Politeknik Negeri Jember.
-            </p>
-            <div class="social-links" style="display: flex; gap: 15px;">
-              <a href="#" class="social-icon" style="width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); transition: all 0.3s; text-decoration: none; color: white;">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="#" class="social-icon" style="width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); transition: all 0.3s; text-decoration: none; color: white;">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="#" class="social-icon" style="width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); transition: all 0.3s; text-decoration: none; color: white;">
-                <i class="bi bi-youtube"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mb-4">
-            <h4 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">
-              Kontak
-            </h4>
-            <p style="color: white; text-decoration: none;"><i class="bi bi-geo-alt-fill me-2"></i> Pollie Mastrip Jalan Aselole</p>
-            <p style="color: white; text-decoration: none;"><i class="bi bi-telephone-fill me-2"></i> 083123456789</p>
-            <p style="color: white; text-decoration: none;"><i class="bi bi-envelope-fill me-2"></i> HASVDGDV@GMAIL.COM</p>
-          </div>
         </div>
-
-        <div style="text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.2);">
-          <p style="margin: 0;">
-            © 2024 KSR PMI Politeknik Negeri Jember. All Rights Reserved.
-          </p>
-          <p style="margin: 5px 0 0 0;">
-            Designed by Kelompok 3D Nakama
-          </p>
-        </div>
-      </div>
     </footer>
 
-  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
 
