@@ -591,6 +591,126 @@
         color: var(--primary-maroon);
     }
 
+    /* Galeri Section */
+    .galeri-section {
+        padding: 60px 0;
+        background: #1a1a1a;
+        color: var(--white);
+    }
+
+    .galeri-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 40px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--white);
+    }
+
+    .galeri-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 50px;
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+        padding-bottom: 20px;
+    }
+
+    .galeri-tab {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.6);
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: all 0.3s;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -23px;
+    }
+
+    .galeri-tab.active {
+        color: var(--border-red);
+        border-bottom-color: var(--border-red);
+    }
+
+    .galeri-tab:hover {
+        color: var(--white);
+    }
+
+    .galeri-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .galeri-card {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .galeri-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.4s ease;
+        display: block;
+    }
+
+    .galeri-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 40px rgba(179,0,0,0.4);
+    }
+
+    .galeri-card:hover img {
+        transform: scale(1.08);
+    }
+
+    .galeri-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .galeri-card:hover .galeri-overlay {
+        opacity: 1;
+    }
+
+    .galeri-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--border-red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 28px;
+        transition: all 0.3s;
+    }
+
+    .galeri-card:hover .galeri-icon {
+        transform: scale(1.15);
+        background: var(--white);
+        color: var(--border-red);
+    }
+
     /* Scroll animation helpers */
     .scroll-effect {
         opacity: 0;
@@ -741,7 +861,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="beranda.html">Beranda</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
               <li class="nav-item"><a class="nav-link active" href="Tentang.html">Tentang</a></li>
               <li class="nav-item"><a class="nav-link" href="Layanan.html">Layanan</a></li>
               <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -904,7 +1024,7 @@ window.addEventListener('load', scrollAnimation);
                 <div class="kepengurusan-card pembina-card scroll-effect">
                     <img class="pembina-photo" src="FOTOKSR/Pembina (2).heic" alt="Pembina">
                     <h3>PEMBINA</h3>
-                    <p><strong>Nama:</strong>Niyalatul Muna, S.Kom.,M.T</p>
+                    <p><strong>Nama:</strong> Niyalatul Muna, S.Kom.,M.T</p>
                 </div>
 
                 <!-- KETUA & WAKIL -->
@@ -934,7 +1054,7 @@ window.addEventListener('load', scrollAnimation);
                     <div class="kepengurusan-card">
                         <img src="FOTOKSR/Sekertaris2.heic" alt="Sekretaris 2">
                         <h3>SEKRETARIS 2</h3>
-                        <p><strong>Nama:</strong> </p>
+                        <p><strong>Nama:</strong> Ismah Azalin Muhtarimah</p>
                     </div>
                 </div>
 
@@ -943,13 +1063,13 @@ window.addEventListener('load', scrollAnimation);
                     <div class="kepengurusan-card">
                         <img src="FOTOKSR/Bendahara1.heic" alt="Bendahara 1">
                         <h3>BENDAHARA 1</h3>
-                        <p><strong>Nama:</strong> Nama Bendahara 1</p>
+                        <p><strong>Nama:</strong> Wa Ode Isnaeni</p>
                     </div>
 
                     <div class="kepengurusan-card">
                         <img src="FOTOKSR/Bendahara2.heic" alt="Bendahara 2">
                         <h3>BENDAHARA 2</h3>
-                        <p><strong>Nama:</strong> Nama Bendahara 2</p>
+                        <p><strong>Nama:</strong> Viana Devi S.</p>
                     </div>
                 </div>
 
@@ -1018,36 +1138,30 @@ window.addEventListener('load', scrollAnimation);
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/CO danus.heic" alt="Danus 1">
-                            <div class="keanggotaan-ribbon">KETUA DANUS</div>
+                            <div class="keanggotaan-ribbon">CO DANUS</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong> Ahmad Mubarok</p>
-                            <p><strong>Prodi:</strong> Teknik Informatika</p>
-                            <p><strong>Jurusan:</strong> TI</p>
+                            <p><strong>Nama:</strong> Septi Anisa Munawaroh</p>
                         </div>
                     </div>
 
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/KWU1.heic" alt="Danus 2">
-                            <div class="keanggotaan-ribbon">DANUS KWU</div>
+                            <div class="keanggotaan-ribbon">DANUS KWU 1</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Arvina Greta Ayu W.</p>
                         </div>
                     </div>
 
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/KWU2.heic" alt="Danus 3">
-                            <div class="keanggotaan-ribbon">DANUS KWU</div>
+                            <div class="keanggotaan-ribbon">DANUS KWU 2</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Muhammad Firman</p>
                         </div>
                     </div>
 
@@ -1060,34 +1174,28 @@ window.addEventListener('load', scrollAnimation);
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/CO PKBM.heic" alt="PKBM 1">
-                            <div class="keanggotaan-ribbon">KOORDINATOR PKBM</div>
+                            <div class="keanggotaan-ribbon">CO PKBM</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Brenda Vensa K.P</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/PKBM-Doras.heic" alt="PKBM 2">
-                            <div class="keanggotaan-ribbon">KBM DORAS</div>
+                            <div class="keanggotaan-ribbon">DORAS</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Neila Vesta Aristya Ilhami</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/PKBM-BM.heic" alt="PKBM 3">
-                            <div class="keanggotaan-ribbon">PKBM BM</div>
+                            <div class="keanggotaan-ribbon">BINA MASYARAKAT</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Jauharotul K. & Zahrina Neliani</p>
                         </div>
                     </div>
     
@@ -1099,45 +1207,37 @@ window.addEventListener('load', scrollAnimation);
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/CO Logistik.heic" alt="Logistik 1">
-                            <div class="keanggotaan-ribbon">KOORDINATOR LOGISTIK</div>
+                            <div class="keanggotaan-ribbon">CO LOGISTIK</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Aprilia Gatha Kartini</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/Logistik-obat.heic" alt="Logistik 2">
-                            <div class="keanggotaan-ribbon">LOGISTIK OBAT</div>
+                            <div class="keanggotaan-ribbon">OBAT OBATAN</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Fihrotul Amalia</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/Logistik-KK.heic" alt="Logistik 3">
-                            <div class="keanggotaan-ribbon">LOGISTIK KK</div>
+                            <div class="keanggotaan-ribbon">KEAMANAN & KEBERSIHAN</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Shergi Reyhan A.F.</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/Logistik peralatan.heic" alt="Logistik 4">
-                            <div class="keanggotaan-ribbon">LOGISTIK PERALATAN</div>
+                            <div class="keanggotaan-ribbon">PERALATAN & PERLENGKAPAN</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Lia Nabila Putri</p>
                         </div>
                     </div>
                 </div>
@@ -1148,12 +1248,10 @@ window.addEventListener('load', scrollAnimation);
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/CO Humas.heic" alt="Humas 1">
-                            <div class="keanggotaan-ribbon">KOORDINATOR HUMAS</div>
+                            <div class="keanggotaan-ribbon">CO HUMAS</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Nofal Al Fikri</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
@@ -1162,9 +1260,7 @@ window.addEventListener('load', scrollAnimation);
                             <div class="keanggotaan-ribbon">HUMAS INTERNAL</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Mhelfyn Echa Abelia</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
@@ -1173,9 +1269,7 @@ window.addEventListener('load', scrollAnimation);
                             <div class="keanggotaan-ribbon">HUMAS DKV</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Abdul Wahid & Arsa Rif'at P.</p>
                         </div>
                     </div>
                 </div>
@@ -1186,49 +1280,97 @@ window.addEventListener('load', scrollAnimation);
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/CO SDM.heic" alt="SDM 1">
-                            <div class="keanggotaan-ribbon">KOORDINATOR SDM</div>
+                            <div class="keanggotaan-ribbon">CO SDM</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Fizilail Rifa Damayanti</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
                             <img src="FOTOKSR/SDM PKK.heic" alt="SDM 2">
-                            <div class="keanggotaan-ribbon">SDM PKK</div>
+                            <div class="keanggotaan-ribbon">SDM PPK</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Safiratil Mahbuba</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
-                            <img src="FOTOKSR/SDM PE.heic" alt="SDM 3">
-                            <div class="keanggotaan-ribbon">SDM PE</div>
+                            <img src="FOTOKSR/SDM Penelitian.heic" alt="SDM 3">
+                            <div class="keanggotaan-ribbon">PENELITIAN & EVALUASI</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Siddiqoh Sirin Nainawa</p>
                         </div>
                     </div>
                     <div class="keanggotaan-card fade-in">
                         <div class="keanggotaan-image">
-                            <img src="FOTOKSR\SDM KEARSIPAN.heic" alt="SDM 4">
-                            <div class="keanggotaan-ribbon">SDM KEARSIPAN</div>
+                            <img src="FOTOKSR/SDM Kearsipan.heic" alt="SDM 4">
+                            <div class="keanggotaan-ribbon">KEARSIPAN</div>
                         </div>
                         <div class="keanggotaan-info">
-                            <p><strong>Nama:</strong></p>
-                            <p><strong>Prodi:</strong></p>
-                            <p><strong>Jurusan:</strong></p>
+                            <p><strong>Nama:</strong> Anggun Ameliatuzahroh</p>
                         </div>
                     </div>
+                    <div class="keanggotaan-card fade-in">
+                        <div class="keanggotaan-image">
+                            <img src="FOTOKSR/SDM Implementasi.heic" alt="SDM 5">
+                            <div class="keanggotaan-ribbon">IMPLEMENTASI & KOMPETISI</div>
+                        </div>
+                        <div class="keanggotaan-info">
+                            <p><strong>Nama:</strong> Najwa Wahdaniyatul Meilani</p>
+                        </div>
+                    </div>
+
+
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section class="galeri-section">
+        <div class="container">
+            <h2 class="galeri-title">GALERI</h2>
+            
+            <div class="galeri-tabs">
+                <div class="galeri-tab active" onclick="filterGaleri('semua')">Semua</div>
+                <div class="galeri-tab" onclick="filterGaleri('foto')">Foto</div>
+                <div class="galeri-tab" onclick="filterGaleri('video')">Video</div>
+            </div>
+
+            <div class="galeri-grid">
+                <!-- Card 1 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/Sejarah..png" alt="Galeri 1">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/visi.png" alt="Galeri 2">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="Tentang.html" class="galeri-card galeri-item semua foto" style="text-decoration: none;">
+                    <img src="Gambar/task.png" alt="Galeri 3">
+                    <div class="galeri-overlay">
+                        <div class="galeri-icon">
+                            <i class="bi bi-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1398,6 +1540,25 @@ window.addEventListener('load', scrollAnimation);
             centerFace(img);
         });
     });
+
+    // Galeri Filter Function
+    function filterGaleri(category) {
+        const tabs = document.querySelectorAll('.galeri-tab');
+        const items = document.querySelectorAll('.galeri-item');
+
+        // Update active tab
+        tabs.forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Filter items
+        items.forEach(item => {
+            if (category === 'semua') {
+                item.style.display = 'block';
+            } else {
+                item.style.display = item.classList.contains(category) ? 'block' : 'none';
+            }
+        });
+    }
     </script>
 
 </body>
