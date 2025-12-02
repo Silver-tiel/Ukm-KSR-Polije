@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline Kegiatan PMI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ✅ BOOTSTRAP VERSION SAMA DENGAN INDEX -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
@@ -26,7 +27,7 @@
             background-color: #5C0D0D;
         }
 
-        /* Header Styles - Same as Index */
+        /* ✅ HEADER STYLES - IDENTIK DENGAN INDEX.HTML */
         .header-wrapper {
             background-color: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -78,6 +79,7 @@
             font-weight: 700;
         }
 
+        /* ✅ BANNER STYLES */
         .banner {
             background: linear-gradient(135deg, #8B1A1A 0%, #A52A2A 100%);
             color: white;
@@ -106,7 +108,8 @@
             border-radius: 5px;
         }
 
-        .container {
+        /* ✅ CONTENT CONTAINER - BUKAN .container! */
+        .content-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
@@ -125,6 +128,7 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -231,7 +235,7 @@
             color: #333;
         }
 
-        /* Footer Styles - Same as Index */
+        /* ✅ FOOTER STYLES - IDENTIK DENGAN INDEX.HTML */
         footer {
             background: var(--dark-maroon);
             color: var(--white);
@@ -247,26 +251,17 @@
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 20px;
-            color: white;
         }
 
         .footer-content h4 {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 20px;
-            color: white;
         }
 
         .footer-content p {
             line-height: 1.8;
             margin-bottom: 15px;
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
         }
 
         .social-icon {
@@ -280,6 +275,7 @@
             transition: all 0.3s;
             text-decoration: none;
             color: white;
+            margin-right: 10px;
             font-size: 24px;
         }
 
@@ -308,9 +304,9 @@
 
         .footer-divider p {
             margin-bottom: 5px;
-            color: white;
         }
 
+        /* ✅ RESPONSIVE - IDENTIK DENGAN INDEX.HTML */
         @media (max-width: 768px) {
             .gallery {
                 grid-template-columns: 1fr;
@@ -346,7 +342,7 @@
     </style>
 </head>
 <body>
-    <!-- Header with Navigation and Logos - Same as Index -->
+    <!-- ✅ HEADER - IDENTIK DENGAN INDEX.HTML -->
     <div class="header-wrapper">
         <div class="container">
             <div class="header-content">
@@ -385,39 +381,38 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- Gallery 3x3 = 9 items -->
+    <!-- ✅ GANTI .container JADI .content-container -->
+    <div class="content-container">
         <div class="gallery">
-            <div class="gallery-item" onclick="window.location='tipe1.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe1.html'">
                 <img src="x/aaa.png" alt="tipe1.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe2.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe2.html'">
                 <img src="x/aab.png" alt="tipe2.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe3.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe3.html'">
                 <img src="x/aac.png" alt="tipe3.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe4.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe4.html'">
                 <img src="x/aad.png" alt="tipe4.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe5.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe5.html'">
                 <img src="x/aae.png" alt="tipe5.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe6.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe6.html'">
                 <img src="x/aaf.png" alt="tipe6.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe7.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe7.html'">
                 <img src="x/aag.png" alt="tipe7.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe8.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe8.html'">
                 <img src="x/aah.png" alt="tipe8.html">
             </div>
-            <div class="gallery-item" onclick="window.location='tipe9.html'" style="cursor: pointer;">
+            <div class="gallery-item" onclick="window.location='tipe9.html'">
                 <img src="x/aai.png" alt="tipe9.html">
             </div>
         </div>
 
-        <!-- Bottom section: Calendar on left, Info on right -->
         <div class="bottom-section">
             <div class="sidebar">
                 <div class="calendar-header">
@@ -442,9 +437,7 @@
             <div class="sidebar">
                 <div class="event-section">
                     <h3>Acara</h3>
-                    <div class="event-text">
-                        Keterangan
-                    </div>
+                    <div class="event-text">Keterangan</div>
                 </div>
 
                 <div class="event-section">
@@ -455,21 +448,18 @@
                         <br><br>
                         Bakti Sosial & Kunjungan: Setiap semester, KSR PMI POLIJE melakukan bakti sosial ke panti asuhan dan masyarakat sekitar, membagikan sembako dan edukasi kesehatan.
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer - Same as Index -->
+    <!-- ✅ FOOTER - IDENTIK DENGAN INDEX.HTML -->
     <footer>
         <div class="container">
             <div class="row footer-content">
                 <div class="col-lg-4 mb-4">
                     <h3>KSR PMI POLIJE</h3>
-                    <p>
-                        Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember. Kami berkomitmen melayani masyarakat dengan sepenuh hati.
-                    </p>
+                    <p>Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember. Kami berkomitmen melayani masyarakat dengan sepenuh hati.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/ksrpmipolije/" class="social-icon" target="_blank">
                             <i class="bi bi-instagram"></i>
@@ -493,26 +483,23 @@
                 <div class="col-lg-4 mb-4">
                     <h4>Tautan Cepat</h4>
                     <p><a href="index.html">→ Beranda</a></p>
-                    <p><a href="Tentang.html">→ Tentang Kami</a></p>
+                    <p><a href="Tentang-Ksr.html">→ Tentang Kami</a></p>
                     <p><a href="pendaftaran.html">→ Pendaftaran</a></p>
                     <p><a href="#">→ Kebijakan Privasi</a></p>
                 </div>
             </div>
 
             <div class="footer-divider">
-                <p style="margin: 0;">
-                    © 2025 KSR PMI Politeknik Negeri Jember. All Rights Reserved.
-                </p>
-                <p>
-                    Designed by Kelompok 3D Nakama
-                </p>
+                <p style="margin: 0;">© 2025 KSR PMI Politeknik Negeri Jember. All Rights Reserved.</p>
+                <p>Designed by Kelompok 3D Nakama</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ✅ BOOTSTRAP JS VERSION SAMA DENGAN INDEX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        let currentMonth = 11; // December (0-indexed)
+        let currentMonth = 11;
         let currentYear = 2025;
 
         function renderCalendar() {
@@ -527,17 +514,14 @@
             const calendarDaysContainer = document.getElementById('calendarDays');
             calendarDaysContainer.innerHTML = '';
             
-            // Adjust for Monday start (0 = Monday, 6 = Sunday)
             const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
             
-            // Empty cells before first day
             for (let i = 0; i < adjustedFirstDay; i++) {
                 const emptyDay = document.createElement('div');
                 emptyDay.className = 'day-cell empty';
                 calendarDaysContainer.appendChild(emptyDay);
             }
             
-            // Days of the month
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayCell = document.createElement('div');
                 dayCell.className = 'day-cell';
@@ -560,7 +544,6 @@
             renderCalendar();
         }
 
-        // Initial render
         renderCalendar();
     </script>
 </body>
