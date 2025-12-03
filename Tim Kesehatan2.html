@@ -28,7 +28,7 @@
         }
         .header-wrapper {
             background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -38,7 +38,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            padding: 0 20px;
         }
         .header-logos {
             display: flex;
@@ -298,34 +298,47 @@
         </div>
     </section>
 
-    <footer>
+    <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
         <div class="container">
-            <div class="row">
+            <div class="row footer-content">
+                <!-- Column 1: KSR Info + Social Icons -->
                 <div class="col-lg-4 mb-4">
                     <h3>KSR PMI POLIJE</h3>
-                    <p>Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember.</p>
-                    <div style="display: flex; gap: 15px; margin-top: 15px;">
-                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    <p>Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember. Kami berkomitmen melayani masyarakat dengan sepenuh hati.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ksrpmipolije/" class="social-icon" target="_blank">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ksrpmipolije" class="social-icon" target="_blank">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@ksrpmipolije" class="social-icon" target="_blank">
+                            <i class="bi bi-youtube"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Column 2: Contact Info -->
                 <div class="col-lg-4 mb-4">
                     <h4>Kontak</h4>
                     <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
                     <p><i class="bi bi-telephone-fill me-2"></i> 0831-2345-6789</p>
                     <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
                 </div>
+
+                <!-- Column 3: Lokasi Map -->
                 <div class="col-lg-4 mb-4">
-                    <h4>Tautan Cepat</h4>
-                    <p><a href="index.html"> Beranda</a></p>
-                    <p><a href="Tentang-Ksr.html"> Tentang Kami</a></p>
-                    <p><a href="pendaftaran.html"> Pendaftaran</a></p>
-                    <p><a href="#"> Kebijakan Privasi</a></p>
+                    <h4>Lokasi</h4>
+                    <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4700380570753!2d113.7244395103106!3d-8.155306181663118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69541b5529c1d%3A0x8a9bf208ba6d4d5e!2sTefa%20Cafe!5e0!3m2!1sid!2sid!4v1764291558998!5m2!1sid!2sid" 
+                        width="100%" height="180" allowfullscreen="" loading="lazy" style="border: none;">
+                        </iframe>
+                    </div>
                 </div>
             </div>
+
             <div class="footer-divider">
-                <p style="margin: 0;"> 2024 KSR PMI Politeknik Negeri Jember. All Rights Reserved.</p>
+                <p style="margin: 0;">© 2025 KSR PMI Politeknik Negeri Jember. All Rights Reserved.</p>
                 <p style="margin: 5px 0 0 0;">Designed by Kelompok 3D Nakama</p>
             </div>
         </div>
