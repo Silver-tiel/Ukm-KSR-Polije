@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline Kegiatan PMI</title>
-    <!-- ✅ BOOTSTRAP VERSION SAMA DENGAN INDEX -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
@@ -24,7 +24,7 @@
 
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #5C0D0D;
+            background-color: var(--dark-maroon);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -45,12 +45,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            flex-wrap: nowrap;
+            gap: 20px;
         }
 
         .header-logos {
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-shrink: 0;
         }
 
         .header-logos img {
@@ -63,6 +66,7 @@
             box-shadow: none;
             padding: 0;
             margin: 0;
+            flex-shrink: 0;
         }
 
         .navbar-nav .nav-link {
@@ -316,16 +320,92 @@
         }
 
         /* ✅ RESPONSIVE - IDENTIK DENGAN INDEX.HTML */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .header-content {
-                flex-direction: column;
-                gap: 15px;
+                position: relative;
+            }
+
+            .navbar {
+                position: relative;
+                margin-left: auto;
+            }
+
+            .navbar-toggler {
+                margin-left: auto;
+                margin-right: 0;
+                padding: 0.25rem 0.75rem;
+                border: none;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .navbar-toggler:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            .navbar-toggler .navbar-toggler-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+
+            .navbar-collapse {
+                position: fixed;
+                top: 75px;
+                right: 20px;
+                left: auto;
+                width: auto;
+                min-width: 220px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                padding: 0;
+                z-index: 1050;
+                margin-top: 0;
+                border: 1px solid #e0e0e0;
+            }
+
+            .navbar-collapse.show {
+                display: block !important;
+            }
+
+            .navbar-collapse.collapse:not(.show) {
+                display: none !important;
             }
 
             .navbar-nav {
                 flex-direction: column;
-                gap: 10px;
+                gap: 0;
             }
+
+            .navbar-nav .nav-link {
+                padding: 0.75rem 1.5rem !important;
+                white-space: nowrap;
+                border-bottom: 1px solid #f5f5f5;
+                color: #333 !important;
+                font-weight: 500;
+                transition: background-color 0.2s;
+            }
+
+            .navbar-nav .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            .navbar-nav .nav-link:hover {
+                background-color: #f9f9f9;
+                color: var(--primary-maroon) !important;
+            }
+
+            .navbar-nav .nav-link.active {
+                background-color: #f0f0f0;
+                color: var(--primary-maroon) !important;
+                font-weight: 600;
+            }
+        }
+
+        @media (max-width: 768px) {
 
             .gallery {
                 grid-template-columns: 1fr;
@@ -344,14 +424,18 @@
                 gap: 20px;
             }
 
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
+            .footer-content {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner h1 {
+                font-size: 24px;
             }
 
-            .navbar-nav {
-                flex-direction: column;
-                gap: 10px;
+            .gallery {
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
