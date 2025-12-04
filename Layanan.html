@@ -29,7 +29,7 @@
             min-height: 100vh;
         }
 
-        /* --- HEADER STYLES --- */
+        /* --- HEADER STYLES (SAMA PERSIS DENGAN INDEX) --- */
         .header-wrapper {
             background-color: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -85,7 +85,9 @@
             font-weight: 700;
         }
 
-        .container {
+        /* Container untuk konten (TIDAK untuk header) */
+        .content-section .container,
+        .hero-section .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -214,7 +216,7 @@
             color: white;
         }
 
-        /* Footer Styles - UNIFIED WITH FILE 1 */
+        /* --- FOOTER STYLES --- */
         footer {
             background: var(--dark-maroon);
             color: var(--white);
@@ -222,36 +224,8 @@
             margin-top: auto;
         }
 
-        footer .social-icon {
-            background: rgba(255,255,255,0.1);
-            transition: all 0.3s;
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        footer .social-icon i {
-            font-size: 24px;
-            color: #ffffff;
-        }
-
-        footer .social-icon:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        footer a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #ff6b6b;
+        .footer-content {
+            margin-bottom: 40px;
         }
 
         .footer-content h3 {
@@ -271,9 +245,34 @@
             margin-bottom: 15px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .social-icon:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6b6b;
         }
 
         .footer-divider {
@@ -286,6 +285,8 @@
         .footer-divider p {
             margin-bottom: 5px;
         }
+
+        /* --- Responsive (SAMA DENGAN INDEX) --- */
         @media (max-width: 992px) {
             .header-content {
                 position: relative;
@@ -369,10 +370,7 @@
                 color: var(--primary-maroon) !important;
                 font-weight: 600;
             }
-        }   }
-        }
 
-        @media (max-width: 768px) {
             .service-item {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -387,7 +385,9 @@
             .service-actions {
                 justify-content: center;
             }
+        }
 
+        @media (max-width: 768px) {
             .content-title {
                 font-size: 1.8rem;
             }
@@ -412,7 +412,7 @@
     </style>
 </head>
 <body>
-    <!-- Header with Navigation and Logos -->
+    <!-- Header with Navigation and Logos (SAMA PERSIS DENGAN INDEX) -->
     <div class="header-wrapper">
         <div class="container">
             <div class="header-content">
@@ -481,7 +481,7 @@
         </div>
     </section>
 
-    <!-- Footer - UNIFIED WITH FILE 1 -->
+    <!-- Footer -->
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
         <div class="container">
             <div class="row footer-content">
@@ -532,18 +532,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Footer Link Hover Effect
-        document.querySelectorAll('footer a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.color = '#ff6b6b';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.color = 'white';
-            });
-        });
-    </script>
 </body>
 </html>

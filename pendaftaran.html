@@ -29,7 +29,7 @@
             min-height: 100vh;
         }
 
-        /* --- HEADER STYLES --- */
+        /* --- HEADER STYLES (SAMA PERSIS DENGAN INDEX) --- */
         .header-wrapper {
             background-color: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -85,12 +85,6 @@
             font-weight: 700;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         .hero-section {
             background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--primary-maroon) 100%);
             color: white;
@@ -125,6 +119,13 @@
         .hero-section p {
             font-size: 1.1rem;
             opacity: 0.95;
+        }
+
+        /* Container untuk konten form (TIDAK untuk header) */
+        .form-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .form-container {
@@ -271,43 +272,16 @@
             color: var(--primary-maroon);
         }
 
-footer {
+        /* --- FOOTER STYLES --- */
+        footer {
             background: var(--dark-maroon);
             color: var(--white);
             padding: 60px 0 20px;
             margin-top: auto;
         }
 
-        footer .social-icon {
-            background: rgba(255,255,255,0.1);
-            transition: all 0.3s;
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        footer .social-icon i {
-            font-size: 24px;
-            color: #ffffff;
-        }
-
-        footer .social-icon:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        footer a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #ff6b6b;
+        .footer-content {
+            margin-bottom: 40px;
         }
 
         .footer-content h3 {
@@ -327,9 +301,35 @@ footer {
             margin-bottom: 15px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .social-icon:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.2) rotate(5deg);
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6b6b;
         }
 
         .footer-divider {
@@ -343,6 +343,7 @@ footer {
             margin-bottom: 5px;
         }
 
+        /* --- Responsive (SAMA DENGAN INDEX) --- */
         @media (max-width: 992px) {
             .header-content {
                 position: relative;
@@ -458,7 +459,7 @@ footer {
     </style>
 </head>
 <body>
-    <!-- Header with Navigation and Logos -->
+    <!-- Header with Navigation and Logos (SAMA PERSIS DENGAN INDEX) -->
     <div class="header-wrapper">
         <div class="container">
             <div class="header-content">
@@ -498,86 +499,88 @@ footer {
     </div>
 
     <!-- Form Section -->
-    <div class="container">
-        <div class="form-container" id="formSection">
-            <form id="registrationForm">
-                
-                <!-- Nama Lengkap -->
-                <div class="mb-4">
-                    <label for="namaLengkap" class="form-label">Nama Lengkap <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="namaLengkap" name="nama_lengkap" placeholder="Masukkan Nama Lengkap..." required>
-                </div>
-
-                <!-- Nomor Induk Mahasiswa -->
-                <div class="mb-4">
-                    <label for="nim" class="form-label">Nomor Induk Mahasiswa <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan Nomor Induk Mahasiswa..." required>
-                </div>
-
-                <!-- Email -->
-                <div class="mb-4">
-                    <label for="email" class="form-label">Email <span class="required">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="ex. email@gmail.com / email@student.polije.ac.id" required>
-                </div>
-
-                <!-- Nomor Telepon -->
-                <div class="mb-4">
-                    <label for="telepon" class="form-label">Nomor Telepon <span class="required">*</span></label>
-                    <input type="tel" class="form-control" id="telepon" name="telepon" placeholder="+628123456789" required>
-                </div>
-
-                <!-- Jurusan -->
-                <div class="mb-4">
-                    <label for="jurusan" class="form-label">Jurusan <span class="required">*</span></label>
-                    <select class="form-select" id="jurusan" name="jurusan" required>
-                        <option value="" selected disabled>Pilih Jurusan</option>
-                        <option value="Teknik">Teknik</option>
-                        <option value="Teknologi Pertanian">Teknologi Pertanian</option>
-                        <option value="Manajemen Agribisnis">Manajemen Agribisnis</option>
-                        <option value="Peternakan">Peternakan</option>
-                        <option value="Teknologi Informasi">Teknologi Informasi</option>
-                        <option value="Bahasa, Komunikasi, dan Pariwisata">Bahasa, Komunikasi, dan Pariwisata</option>
-                        <option value="Kesehatan">Kesehatan</option>
-                        <option value="Bisnis">Bisnis</option>
-                        <option value="Produksi Pertanian">Produksi Pertanian</option>
-                    </select>
-                </div>
-
-                <!-- Prodi -->
-                <div class="mb-4">
-                    <label for="prodi" class="form-label">Prodi <span class="required">*</span></label>
-                    <select class="form-select" id="prodi" name="prodi" required>
-                        <option value="" selected disabled>Pilih Prodi</option>
-                    </select>
-                </div>
-
-                <!-- Alasan Bergabung -->
-                <div class="mb-4">
-                    <label for="alasan" class="form-label">Alasan bergabung UKM KSR <span class="required">*</span></label>
-                    <textarea class="form-control" id="alasan" name="alasan" placeholder="Berikan alasan anda mengapa ingin bergabung ke UKM KSR" required></textarea>
-                </div>
-
-                <!-- Loading Spinner -->
-                <div class="loading-spinner" id="loadingSpinner">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+    <div class="form-section">
+        <div class="container">
+            <div class="form-container" id="formSection">
+                <form id="registrationForm">
+                    
+                    <!-- Nama Lengkap -->
+                    <div class="mb-4">
+                        <label for="namaLengkap" class="form-label">Nama Lengkap <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="namaLengkap" name="nama_lengkap" placeholder="Masukkan Nama Lengkap..." required>
                     </div>
-                    <p class="mt-2">Mengirim data...</p>
-                </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-submit" id="submitBtn">SUBMIT</button>
-            </form>
-        </div>
+                    <!-- Nomor Induk Mahasiswa -->
+                    <div class="mb-4">
+                        <label for="nim" class="form-label">Nomor Induk Mahasiswa <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan Nomor Induk Mahasiswa..." required>
+                    </div>
 
-        <!-- Success Section -->
-        <div class="success-container" id="successSection">
-            <div class="success-icon">
-                <i class="fas fa-medal"></i>
+                    <!-- Email -->
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Email <span class="required">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="ex. email@gmail.com / email@student.polije.ac.id" required>
+                    </div>
+
+                    <!-- Nomor Telepon -->
+                    <div class="mb-4">
+                        <label for="telepon" class="form-label">Nomor Telepon <span class="required">*</span></label>
+                        <input type="tel" class="form-control" id="telepon" name="telepon" placeholder="+628123456789" required>
+                    </div>
+
+                    <!-- Jurusan -->
+                    <div class="mb-4">
+                        <label for="jurusan" class="form-label">Jurusan <span class="required">*</span></label>
+                        <select class="form-select" id="jurusan" name="jurusan" required>
+                            <option value="" selected disabled>Pilih Jurusan</option>
+                            <option value="Teknik">Teknik</option>
+                            <option value="Teknologi Pertanian">Teknologi Pertanian</option>
+                            <option value="Manajemen Agribisnis">Manajemen Agribisnis</option>
+                            <option value="Peternakan">Peternakan</option>
+                            <option value="Teknologi Informasi">Teknologi Informasi</option>
+                            <option value="Bahasa, Komunikasi, dan Pariwisata">Bahasa, Komunikasi, dan Pariwisata</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Bisnis">Bisnis</option>
+                            <option value="Produksi Pertanian">Produksi Pertanian</option>
+                        </select>
+                    </div>
+
+                    <!-- Prodi -->
+                    <div class="mb-4">
+                        <label for="prodi" class="form-label">Prodi <span class="required">*</span></label>
+                        <select class="form-select" id="prodi" name="prodi" required>
+                            <option value="" selected disabled>Pilih Prodi</option>
+                        </select>
+                    </div>
+
+                    <!-- Alasan Bergabung -->
+                    <div class="mb-4">
+                        <label for="alasan" class="form-label">Alasan bergabung UKM KSR <span class="required">*</span></label>
+                        <textarea class="form-control" id="alasan" name="alasan" placeholder="Berikan alasan anda mengapa ingin bergabung ke UKM KSR" required></textarea>
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Mengirim data...</p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-submit" id="submitBtn">SUBMIT</button>
+                </form>
             </div>
-            <h2>Terima Kasih Telah Mendaftar</h2>
-            <p>Anda telah menyelesaikan Calon Anggota UKM KSR Polije</p>
-            <button class="btn-back" onclick="resetForm()">Kembali</button>
+
+            <!-- Success Section -->
+            <div class="success-container" id="successSection">
+                <div class="success-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h2>Terima Kasih Telah Mendaftar</h2>
+                <p>Anda telah menyelesaikan Calon Anggota UKM KSR Polije</p>
+                <button class="btn-back" onclick="resetForm()">Kembali</button>
+            </div>
         </div>
     </div>
 
@@ -585,7 +588,6 @@ footer {
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
         <div class="container">
             <div class="row footer-content">
-                <!-- Column 1: KSR Info + Social Icons -->
                 <div class="col-lg-4 mb-4">
                     <h3>KSR PMI POLIJE</h3>
                     <p>Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember. Kami berkomitmen melayani masyarakat dengan sepenuh hati.</p>
@@ -602,7 +604,6 @@ footer {
                     </div>
                 </div>
 
-                <!-- Column 2: Contact Info -->
                 <div class="col-lg-4 mb-4">
                     <h4>Kontak</h4>
                     <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
@@ -610,7 +611,6 @@ footer {
                     <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
                 </div>
 
-                <!-- Column 3: Lokasi Map -->
                 <div class="col-lg-4 mb-4">
                     <h4>Lokasi</h4>
                     <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
@@ -739,33 +739,7 @@ footer {
             document.getElementById('formSection').style.display = 'block';
             document.getElementById('successSection').classList.remove('show');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
-    
-    <script>
-        // Social Icon Hover Effect
-        document.querySelectorAll('footer .social-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(255,255,255,0.3)';
-                this.style.transform = 'scale(1.2) rotate(5deg)';
-            });
-            
-            icon.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255,255,255,0.1)';
-                this.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-
-        // Footer Link Hover Effect
-        document.querySelectorAll('footer a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.color = '#ff6b6b';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.color = 'white';
-            });
-        });
+        }
     </script>
 </body>
 </html>

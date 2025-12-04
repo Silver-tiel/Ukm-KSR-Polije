@@ -30,7 +30,7 @@
             min-height: 100vh;
         }
 
-        /* --- HEADER STYLES --- */
+        /* --- HEADER STYLES (SAMA PERSIS DENGAN INDEX) --- */
         .header-wrapper {
             background-color: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -86,7 +86,7 @@
             font-weight: 700;
         }
 
-        /* ✅ BANNER STYLES */
+        /* BANNER STYLES */
         .banner {
             background: linear-gradient(135deg, #8B1A1A 0%, #A52A2A 100%);
             color: white;
@@ -115,17 +115,11 @@
             border-radius: 5px;
         }
 
-        /* ✅ CONTENT CONTAINER - BUKAN .container! */
+        /* Container untuk konten timeline (TIDAK untuk header) */
         .content-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         .gallery {
@@ -248,7 +242,7 @@
             color: #333;
         }
 
-        /* ✅ FOOTER STYLES - IDENTIK DENGAN INDEX.HTML */
+        /* --- FOOTER STYLES --- */
         footer {
             background: var(--dark-maroon);
             color: var(--white);
@@ -319,7 +313,7 @@
             margin-bottom: 5px;
         }
 
-        /* ✅ RESPONSIVE - IDENTIK DENGAN INDEX.HTML */
+        /* --- Responsive (SAMA DENGAN INDEX) --- */
         @media (max-width: 992px) {
             .header-content {
                 position: relative;
@@ -406,7 +400,6 @@
         }
 
         @media (max-width: 768px) {
-
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -427,6 +420,10 @@
             .footer-content {
                 text-align: center;
             }
+
+            .header-logos img {
+                height: 40px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -445,7 +442,7 @@
     </style>
 </head>
 <body>
-    <!-- ✅ HEADER - IDENTIK DENGAN INDEX.HTML -->
+    <!-- Header with Navigation and Logos (SAMA PERSIS DENGAN INDEX) -->
     <div class="header-wrapper">
         <div class="container">
             <div class="header-content">
@@ -484,7 +481,6 @@
         </div>
     </div>
 
-    <!-- ✅ GANTI .container JADI .content-container -->
     <div class="content-container">
         <div class="gallery">
             <div class="gallery-item" onclick="window.location='tipe1.html'">
@@ -556,7 +552,7 @@
         </div>
     </div>
 
-    <!-- ✅ FOOTER - IDENTIK DENGAN INDEX.HTML -->
+    <!-- Footer -->
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
         <div class="container">
             <div class="row footer-content">
@@ -600,7 +596,7 @@
         </div>
     </footer>
 
-    <!-- ✅ BOOTSTRAP JS VERSION SAMA DENGAN INDEX -->
+    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentMonth = 11;
