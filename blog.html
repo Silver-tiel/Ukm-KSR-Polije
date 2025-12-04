@@ -180,6 +180,18 @@
             overflow: hidden;
         }
 
+        .blog-card-content p.full-content {
+            display: none;
+        }
+
+        .blog-card.expanded .blog-card-content p,
+        .blog-card.expanded .blog-card-content p.full-content {
+            display: block !important;
+            -webkit-line-clamp: unset !important;
+            overflow: visible !important;
+            text-align: justify;
+        }
+
         .blog-card.expanded {
             grid-column: 1 / -1;
         }
@@ -444,7 +456,9 @@
                         <h3>Kegiatan Rutin KSR</h3>
                         <div class="blog-card-meta">1 Desember 2024</div>
                         <p>Mengikuti kegiatan sosial dan kemanusiaan untuk membantu masyarakat yang membutuhkan pertolongan dalam bidang kesehatan dan kepalangmerahan. KSR PMI POLIJE secara konsisten melakukan kegiatan rutin setiap minggu untuk memberikan edukasi kesehatan kepada komunitas lokal. Tim kami yang berdedikasi bekerja tanpa henti untuk memastikan bahwa setiap individu mendapatkan akses ke informasi kesehatan yang berkualitas dan pertolongan pertama yang tepat saat dibutuhkan.</p>
-                        <a href="#" class="read-more" onclick="event.stopPropagation();">Baca Selengkapnya →</a>
+                        <p class="full-content">Kegiatan rutin kami meliputi berbagai program seperti pengecekan kesehatan gratis, pelatihan pertolongan pertama, donor darah, dan edukasi tentang gaya hidup sehat. Setiap anggota KSR PMI POLIJE berkomitmen untuk memberikan pelayanan terbaik dengan sepenuh hati. Kami juga bekerja sama dengan berbagai institusi kesehatan dan organisasi masyarakat untuk memaksimalkan dampak positif dari setiap kegiatan yang kami lakukan.</p>
+                        <p class="full-content">Partisipasi masyarakat sangat penting bagi kami. Melalui feedback dan masukan dari komunitas, kami terus meningkatkan kualitas layanan dan menciptakan program-program baru yang lebih relevan dengan kebutuhan masyarakat. Bergabunglah dengan kami dan jadilah bagian dari gerakan kemanusiaan yang mengubah hidup.</p>
+                        <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
@@ -457,7 +471,9 @@
                         <h3>Program Edukasi Kesehatan</h3>
                         <div class="blog-card-meta">28 November 2024</div>
                         <p>Memberikan edukasi dan pelatihan tentang kesehatan dan pertolongan pertama kepada anggota dan masyarakat umum. Program ini dirancang untuk meningkatkan kesadaran kesehatan masyarakat dan memberikan keterampilan dasar dalam penanganan situasi darurat medis. Melalui workshop, seminar, dan pelatihan langsung, kami membantu masyarakat memahami pentingnya pencegahan penyakit dan gaya hidup sehat.</p>
-                        <a href="#" class="read-more" onclick="event.stopPropagation();">Baca Selengkapnya →</a>
+                        <p class="full-content">Materi edukasi kami mencakup berbagai topik penting seperti pengenalan penyakit menular, vaksinasi, kesehatan mental, gizi seimbang, dan teknik pertolongan pertama yang benar. Instruktur kami adalah profesional berpengalaman di bidang kesehatan dan kepalangmerahan yang siap berbagi ilmu dengan penuh dedikasi. Setiap peserta akan mendapatkan sertifikat kehadiran dan materials edukatif untuk dibawa pulang.</p>
+                        <p class="full-content">Dengan mengikuti program edukasi ini, Anda tidak hanya mendapatkan pengetahuan yang berharga tetapi juga menjadi bagian dari komunitas yang peduli terhadap kesehatan. Kami meyakini bahwa masyarakat yang terinformasi adalah masyarakat yang lebih sehat dan produktif. Daftarkan diri Anda sekarang dan jadilah penggiat kesehatan bersama KSR PMI POLIJE.</p>
+                        <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
@@ -470,7 +486,9 @@
                         <h3>Kunjungan Membawa Berkah</h3>
                         <div class="blog-card-meta">25 November 2024</div>
                         <p>Mengunjungi masyarakat dan memberikan bantuan dalam bentuk edukasi kesehatan dan perhatian kepada mereka yang membutuhkan. Kegiatan kunjungan ini merupakan manifestasi dari komitmen kami untuk melayani dengan sepenuh hati. Kami percaya bahwa kesehatan adalah hak setiap orang, dan melalui program ini kami berusaha menjangkau komunitas yang mungkin terisolasi atau kurang mendapat akses ke layanan kesehatan yang memadai.</p>
-                        <a href="#" class="read-more" onclick="event.stopPropagation();">Baca Selengkapnya →</a>
+                        <p class="full-content">Setiap kunjungan kami lakukan dengan persiapan yang matang. Tim kami membawa peralatan kesehatan lengkap, obat-obatan esensial, dan bahan edukasi untuk diberikan kepada masyarakat lokal. Kami tidak hanya memberikan bantuan medis tetapi juga menjalin hubungan yang bermakna dengan warga, mendengarkan cerita mereka, dan memahami kebutuhan spesifik mereka.</p>
+                        <p class="full-content">Dampak dari program "Kunjungan Membawa Berkah" sudah terbukti meningkatkan kesadaran kesehatan di berbagai daerah. Banyak warga yang awalnya tidak mengerti pentingnya pemeriksaan kesehatan rutin kini menjadi lebih aktif menjaga kesehatan mereka. Jika Anda ingin bergabung dalam kegiatan mulia ini, hubungi kami dan mari bersama-sama membawa berkah kesehatan untuk semua.</p>
+                        <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
             </div>
