@@ -789,17 +789,30 @@
                 </a>
 
                 <!-- Video -->
-                <a href="https://youtu.be/Zyujq5QNC4g?si=brdUohg2TOmpWxE5" class="galeri-card galeri-item semua video" style="text-decoration: none;" target="_blank" onclick="window.open(this.href); return false;">
+                <div class="galeri-card galeri-item semua video" style="text-decoration: none; cursor: pointer;" onclick="openVideoModal('Zyujq5QNC4g')">
                     <img src="https://img.youtube.com/vi/Zyujq5QNC4g/maxresdefault.jpg" alt="Video KSR PMI" style="width: 100%; height: 100%; object-fit: cover;">
                     <div class="galeri-overlay">
                         <div class="galeri-icon">
                             <i class="bi bi-play-circle"></i>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="position: relative; width: 90%; max-width: 800px; background: black; border-radius: 10px; overflow: hidden;">
+            <button onclick="closeVideoModal()" style="position: absolute; top: 10px; right: 10px; background: red; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 1001; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
+                <iframe id="videoFrame" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
@@ -855,6 +868,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Video Modal Functions
+        function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the video
+        document.getElementById('videoModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
         // Gallery Filter Function
         function filterGaleri(category) {
             const tabs = document.querySelectorAll('.galeri-tab');
