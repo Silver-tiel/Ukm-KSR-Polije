@@ -194,18 +194,23 @@
 
         .blog-card.expanded {
             grid-column: 1 / -1;
+            display: flex;
+            flex-direction: row;
         }
 
         .blog-card.expanded .blog-card-image {
-            float: left;
-            width: 30%;
-            height: 300px;
+            width: 35%;
+            height: auto;
+            min-height: 300px;
             margin-right: 25px;
-            margin-bottom: 15px;
+            flex-shrink: 0;
         }
 
         .blog-card.expanded .blog-card-content {
+            flex: 1;
             overflow: auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-card.expanded .blog-card-content p {
@@ -213,6 +218,73 @@
             -webkit-line-clamp: unset;
             overflow: visible;
             text-align: justify;
+        }
+
+        /* Responsive untuk tablet dan mobile */
+        @media (max-width: 992px) {
+            .blog-card.expanded {
+                flex-direction: column;
+            }
+
+            .blog-card.expanded .blog-card-image {
+                width: 100%;
+                height: 280px;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-card.expanded {
+                flex-direction: column;
+            }
+
+            .blog-card.expanded .blog-card-image {
+                width: 100%;
+                height: 250px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .blog-card.expanded .blog-card-content {
+                padding: 20px;
+            }
+
+            .blog-card.expanded .blog-card-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .blog-card.expanded .blog-card-content p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-card.expanded {
+                flex-direction: column;
+            }
+
+            .blog-card.expanded .blog-card-image {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 12px;
+            }
+
+            .blog-card.expanded .blog-card-content {
+                padding: 15px;
+            }
+
+            .blog-card.expanded .blog-card-content h3 {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .blog-card.expanded .blog-card-content p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+                margin-bottom: 12px;
+            }
         }
 
         .blog-card-meta {
