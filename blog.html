@@ -5,64 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - KSR PMI POLIJE</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
+        /* Variabel CSS global (root). Simpen warna di sini biar ganti tema gampang */
         :root {
-            --dark-maroon: #5a1414;
-            --primary-maroon: #6B1717;
-            --white: #ffffff;
-            --light-bg: #f5f5f5;
+            --dark-maroon: #5a1414;    /* Merah tua banget buat footer/judul */
+            --primary-maroon: #6B1717; /* Merah utama KSR */
+            --white: #ffffff;          /* Putih standar */
+            --light-bg: #f5f5f5;       /* Abu-abu tipis buat background body */
         }
 
+        /* Reset CSS: Hapus margin/padding bawaan browser biar rapi */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Padding ga nambah lebar elemen */
         }
 
+        /* Settingan dasar Body */
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font prioritas */
+            background-color: var(--light-bg); /* Pake warna abu tipis dr variabel */
+            display: flex;             /* Biar bisa ngatur layout footer sticky di bawah */
+            flex-direction: column;    /* Konten ngalir ke bawah */
+            min-height: 100vh;         /* Minimal tinggi setinggi layar */
         }
 
-        /* --- HEADER STYLES (SAMA PERSIS DENGAN INDEX) --- */
+        /* --- STYLING HEADER (NAVBAR) --- */
         .header-wrapper {
             background-color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Bayangan halus di bawah header */
             padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; /* Biar header nempel di atas pas discroll */
+            top: 0;           /* Nempel mentok atas */
+            z-index: 100;     /* Pastiin header di atas elemen lain */
         }
 
+        /* Wadah konten header biar rapi kiri-kanan */
         .header-content {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-between; /* Logo di kiri, Menu di kanan */
+            align-items: center;            /* Tengahin vertikal */
             padding: 0 20px;
-            flex-wrap: nowrap;
-            gap: 20px;
+            flex-wrap: nowrap;              /* Jangan turun baris */
+            gap: 20px;                      /* Jarak antar elemen */
         }
 
+        /* Wadah logo-logo */
         .header-logos {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex-shrink: 0;
+            gap: 15px;       /* Jarak antar logo */
+            flex-shrink: 0;  /* Logo jangan mengecil kalau layar sempit */
         }
 
+        /* Ukuran logo */
         .header-logos img {
-            height: 50px;
-            object-fit: contain;
+            height: 50px;       /* Tinggi fix */
+            object-fit: contain; /* Gambar ga gepeng */
         }
 
+        /* Reset style navbar bawaan bootstrap */
         .navbar {
             background-color: transparent;
             box-shadow: none;
@@ -71,95 +77,108 @@
             flex-shrink: 0;
         }
 
+        /* Styling link menu navigasi */
         .navbar-nav .nav-link {
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem !important;
-            transition: color 0.3s;
+            color: #333;             /* Warna teks hitam pudar */
+            font-weight: 500;        /* Ketebalan font sedang */
+            padding: 0.5rem 1rem !important; /* Spasi tombol */
+            transition: color 0.3s;  /* Efek halus pas ganti warna */
             font-size: 0.95rem;
         }
 
+        /* Pas mouse di atas link menu */
         .navbar-nav .nav-link:hover {
-            color: var(--primary-maroon);
+            color: var(--primary-maroon); /* Ubah jadi merah */
         }
 
+        /* Link menu yang lagi aktif (halaman skrg) */
         .navbar-nav .nav-link.active {
             color: var(--primary-maroon);
-            font-weight: 700;
+            font-weight: 700; /* Lebih tebal */
         }
 
-        /* Container untuk konten blog (TIDAK untuk header) */
+        /* Batar lebar konten blog biar ga melebar sampe pinggir layar */
         .blog-section .container {
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+            margin: 0 auto;  /* Tengahin container */
+            padding: 0 20px; /* Jarak dalem kiri-kanan */
         }
 
-        /* --- BLOG CONTENT SECTION --- */
+        /* --- SECTION KONTEN BLOG --- */
         .blog-section {
-            padding: 60px 0;
-            flex: 1;
+            padding: 60px 0; /* Jarak atas bawah section */
+            flex: 1;         /* Menuhin sisa ruang biar footer kedorong ke bawah */
         }
 
+        /* Judul halaman blog */
         .blog-title {
-            text-align: center;
-            margin-bottom: 50px;
+            text-align: center;   /* Teks tengah */
+            margin-bottom: 50px;  /* Jarak ke kartu blog */
         }
 
         .blog-title h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-size: 2.5rem;    /* Ukuran font besar */
+            font-weight: 900;     /* Tebal banget */
             color: var(--dark-maroon);
-            text-transform: uppercase;
+            text-transform: uppercase; /* Huruf besar semua */
             margin-bottom: 20px;
         }
 
         .blog-title p {
             font-size: 1rem;
-            color: #666;
+            color: #666; /* Abu-abu buat deskripsi */
         }
 
+        /* Layout Grid buat kartu-kartu blog */
         .blog-grid {
             display: grid;
+            /* Responsive grid: bikin kolom otomatis, minimal lebar 280px */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 30px; /* Jarak antar kartu */
             max-width: 1100px;
         }
 
+        /* Styling kartu blog (kotaknya) */
         .blog-card {
             background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px; /* Sudut tumpul */
+            overflow: hidden;    /* Biar gambar ga keluar border */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Bayangan */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animasi halus */
         }
 
+        /* Efek pas kartu di-hover mouse */
         .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px); /* Naik dikit */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Bayangan makin tebel */
         }
 
+        /* Wadah gambar di kartu */
         .blog-card-image {
             width: 100%;
-            height: 250px;
+            height: 250px;    /* Tinggi fix gambar */
             overflow: hidden;
         }
 
+        /* Gambar di dalem kartu */
         .blog-card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
+            object-fit: cover; /* Crop gambar biar pas kotak */
+            transition: transform 0.3s; /* Animasi zoom */
         }
 
+        /* Zoom gambar dikit pas kartu di-hover */
         .blog-card:hover .blog-card-image img {
             transform: scale(1.05);
         }
 
+        /* Wadah teks di kartu */
         .blog-card-content {
             padding: 25px;
         }
 
+        /* Judul artikel di kartu */
         .blog-card-content h3 {
             font-size: 1.3rem;
             font-weight: 700;
@@ -168,51 +187,60 @@
             text-transform: uppercase;
         }
 
+        /* Paragraf preview artikel */
         .blog-card-content p {
             font-size: 0.95rem;
             color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
             transition: all 0.3s;
+            /* Trik CSS biar teks kepotong jadi titik-titik (ellipsis) stlh 2 baris */
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
+        /* Class buat paragraf tambahan yg defaultnya ngumpet */
         .blog-card-content p.full-content {
             display: none;
         }
 
+        /* --- STATE EXPANDED (PAS KARTU DIKLIK) --- */
+        /* Munculin semua teks kalau ada class .expanded */
         .blog-card.expanded .blog-card-content p,
         .blog-card.expanded .blog-card-content p.full-content {
             display: block !important;
-            -webkit-line-clamp: unset !important;
+            -webkit-line-clamp: unset !important; /* Hapus limit baris */
             overflow: visible !important;
-            text-align: justify;
+            text-align: justify; /* Rata kanan kiri */
         }
 
+        /* Layout kartu pas lagi expanded */
         .blog-card.expanded {
-            grid-column: 1 / -1;
-            display: flex;
-            flex-direction: row;
+            grid-column: 1 / -1; /* Menuhin satu baris grid full */
+            display: flex;       /* Ubah jadi flex biar gambar di kiri teks di kanan */
+            flex-direction: row; /* Horizontal */
         }
 
+        /* Atur gambar pas expanded */
         .blog-card.expanded .blog-card-image {
-            width: 35%;
+            width: 35%;       /* Lebar gambar 35% */
             height: auto;
             min-height: 300px;
             margin-right: 25px;
             flex-shrink: 0;
         }
 
+        /* Atur konten teks pas expanded */
         .blog-card.expanded .blog-card-content {
-            flex: 1;
+            flex: 1;          /* Sisa ruang buat teks */
             overflow: auto;
             display: flex;
             flex-direction: column;
         }
 
+        /* Pastiin teks tampil bener pas expanded */
         .blog-card.expanded .blog-card-content p {
             display: block;
             -webkit-line-clamp: unset;
@@ -220,20 +248,23 @@
             text-align: justify;
         }
 
-        /* Responsive untuk tablet dan mobile */
+        /* --- RESPONSIVE MEDIA QUERIES (Buat HP/Tablet) --- */
+        
+        /* Tablet/Laptop kecil (dibawah 992px) */
         @media (max-width: 992px) {
             .blog-card.expanded {
-                flex-direction: column;
+                flex-direction: column; /* Kartu expanded balik numpuk ke bawah */
             }
 
             .blog-card.expanded .blog-card-image {
-                width: 100%;
+                width: 100%;   /* Gambar menuhin lebar */
                 height: 280px;
                 margin-right: 0;
                 margin-bottom: 20px;
             }
         }
 
+        /* Tablet (dibawah 768px) */
         @media (max-width: 768px) {
             .blog-card.expanded {
                 flex-direction: column;
@@ -251,7 +282,7 @@
             }
 
             .blog-card.expanded .blog-card-content h3 {
-                font-size: 1.1rem;
+                font-size: 1.1rem; /* Font judul ngecil dikit */
             }
 
             .blog-card.expanded .blog-card-content p {
@@ -260,6 +291,7 @@
             }
         }
 
+        /* HP (dibawah 480px) */
         @media (max-width: 480px) {
             .blog-card.expanded {
                 flex-direction: column;
@@ -267,12 +299,12 @@
 
             .blog-card.expanded .blog-card-image {
                 width: 100%;
-                height: 200px;
+                height: 200px; /* Gambar makin pendek */
                 margin-bottom: 12px;
             }
 
             .blog-card.expanded .blog-card-content {
-                padding: 15px;
+                padding: 15px; /* Padding nipis */
             }
 
             .blog-card.expanded .blog-card-content h3 {
@@ -287,16 +319,18 @@
             }
         }
 
+        /* Tanggal postingan */
         .blog-card-meta {
             font-size: 0.85rem;
             color: #999;
             margin-bottom: 15px;
         }
 
+        /* Tombol "Baca Selengkapnya" */
         .read-more {
             display: inline-block;
             color: var(--dark-maroon);
-            text-decoration: none;
+            text-decoration: none; /* Ilangin garis bawah */
             font-weight: 600;
             transition: color 0.3s;
         }
@@ -305,24 +339,26 @@
             color: var(--primary-maroon);
         }
 
-        /* --- FOOTER STYLES --- */
+        /* --- STYLING FOOTER --- */
         footer {
             background: var(--dark-maroon);
             color: var(--white);
             padding: 60px 0 20px;
-            margin-top: auto;
+            margin-top: auto; /* Trik biar footer selalu di bawah (sticky bottom) */
         }
 
         .footer-content {
             margin-bottom: 40px;
         }
 
+        /* Judul di footer */
         .footer-content h3 {
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 20px;
         }
 
+        /* Sub-judul di footer */
         .footer-content h4 {
             font-size: 1.5rem;
             font-weight: bold;
@@ -334,14 +370,15 @@
             margin-bottom: 15px;
         }
 
+        /* Kotak icon sosmed */
         .social-icon {
             width: 50px;
             height: 50px;
-            border-radius: 10px;
+            border-radius: 10px; /* Sudut tumpul */
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.1); /* Background transparan */
             transition: all 0.3s;
             text-decoration: none;
             color: white;
@@ -349,12 +386,14 @@
             font-size: 24px;
         }
 
+        /* Efek hover icon sosmed: muter dikit + gede */
         .social-icon:hover {
             background: rgba(255,255,255,0.3);
             transform: scale(1.2) rotate(5deg);
             color: white;
         }
 
+        /* Link teks di footer */
         footer a {
             color: white;
             text-decoration: none;
@@ -362,9 +401,10 @@
         }
 
         footer a:hover {
-            color: #ff6b6b;
+            color: #ff6b6b; /* Jadi merah muda pas hover */
         }
 
+        /* Garis pemisah copyright */
         .footer-divider {
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 30px;
@@ -376,7 +416,7 @@
             margin-bottom: 5px;
         }
 
-        /* --- Responsive (SAMA DENGAN INDEX) --- */
+        /* --- RESPONSIVE HEADER KHUSUS (Copy paste dari index) --- */
         @media (max-width: 992px) {
             .header-content {
                 position: relative;
@@ -387,12 +427,13 @@
                 margin-left: auto;
             }
 
+            /* Tombol hamburger menu (garis tiga) */
             .navbar-toggler {
                 margin-left: auto;
                 margin-right: 0;
                 padding: 0.25rem 0.75rem;
                 border: none;
-                display: flex !important;
+                display: flex !important; /* Paksa muncul di mobile */
                 align-items: center;
                 justify-content: center;
             }
@@ -402,16 +443,18 @@
                 box-shadow: none;
             }
 
+            /* Gambar icon hamburger pake SVG */
             .navbar-toggler .navbar-toggler-icon {
                 width: 1.5rem;
                 height: 1.5rem;
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
 
+            /* Dropdown menu di mobile */
             .navbar-collapse {
-                position: fixed;
-                top: 75px;
-                right: 20px;
+                position: fixed; /* Nempel layar */
+                top: 75px;       /* Jarak dari atas */
+                right: 20px;     /* Jarak dari kanan */
                 left: auto;
                 width: auto;
                 min-width: 220px;
@@ -419,11 +462,12 @@
                 border-radius: 8px;
                 box-shadow: 0 8px 24px rgba(0,0,0,0.15);
                 padding: 0;
-                z-index: 1050;
+                z-index: 1050;   /* Paling atas */
                 margin-top: 0;
                 border: 1px solid #e0e0e0;
             }
 
+            /* Logic buat nampilin menu (bootstrap class) */
             .navbar-collapse.show {
                 display: block !important;
             }
@@ -432,6 +476,7 @@
                 display: none !important;
             }
 
+            /* Susunan menu jadi vertikal di mobile */
             .navbar-nav {
                 flex-direction: column;
                 gap: 0;
@@ -440,14 +485,14 @@
             .navbar-nav .nav-link {
                 padding: 0.75rem 1.5rem !important;
                 white-space: nowrap;
-                border-bottom: 1px solid #f5f5f5;
+                border-bottom: 1px solid #f5f5f5; /* Garis pemisah */
                 color: #333 !important;
                 font-weight: 500;
                 transition: background-color 0.2s;
             }
 
             .navbar-nav .nav-link:last-child {
-                border-bottom: none;
+                border-bottom: none; /* Yg terakhir ga usah garis */
             }
 
             .navbar-nav .nav-link:hover {
@@ -462,27 +507,28 @@
             }
         }
 
+        /* Penyesuaian font judul di HP */
         @media (max-width: 768px) {
             .blog-title h1 {
                 font-size: 1.8rem;
             }
 
+            /* Grid jadi 1 kolom doang di HP */
             .blog-grid {
                 grid-template-columns: 1fr;
             }
 
             .footer-content {
-                text-align: center;
+                text-align: center; /* Footer rata tengah di HP */
             }
 
             .header-logos img {
-                height: 40px;
+                height: 40px; /* Logo ngecil di HP */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header with Navigation and Logos (SAMA PERSIS DENGAN INDEX) -->
     <div class="header-wrapper">
         <div class="container">
             <div class="header-content">
@@ -496,8 +542,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                        <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
                             <li class="nav-item"><a class="nav-link" href="Tentang-Ksr.html">Tentang</a></li>
                             <li class="nav-item"><a class="nav-link" href="Layanan.html">Layanan</a></li>
                             <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
@@ -510,7 +555,6 @@
         </div>
     </div>
 
-    <!-- Blog Section -->
     <section class="blog-section">
         <div class="container">
             <div class="blog-title">
@@ -519,7 +563,6 @@
             </div>
 
             <div class="blog-grid">
-                <!-- Blog Card 1 -->
                 <div class="blog-card" onclick="toggleExpand(this)">
                     <div class="blog-card-image">
                         <img src="FotoBeranda/crousel1.JPG" alt="Blog 1">
@@ -534,7 +577,6 @@
                     </div>
                 </div>
 
-                <!-- Blog Card 2 -->
                 <div class="blog-card" onclick="toggleExpand(this)">
                     <div class="blog-card-image">
                         <img src="FotoBeranda/crousel2.JPG" alt="Blog 2">
@@ -549,7 +591,6 @@
                     </div>
                 </div>
 
-                <!-- Blog Card 3 -->
                 <div class="blog-card" onclick="toggleExpand(this)">
                     <div class="blog-card-image">
                         <img src="FotoBeranda/crousel3.jpg" alt="Blog 3">
@@ -567,7 +608,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
         <div class="container">
             <div class="row footer-content">
@@ -617,31 +657,35 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Fungsi buat Buka/Tutup kartu blog (dipanggil pas kartu diklik)
         function toggleExpand(card) {
-            // Remove expanded class from all cards
+            // 1. Loop semua kartu blog yang ada
             document.querySelectorAll('.blog-card').forEach(c => {
+                // Kalo bukan kartu yang lagi diklik, hapus class 'expanded' (biar nutup)
                 if (c !== card) {
                     c.classList.remove('expanded');
                 }
             });
 
-            // Toggle expanded class on clicked card
+            // 2. Toggle class 'expanded' di kartu yang diklik (kalo buka jadi tutup, tutup jadi buka)
             card.classList.toggle('expanded');
 
-            // Scroll to card if expanded
+            // 3. Kalo kartu jadi kebuka, scroll otomatis biar posisinya enak dilihat
             if (card.classList.contains('expanded')) {
                 card.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
-        // Close expanded card when clicking outside
+        // Listener: Kalo user klik di mana aja di halaman...
         document.addEventListener('click', function(event) {
+            // Cari kartu yang lagi kebuka
             const expandedCard = document.querySelector('.blog-card.expanded');
+            // Kalo ada yg kebuka DAN yang diklik itu BUKAN bagian dari kartu tsb...
             if (expandedCard && !expandedCard.contains(event.target)) {
+                // Tutup kartunya (hapus class expanded)
                 expandedCard.classList.remove('expanded');
             }
         });
