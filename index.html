@@ -391,6 +391,19 @@
             transform: scale(1.1);
         }
 
+        /* --- MAPS CONTAINER STYLES --- */
+        .maps-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .maps-container:hover {
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+            transform: translateY(-8px);
+        }
+
         /* --- FOOTER STYLES --- */
         footer {
             background: var(--dark-maroon);
@@ -845,7 +858,7 @@
 
                 <div class="col-lg-4 mb-4">
                     <h4>Lokasi</h4>
-                    <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                    <div class="maps-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.468!2d113.7237!3d-8.160127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695d3f6788267%3A0x1af6c33b0cb5b4ab!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4m8!4m7!1m0!1m5!1m1!1s0x2dd695d3f6788267:0x1af6c33b0cb5b4ab!2m2!1d113.7237458!2d-8.1601271?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" 
                         width="100%" height="180" allowfullscreen="" loading="lazy" style="border: none;">
                         </iframe>
