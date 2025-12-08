@@ -274,9 +274,9 @@
 
         /* --- GALERI SECTION STYLES (GALERI GELAP DG TAB FILTER) --- */
         .galeri-section {
-            padding: 60px 0;         /* Jarak atas-bawah 60px */
-            background: #1a1a1a;     /* Latar belakang gelap buat kontras */
-            color: var(--white);     /* Teks putih biar kelihatan di latar gelap */
+            padding: 60px 20px;       /* Jarak atas-bawah 60px, samping 20px biar responsive */
+            background: #1a1a1a;      /* Latar belakang gelap buat kontras */
+            color: var(--white);      /* Teks putih biar kelihatan di latar gelap */
         }
 
         .galeri-title {
@@ -292,10 +292,11 @@
         .galeri-tabs {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             margin-bottom: 50px;
             border-bottom: 2px solid rgba(255,255,255,0.2);
             padding-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .galeri-tab {
@@ -307,6 +308,7 @@
             transition: all 0.3s;
             border-bottom: 3px solid transparent;
             margin-bottom: -23px;
+            white-space: nowrap;
         }
 
         .galeri-tab.active {
@@ -320,16 +322,17 @@
 
         .galeri-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
         .galeri-card {
             position: relative;
             width: 100%;
-            height: 280px;
+            height: 250px;
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -339,13 +342,64 @@
 
         .galeri-card.video {
             grid-column: span 3;
-            height: 500px;
+            height: 400px;
+        }
+
+        @media (max-width: 1024px) {
+            .galeri-card.video {
+                grid-column: span 2;
+                height: 300px;
+            }
         }
 
         @media (max-width: 768px) {
+            .galeri-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 10px;
+            }
+
+            .galeri-card {
+                height: 200px;
+            }
+
             .galeri-card.video {
                 grid-column: span 1;
-                height: 280px;
+                height: 200px;
+            }
+
+            .galeri-title {
+                font-size: 2rem;
+            }
+
+            .galeri-tabs {
+                gap: 20px;
+                font-size: 0.9rem;
+            }
+
+            .galeri-tab {
+                padding: 8px 15px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .galeri-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .galeri-title {
+                font-size: 1.5rem;
+            }
+
+            .galeri-tabs {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .galeri-tab {
+                padding: 6px 10px;
+                font-size: 0.85rem;
             }
         }
 
