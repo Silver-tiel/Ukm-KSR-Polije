@@ -1,66 +1,53 @@
-<!DOCTYPE html> <!-- Mendefinisikan tipe dokumen sebagai HTML5 -->
-<html lang="id"> <!-- Tag pembuka HTML utama, setting bahasa Indonesia -->
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <!-- Metadata biar browser support huruf/simbol khusus (UTF-8) -->
     <meta charset="UTF-8">
-    
-    <!-- Setting Viewport: Wajib biar web responsif/rapi pas dibuka di HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Judul yang muncul di Tab Browser paling atas -->
     <title>KSR POLIJE - Kesehatan Mahasiswa</title>
 
-    <!-- Link ke CSS Bootstrap (Library buat layout biar rapi otomatis) -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Link ke Font Awesome (Library buat ikon-ikon variasi) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Link ke Bootstrap Icons (Library ikon tambahan khusus Bootstrap) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
-        /* Variabel CSS global (root). Simpen warna di sini biar ganti tema gampang */
         :root {
-            --dark-maroon: #5a1414;    /* Merah tua banget buat footer/judul */
-            --primary-maroon: #6B1717; /* Merah utama KSR */
-            --white: #ffffff;          /* Putih standar */
-            --light-bg: #f5f5f5;       /* Abu-abu tipis buat background body */
+            --dark-maroon: #5a1414;
+            --primary-maroon: #6B1717;
+            --white: #ffffff;
+            --light-bg: #f5f5f5;
         }
 
-        /* Reset CSS: Hapus margin/padding bawaan browser biar rapi */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box; /* Padding ga nambah lebar elemen */
+            box-sizing: border-box;
         }
 
-        /* Settingan dasar Body */
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font prioritas */
-            background-color: var(--light-bg); /* Pake warna abu tipis dr variabel */
-            display: flex;             /* Biar bisa ngatur layout footer sticky di bawah */
-            flex-direction: column;    /* Konten ngalir ke bawah */
-            min-height: 100vh;         /* Minimal tinggi setinggi layar */
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* --- STYLING HEADER (NAVBAR) --- */
+        /* --- HEADER STYLES --- */
         .header-wrapper {
             background-color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Bayangan halus di bawah header */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 15px 0;
-            position: sticky; /* Biar header nempel di atas pas discroll */
-            top: 0;           /* Nempel mentok atas */
-            z-index: 100;     /* Pastiin header di atas elemen lain */
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Wadah konten header biar rapi kiri-kanan */
         .header-content {
             display: flex;
-            justify-content: space-between; /* Logo di kiri, Menu di kanan */
-            align-items: center;            /* Tengahin vertikal */
+            justify-content: space-between;
+            align-items: center;
             padding: 0 20px;
-            flex-wrap: nowrap;              /* Jangan turun baris */
+            flex-wrap: nowrap;
             gap: 20px;
         }
 
@@ -272,13 +259,11 @@
             transform: scale(1.05);
         }
 
-        /* --- GALERI SECTION STYLES (GALERI GELAP DG TAB FILTER) --- */
+        /* --- GALERI SECTION STYLES --- */
         .galeri-section {
-            padding: 80px 0;         /* Jarak atas-bawah 80px, samping 0 biar full width */
-            background: #1a1a1a;     /* Latar belakang gelap biar full width */
-            color: var(--white);     /* Teks putih biar kelihatan di latar gelap */
-            width: 100%;             /* Full width */
-            overflow: hidden;        /* Prevent overflow */
+            padding: 60px 0;
+            background: #1a1a1a;
+            color: var(--white);
         }
 
         .galeri-title {
@@ -320,21 +305,19 @@
             color: var(--white);
         }
 
-
         .galeri-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
         }
 
         .galeri-card {
             position: relative;
             width: 100%;
-            height: 320px;
-            border-radius: 15px;
+            height: 280px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -342,38 +325,14 @@
         }
 
         .galeri-card.video {
-            grid-column: span 1;
-            height: 320px;
-        }
-
-        @media (max-width: 1024px) {
-            .galeri-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
+            grid-column: span 3;
+            height: 500px;
         }
 
         @media (max-width: 768px) {
-            .galeri-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 0 20px;
-            }
-
-            .galeri-card {
+            .galeri-card.video {
+                grid-column: span 1;
                 height: 280px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .galeri-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                padding: 0 15px;
-            }
-
-            .galeri-card {
-                height: 240px;
             }
         }
 
@@ -432,245 +391,53 @@
             transform: scale(1.1);
         }
 
-        /* --- PENGURUS KEANGGOTAAN SECTION STYLES --- */
-        .pengurus-section {
-            padding: 80px 20px 60px;
-            background: linear-gradient(135deg, #8B2020 0%, #6B1717 100%);
-            color: var(--white);
-            position: relative;
-        }
-
-        .pengurus-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--white);
-            margin-bottom: 50px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .pengurus-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .pengurus-tab {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: rgba(255,255,255,0.7);
-            cursor: pointer;
-            padding: 10px 25px;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .pengurus-tab:hover,
-        .pengurus-tab.active {
-            color: var(--white);
-            border-bottom-color: var(--white);
-            transform: scale(1.05);
-        }
-
-        .pengurus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pengurus-item {
-            display: flex;
-            justify-content: center;
-        }
-
-        .pengurus-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 280px;
-            width: 100%;
-        }
-
-        .pengurus-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-
-        .pengurus-photo {
-            position: relative;
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-        }
-
-        .pengurus-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .pengurus-card:hover .pengurus-photo img {
-            transform: scale(1.08);
-        }
-
-        .pengurus-badge {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #8B2020 0%, #6B1717 100%);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .pengurus-name {
-            padding: 20px 15px;
-            background: white;
-            margin: 0;
-            color: #333;
-            font-size: 0.95rem;
-            text-align: center;
-            border-top: 2px solid #f0f0f0;
-        }
-
-        .pengurus-name strong {
-            color: var(--primary-maroon);
-            font-weight: 700;
-        }
-
-        @media (max-width: 768px) {
-            .pengurus-section {
-                padding: 60px 15px 50px;
-            }
-
-            .pengurus-title {
-                font-size: 2.2rem;
-                margin-bottom: 40px;
-            }
-
-            .pengurus-tabs {
-                gap: 20px;
-            }
-
-            .pengurus-tab {
-                font-size: 1rem;
-                padding: 8px 18px;
-            }
-
-            .pengurus-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-            }
-
-            .pengurus-card {
-                max-width: 100%;
-            }
-
-            .pengurus-photo {
-                height: 240px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .pengurus-section {
-                padding: 40px 10px 30px;
-            }
-
-            .pengurus-title {
-                font-size: 1.8rem;
-            }
-
-            .pengurus-tabs {
-                gap: 15px;
-            }
-
-            .pengurus-tab {
-                font-size: 0.9rem;
-                padding: 6px 12px;
-            }
-
-            .pengurus-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-            }
-
-            .pengurus-photo {
-                height: 200px;
-            }
-
-            .pengurus-badge {
-                font-size: 0.8rem;
-                padding: 8px 15px;
-            }
-        }
-
-        /* --- MAPS CONTAINER STYLES (GOOGLE MAPS EMBED DG HOVER EFFECT) --- */
-        .maps-container {
-            border-radius: 15px;                                        /* Sudut melengkung 15px */
-            overflow: hidden;                                           /* Potong gambar yg keluar dari sudut */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);                    /* Bayangan tipis normal state */
-            transition: all 0.3s ease;                                  /* Smooth transition saat hover */
-        }
-
-        .maps-container:hover {
-            box-shadow: 0 12px 35px rgba(0,0,0,0.25);                   /* Bayangan lebih besar saat hover */
-            transform: translateY(-8px);                                /* Naikin 8px ke atas saat hover */
-        }
-
-        /* --- FOOTER STYLES (BAGIAN BAWAH DG INFO & MAPS) --- */
+        /* --- FOOTER STYLES --- */
         footer {
-            background: var(--dark-maroon);    /* Merah tua untuk kontras */
-            color: var(--white);               /* Teks putih */
-            padding: 60px 0 20px;              /* Jarak dalam footer */
-            margin-top: auto;                  /* Push footer ke bawah halaman */
+            background: var(--dark-maroon);
+            color: var(--white);
+            padding: 60px 0 20px;
+            margin-top: auto;
         }
 
         .footer-content {
-            margin-bottom: 40px;               /* Jarak antar section footer */
+            margin-bottom: 40px;
         }
 
         .footer-content h3 {
-            font-size: 2rem;                   /* Judul 2rem besar */
-            font-weight: bold;                 /* Tebal */
-            margin-bottom: 20px;               /* Jarak bawah */
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-content h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
         .social-icon {
-            width: 50px;                       /* Ikon persegi 50x50px */
+            width: 50px;
             height: 50px;
-            border-radius: 10px;               /* Sudut melengkung */
-            display: inline-flex;              /* Biar flex container */
-            align-items: center;               /* Tengahin icon vertikal */
-            justify-content: center;           /* Tengahin icon horizontal */
-            background: rgba(255,255,255,0.1); /* Latar semi-transparan */
-            transition: all 0.3s;              /* Smooth hover effect */
-            text-decoration: none;             /* Hapus underline link */
-            color: white;                      /* Icon putih */
-            margin-right: 10px;                /* Jarak antar icon */
-            font-size: 24px;                   /* Ukuran icon 24px */
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            margin-right: 10px;
+            font-size: 24px;
         }
 
         .social-icon:hover {
-            background: rgba(255,255,255,0.3); /* Latar lebih cerah saat hover */
-            transform: scale(1.2) rotate(5deg); /* Membesar & rotate sedikit */
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.2) rotate(5deg);
         }
 
         footer a {
@@ -896,7 +663,7 @@
                     <img src="FotoBeranda/crousel1.JPG" alt="Tim Kesehatan">
                     <div class="service-overlay">
                         <h3>Tim Kesehatan</h3>
-                        <p>Membantu meneruskan kebijakan kesehatan pada kegiatan (baik sebagai insider atau memfasilitasi).</p>
+                        <p>Membantu meneruskan kebijakan kesehatan pada kegiatan (baik sebagai insider atau faskilitasi) bagi umtama internal.</p>
                         <a href="Tim Kesehatan2.html" class="learn-more-btn">LEARN MORE</a>
                     </div>
                 </div>
@@ -906,7 +673,7 @@
                     <img src="FotoBeranda/crousel2.JPG" alt="Fasilitator">
                     <div class="service-overlay">
                         <h3>FASILITATOR</h3>
-                        <p>Pendidikan menerusuk kebijakan pemahaman pada kegiatan atau assessmen yang berkaitan dengan memberikan materi.</p>
+                        <p>Pendidikan menerusuk kebijakan pemahaman pada kegiatan atau assessmen yang berkaitan dengan materi kepaling menaruh.</p>
                         <a href="Fasilitator.html" class="learn-more-btn">LEARN MORE</a>
                     </div>
                 </div>
@@ -925,7 +692,7 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
-                            <img src="FotoBeranda/crousel1.JPG" alt="Berita 1">
+                            <img src="o/ja.heic" alt="Berita 1">
                         </div>
                     </a>
                 </div>
@@ -934,7 +701,7 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
-                            <img src="FotoBeranda/crousel2.JPG"  alt="Berita 2">
+                            <img src="o/oi.heic" alt="Berita 2">
                         </div>
                     </a>
                 </div>
@@ -943,11 +710,15 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
-                            <img src="FotoBeranda/crousel3.jpg" alt="Berita 3">
+                            <img src="o/ker.heic" alt="Berita 3">
                         </div>
                     </a>
                 </div>
 
+               
+            </div>
+        </div>
+    </section>
 
     <!-- Galeri Section -->
     <section class="galeri-section">
@@ -1018,76 +789,6 @@
         </div>
     </div>
 
-    <!-- ===== PENGURUS KEANGGOTAAN SECTION ===== -->
-    <section class="pengurus-section">
-        <div class="container">
-            <h2 class="pengurus-title">PENGURUS KEANGGOTAAN</h2>
-
-            <!-- Tab Pengurus -->
-            <div class="pengurus-tabs">
-                <div class="pengurus-tab active" onclick="filterPengurus('danus')">DANUS</div>
-                <div class="pengurus-tab" onclick="filterPengurus('medis')">MEDIS</div>
-                <div class="pengurus-tab" onclick="filterPengurus('logistik')">LOGISTIK</div>
-            </div>
-
-            <!-- Grid Pengurus -->
-            <div class="pengurus-grid" id="pengurus-grid">
-                <!-- DANUS Section -->
-                <div class="pengurus-item pengurus-danus">
-                    <div class="pengurus-card">
-                        <div class="pengurus-photo">
-                            <img src="x/danus1.jpg" alt="CO DANUS">
-                        </div>
-                        <div class="pengurus-badge">CO DANUS</div>
-                        <p class="pengurus-name">Nama: <strong>Septi Anisa Munawaroh</strong></p>
-                    </div>
-                </div>
-
-                <div class="pengurus-item pengurus-danus">
-                    <div class="pengurus-card">
-                        <div class="pengurus-photo">
-                            <img src="x/danus2.jpg" alt="DANUS KWU 1">
-                        </div>
-                        <div class="pengurus-badge">DANUS KWU 1</div>
-                        <p class="pengurus-name">Nama: <strong>Arvina Greta Ayu W.</strong></p>
-                    </div>
-                </div>
-
-                <div class="pengurus-item pengurus-danus">
-                    <div class="pengurus-card">
-                        <div class="pengurus-photo">
-                            <img src="x/danus3.jpg" alt="DANUS KWU 2">
-                        </div>
-                        <div class="pengurus-badge">DANUS KWU 2</div>
-                        <p class="pengurus-name">Nama: <strong>Muhammad Firman</strong></p>
-                    </div>
-                </div>
-
-                <!-- MEDIS Section -->
-                <div class="pengurus-item pengurus-medis" style="display: none;">
-                    <div class="pengurus-card">
-                        <div class="pengurus-photo">
-                            <img src="x/medis1.jpg" alt="KETUA MEDIS">
-                        </div>
-                        <div class="pengurus-badge">KETUA MEDIS</div>
-                        <p class="pengurus-name">Nama: <strong>Nama Ketua Medis</strong></p>
-                    </div>
-                </div>
-
-                <!-- LOGISTIK Section -->
-                <div class="pengurus-item pengurus-logistik" style="display: none;">
-                    <div class="pengurus-card">
-                        <div class="pengurus-photo">
-                            <img src="x/logistik1.jpg" alt="KETUA LOGISTIK">
-                        </div>
-                        <div class="pengurus-badge">KETUA LOGISTIK</div>
-                        <p class="pengurus-name">Nama: <strong>Nama Ketua Logistik</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== FOOTER ===== -->
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
         <div class="container">
@@ -1119,8 +820,8 @@
 
                 <div class="col-lg-4 mb-4">
                     <h4>Lokasi</h4>
-                    <div class="maps-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.468!2d113.7237!3d-8.160127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695d3f6788267%3A0x1af6c33b0cb5b4ab!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4m8!4m7!1m0!1m5!1m1!1s0x2dd695d3f6788267:0x1af6c33b0cb5b4ab!2m2!1d113.7237458!2d-8.1601271?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" 
+                    <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4700380570753!2d113.7244395103106!3d-8.155306181663118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69541b5529c1d%3A0x8a9bf208ba6d4d5e!2sTefa%20Cafe!5e0!3m2!1sid!2sid!4v1764291558998!5m2!1sid!2sid" 
                         width="100%" height="180" allowfullscreen="" loading="lazy" style="border: none;">
                         </iframe>
                     </div>
@@ -1184,23 +885,6 @@
             items.forEach(item => {
                 if (category === 'semua' || item.classList.contains(category)) {
                     item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Pengurus Filter Function
-        function filterPengurus(category) {
-            const tabs = document.querySelectorAll('.pengurus-tab');
-            const items = document.querySelectorAll('.pengurus-item');
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            items.forEach(item => {
-                if (item.classList.contains('pengurus-' + category)) {
-                    item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
                 }
