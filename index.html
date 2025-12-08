@@ -1,53 +1,66 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html> <!-- Mendefinisikan tipe dokumen sebagai HTML5 -->
+<html lang="id"> <!-- Tag pembuka HTML utama, setting bahasa Indonesia -->
 <head>
+    <!-- Metadata biar browser support huruf/simbol khusus (UTF-8) -->
     <meta charset="UTF-8">
+    
+    <!-- Setting Viewport: Wajib biar web responsif/rapi pas dibuka di HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Judul yang muncul di Tab Browser paling atas -->
     <title>KSR POLIJE - Kesehatan Mahasiswa</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Link ke CSS Bootstrap (Library buat layout biar rapi otomatis) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link ke Font Awesome (Library buat ikon-ikon variasi) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link ke Bootstrap Icons (Library ikon tambahan khusus Bootstrap) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
+        /* Variabel CSS global (root). Simpen warna di sini biar ganti tema gampang */
         :root {
-            --dark-maroon: #5a1414;
-            --primary-maroon: #6B1717;
-            --white: #ffffff;
-            --light-bg: #f5f5f5;
+            --dark-maroon: #5a1414;    /* Merah tua banget buat footer/judul */
+            --primary-maroon: #6B1717; /* Merah utama KSR */
+            --white: #ffffff;          /* Putih standar */
+            --light-bg: #f5f5f5;       /* Abu-abu tipis buat background body */
         }
 
+        /* Reset CSS: Hapus margin/padding bawaan browser biar rapi */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Padding ga nambah lebar elemen */
         }
 
+        /* Settingan dasar Body */
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font prioritas */
+            background-color: var(--light-bg); /* Pake warna abu tipis dr variabel */
+            display: flex;             /* Biar bisa ngatur layout footer sticky di bawah */
+            flex-direction: column;    /* Konten ngalir ke bawah */
+            min-height: 100vh;         /* Minimal tinggi setinggi layar */
         }
 
-        /* --- HEADER STYLES --- */
+        /* --- STYLING HEADER (NAVBAR) --- */
         .header-wrapper {
             background-color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Bayangan halus di bawah header */
             padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; /* Biar header nempel di atas pas discroll */
+            top: 0;           /* Nempel mentok atas */
+            z-index: 100;     /* Pastiin header di atas elemen lain */
         }
 
+        /* Wadah konten header biar rapi kiri-kanan */
         .header-content {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-between; /* Logo di kiri, Menu di kanan */
+            align-items: center;            /* Tengahin vertikal */
             padding: 0 20px;
-            flex-wrap: nowrap;
+            flex-wrap: nowrap;              /* Jangan turun baris */
             gap: 20px;
         }
 
@@ -259,11 +272,11 @@
             transform: scale(1.05);
         }
 
-        /* --- GALERI SECTION STYLES --- */
+        /* --- GALERI SECTION STYLES (GALERI GELAP DG TAB FILTER) --- */
         .galeri-section {
-            padding: 60px 0;
-            background: #1a1a1a;
-            color: var(--white);
+            padding: 60px 0;         /* Jarak atas-bawah 60px */
+            background: #1a1a1a;     /* Latar belakang gelap buat kontras */
+            color: var(--white);     /* Teks putih biar kelihatan di latar gelap */
         }
 
         .galeri-title {
@@ -391,66 +404,55 @@
             transform: scale(1.1);
         }
 
-        /* --- MAPS CONTAINER STYLES --- */
+        /* --- MAPS CONTAINER STYLES (GOOGLE MAPS EMBED DG HOVER EFFECT) --- */
         .maps-container {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
+            border-radius: 15px;                                        /* Sudut melengkung 15px */
+            overflow: hidden;                                           /* Potong gambar yg keluar dari sudut */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);                    /* Bayangan tipis normal state */
+            transition: all 0.3s ease;                                  /* Smooth transition saat hover */
         }
 
         .maps-container:hover {
-            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);                   /* Bayangan lebih besar saat hover */
+            transform: translateY(-8px);                                /* Naikin 8px ke atas saat hover */
         }
 
-        /* --- FOOTER STYLES --- */
+        /* --- FOOTER STYLES (BAGIAN BAWAH DG INFO & MAPS) --- */
         footer {
-            background: var(--dark-maroon);
-            color: var(--white);
-            padding: 60px 0 20px;
-            margin-top: auto;
+            background: var(--dark-maroon);    /* Merah tua untuk kontras */
+            color: var(--white);               /* Teks putih */
+            padding: 60px 0 20px;              /* Jarak dalam footer */
+            margin-top: auto;                  /* Push footer ke bawah halaman */
         }
 
         .footer-content {
-            margin-bottom: 40px;
+            margin-bottom: 40px;               /* Jarak antar section footer */
         }
 
         .footer-content h3 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .footer-content h4 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .footer-content p {
-            line-height: 1.8;
-            margin-bottom: 15px;
+            font-size: 2rem;                   /* Judul 2rem besar */
+            font-weight: bold;                 /* Tebal */
+            margin-bottom: 20px;               /* Jarak bawah */
         }
 
         .social-icon {
-            width: 50px;
+            width: 50px;                       /* Ikon persegi 50x50px */
             height: 50px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
-            transition: all 0.3s;
-            text-decoration: none;
-            color: white;
-            margin-right: 10px;
-            font-size: 24px;
+            border-radius: 10px;               /* Sudut melengkung */
+            display: inline-flex;              /* Biar flex container */
+            align-items: center;               /* Tengahin icon vertikal */
+            justify-content: center;           /* Tengahin icon horizontal */
+            background: rgba(255,255,255,0.1); /* Latar semi-transparan */
+            transition: all 0.3s;              /* Smooth hover effect */
+            text-decoration: none;             /* Hapus underline link */
+            color: white;                      /* Icon putih */
+            margin-right: 10px;                /* Jarak antar icon */
+            font-size: 24px;                   /* Ukuran icon 24px */
         }
 
         .social-icon:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.2) rotate(5deg);
+            background: rgba(255,255,255,0.3); /* Latar lebih cerah saat hover */
+            transform: scale(1.2) rotate(5deg); /* Membesar & rotate sedikit */
         }
 
         footer a {
@@ -676,7 +678,7 @@
                     <img src="FotoBeranda/crousel1.JPG" alt="Tim Kesehatan">
                     <div class="service-overlay">
                         <h3>Tim Kesehatan</h3>
-                        <p>Membantu meneruskan kebijakan kesehatan pada kegiatan (baik sebagai insider atau faskilitasi) bagi umtama internal.</p>
+                        <p>Membantu meneruskan kebijakan kesehatan pada kegiatan (baik sebagai insider atau memfasilitasi).</p>
                         <a href="Tim Kesehatan2.html" class="learn-more-btn">LEARN MORE</a>
                     </div>
                 </div>
@@ -686,7 +688,7 @@
                     <img src="FotoBeranda/crousel2.JPG" alt="Fasilitator">
                     <div class="service-overlay">
                         <h3>FASILITATOR</h3>
-                        <p>Pendidikan menerusuk kebijakan pemahaman pada kegiatan atau assessmen yang berkaitan dengan materi kepaling menaruh.</p>
+                        <p>Pendidikan menerusuk kebijakan pemahaman pada kegiatan atau assessmen yang berkaitan dengan memberikan materi.</p>
                         <a href="Fasilitator.html" class="learn-more-btn">LEARN MORE</a>
                     </div>
                 </div>
@@ -705,7 +707,7 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
-                            <img src="o/ja.heic" alt="Berita 1">
+                            <img src="FotoBeranda/crousel1.JPG" alt="Berita 1">
                         </div>
                     </a>
                 </div>
@@ -714,7 +716,7 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
-                            <img src="o/oi.heic" alt="Berita 2">
+                            <img src="FotoBeranda/crousel2.JPG"  alt="Berita 2">
                         </div>
                     </a>
                 </div>
@@ -723,40 +725,11 @@
                 <div class="col-md-4 col-sm-6">
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
-                            <img src="o/ker.heic" alt="Berita 3">
+                            <img src="FotoBeranda/crousel3.jpg" alt="Berita 3">
                         </div>
                     </a>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="col-md-4 col-sm-6">
-                    <a href="blog.html" style="text-decoration: none;">
-                        <div class="news-card">
-                            <img src="o/Se.heic" alt="Berita 4">
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="col-md-4 col-sm-6">
-                    <a href="blog.html" style="text-decoration: none;">
-                        <div class="news-card">
-                            <img src="o/lok.heic" alt="Berita 5">
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="col-md-4 col-sm-6">
-                    <a href="blog.html" style="text-decoration: none;">
-                        <div class="news-card">
-                            <img src="o/gak.heic" alt="Berita 6">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Galeri Section -->
     <section class="galeri-section">

@@ -1,91 +1,94 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html> <!-- Mendefinisikan tipe dokumen sebagai HTML5 -->
+<html lang="id"> <!-- Tag pembuka HTML utama, setting bahasa Indonesia -->
 <head>
+    <!-- Metadata biar browser support huruf/simbol khusus (UTF-8) -->
     <meta charset="UTF-8">
+    
+    <!-- Setting Viewport: Wajib biar web responsif/rapi pas dibuka di HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Judul yang muncul di Tab Browser paling atas -->
     <title>KSR PMI Politeknik Negeri Jember</title>
     
-    <!-- Bootstrap CSS -->
+    <!-- Link ke CSS Bootstrap (Library buat layout biar rapi otomatis) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
+    
+    <!-- Link ke Bootstrap Icons (Library ikon khusus Bootstrap) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
-        /* ================================================
-           CSS ORGANIZATION
-           - VARIABLES & BASE STYLES
-           - HEADER & NAVIGATION
-           - ANIMATIONS & TRANSITIONS
-           - HERO SECTION
-           - CARDS & CONTENT SECTIONS
-           - INFO CARDS (VISI, MISI, LOGO)
-           - LEADER CARDS
-           - STATS SECTION
-           - KEPENGURUSAN SECTION
-           - KEANGGOTAAN SECTION
-           - FOOTER
-           - RESPONSIVE DESIGN
-           ================================================ */
-
+        /* Penjelasan CSS Organization:
+           Halaman ini mengorganisir CSS menjadi bagian-bagian terstruktur agar mudah dicari & diedit.
+           Struktur: Variabel >> Header >> Animasi >> Hero >> Cards >> Info >> Leader >> Stats >> Kepengurusan >> Keanggotaan >> Footer >> Responsive
+           Setiap section dipisah dengan komentar === biar visual hierarchy jelas */
+        
         /* ================================================
            VARIABLES & BASE STYLES
+           Tempat simpen semua warna & ukuran yang dipake berkali-kali.
+           Ganti di sini sekali, semua tempat otomatis berubah!
            ================================================ */
         :root {
-            --primary-maroon: #6B1717;
-            --dark-maroon: #5a1414;
-            --light-cream: #fafafa;
-            --text-dark: #2c2c2c;
-            --white: #ffffff;
-            --border-red: #b30000;
-            --accent-cyan: #00acc1;
+            --primary-maroon: #6B1717;      /* Merah utama KSR (tombol, link hover) */
+            --dark-maroon: #5a1414;         /* Merah tua KSR (footer, heading) */
+            --light-cream: #fafafa;         /* Abu putih tipis (background) */
+            --text-dark: #2c2c2c;           /* Warna teks utama */
+            --white: #ffffff;               /* Putih murni */
+            --border-red: #b30000;          /* Merah terang (border accent) */
+            --accent-cyan: #00acc1;         /* Biru tosca (highlight) */
         }
 
+        /* Reset CSS: Hapus margin/padding bawaan browser biar rapi */
         * {
-            box-sizing: border-box;
+            box-sizing: border-box; /* Padding ga nambah lebar elemen */
         }
 
+        /* Settingan dasar Body (teks, warna, font) */
         body {
             margin: 0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-dark);
-            background: var(--light-cream);
-            font-size: 1.15rem;
-            -webkit-font-smoothing: antialiased;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font prioritas */
+            color: var(--text-dark);        /* Warna teks pakai variabel */
+            background: var(--light-cream); /* Background pakai variabel */
+            font-size: 1.15rem;             /* Ukuran teks standart agak besar */
+            -webkit-font-smoothing: antialiased; /* Teks lebih halus di browser webkit */
         }
 
         /* ================================================
            HEADER & NAVIGATION
+           Navbar atas halaman: Logo kiri, Menu kanan, sticky pas discroll
            ================================================ */
         .header-wrapper {
             background-color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Bayangan halus di bawah header */
             padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; /* Nempel di atas pas discroll */
+            top: 0;           /* Mentok di paling atas */
+            z-index: 100;     /* Jangan tertutup elemen lain */
         }
 
         .header-content {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-between; /* Logo di kiri, Menu di kanan */
+            align-items: center;            /* Tengahin vertikal */
             padding: 0 20px;
-            flex-wrap: nowrap;
-            gap: 20px;
+            flex-wrap: nowrap;              /* Jangan turun baris */
+            gap: 20px;                      /* Jarak antar elemen */
         }
 
+        /* Wadah untuk logo-logo */
         .header-logos {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex-shrink: 0;
+            gap: 15px;       /* Jarak antar logo */
+            flex-shrink: 0;  /* Logo jangan mengecil di layar sempit */
         }
 
+        /* Ukuran logo */
         .header-logos img {
-            height: 50px;
-            object-fit: contain;
+            height: 50px;       /* Tinggi fix */
+            object-fit: contain; /* Gambar ga gepeng */
         }
 
+        /* Reset style navbar bawaan bootstrap */
         .navbar {
             background-color: transparent;
             box-shadow: none;
@@ -94,106 +97,113 @@
             flex-shrink: 0;
         }
 
+        /* Styling link menu navigasi */
         .navbar-nav .nav-link {
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem !important;
-            transition: color 0.3s;
+            color: #333;             /* Warna teks hitam pudar */
+            font-weight: 500;        /* Ketebalan font sedang */
+            padding: 0.5rem 1rem !important; /* Spasi tombol */
+            transition: color 0.3s;  /* Efek halus pas ganti warna */
             font-size: 0.95rem;
         }
 
+        /* Pas mouse di atas link menu */
         .navbar-nav .nav-link:hover {
-            color: var(--primary-maroon);
+            color: var(--primary-maroon); /* Warna merah KSR */
         }
 
+        /* Link menu yang sedang aktif (halaman terbuka sekarang) */
         .navbar-nav .nav-link.active {
             color: var(--primary-maroon);
-            font-weight: 700;
+            font-weight: 700; /* Lebih tebal biar keliatan aktif */
         }
 
         /* ================================================
            ANIMATIONS & TRANSITIONS
+           Efek visual: fade-in (muncul smooth), scroll-effect (muncul pas discroll)
+           Setiap animasi punya @keyframes & duration buat smooth 0.3-0.6 detik
            ================================================ */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            opacity: 0;                    /* Mulai transparan */
+            transform: translateY(30px);   /* Mulai turun 30px */
+            transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth 0.6 detik */
         }
 
         .fade-in.visible {
-            opacity: 1;
-            transform: none;
+            opacity: 1;     /* Jadi terlihat penuh */
+            transform: none; /* Kembali ke posisi normal */
         }
 
         .section-divider {
-            height: 5px;
-            background: linear-gradient(90deg, transparent 0%, var(--primary-maroon) 50%, transparent 100%);
+            height: 5px;    /* Garis tipis */
+            background: linear-gradient(90deg, transparent 0%, var(--primary-maroon) 50%, transparent 100%); /* Gradient garis */
             margin: 40px 0;
         }
 
         .scroll-effect {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            opacity: 0;                    /* Mulai transparan */
+            transform: translateY(20px);   /* Mulai turun 20px */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth pas scroll */
         }
 
         .scroll-visible {
-            opacity: 1;
-            transform: none;
+            opacity: 1;     /* Jadi terlihat penuh */
+            transform: none; /* Kembali normal */
         }
 
         /* ================================================
            HERO SECTION
+           Bagian atas halaman: Judul besar + gambar besar full width
+           Gimana: Padding untuk spacing, text-center untuk tengahin
            ================================================ */
         .hero-header {
-            padding: 40px 0;
-            text-align: center;
+            padding: 40px 0; /* Spasi atas-bawah */
+            text-align: center; /* Tengahin teks */
         }
 
         .hero-header h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            color: var(--border-red);
-            margin: 0;
+            font-size: 5rem;      /* Ukuran judul sangat besar */
+            font-weight: 800;     /* Sangat tebal/bold */
+            color: var(--border-red); /* Warna merah terang */
+            margin: 0;            /* Ga ada margin */
         }
 
         .hero-image-section {
-            width: 100%;
-            height: 65vh;
-            min-height: 450px;
-            overflow: hidden;
+            width: 100%;      /* Full width */
+            height: 65vh;     /* Tinggi 65% dari tinggi layar */
+            min-height: 450px; /* Minimum tinggi agar ga terlalu kecil */
+            overflow: hidden; /* Potong konten kalau keluar */
             display: block;
         }
 
         .hero-image-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            width: 100%;       /* Full width */
+            height: 100%;      /* Full height */
+            object-fit: cover; /* Potong biar fullscreen ga ada gap */
+            object-position: center; /* Fokus ke tengah gambar */
             display: block;
         }
 
         .hero-image-in-card {
-            width: 100%;
-            height: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            width: 100%;        /* Full width */
+            height: 300px;      /* Tinggi fix 300px */
+            border-radius: 15px; /* Sudut melengkung */
+            overflow: hidden;   /* Potong konten keluar */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Bayangan */
         }
 
         .hero-image-in-card img {
-            width: 100%;
-            height: 100%;
-            border-top: 6px solid var(--border-red);
-            border-bottom: 6px solid var(--border-red);
+            width: 100%;        /* Full width */
+            height: 100%;       /* Full height */
+            border-top: 6px solid var(--border-red); /* Border merah atas */
+            border-bottom: 6px solid var(--border-red); /* Border merah bawah */
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover */
         }
 
         .hero-image-in-card img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+            transform: scale(1.05); /* Perbesar 5% pas di-hover */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35); /* Shadow lebih dalam */
         }
 
         /* ================================================
@@ -847,21 +857,26 @@
     <!-- ============================================
          HERO SECTION
          ============================================ -->
+    <!-- Judul Utama Halaman Tentang KSR dengan Fade-In Animation -->
     <div class="hero-header fade-in text-center">
-        <h1>TENTANG KAMI</h1>
+        <h1>TENTANG KAMI</h1> <!-- Heading 1: Judul Halaman Utama -->
         <div class="hero-image-section">
+            <!-- Gambar hero full width: Foto organisasi/kegiatan KSR -->
             <img src="FOTOKSR/tentang1.JPG" alt="Hero Image">
         </div>
     </div>
 
     <!-- ============================================
          SEJARAH SECTION
+         Penjelasan asal-usul KSR PMI POLIJE, kapan didirikan, & misi awalnya
          ============================================ -->
     <div class="container-fluid px-0 py-5">
         <div class="container">
+            <!-- Card untuk Sejarah dengan Fade-In Animation -->
             <div class="card sejarah-card border-0 p-4 fade-in">
-                <h2 class="mb-4">UKM KSR PMI Politeknik Negeri Jember</h2>
+                <h2 class="mb-4">UKM KSR PMI Politeknik Negeri Jember</h2> <!-- Subheading: Nama Organisasi -->
                 <p>
+                    <!-- Paragraf 1: Penjelasan singkat tentang berdirinya KSR PMI -->
                     UKM KSR PMI Politeknik Negeri Jember didirikan pada 4 April 2009 sebagai salah satu
                     Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan.
                     Berlandaskan Pancasila, Tri Dharma Perguruan Tinggi, serta Prinsip Dasar Gerakan Internasional
@@ -872,38 +887,45 @@
         </div>
     </div>
 
-    <div class="section-divider"></div>
+    <div class="section-divider"></div> <!-- Garis dekoratif pemisah section -->
 
     <!-- ============================================
          VISI, MISI, LOGO SECTION
+         Menampilkan tujuan organisasi (Visi/Misi), Logo & makna logo, & target program
          ============================================ -->
     <div class="container py-5">
         <div class="row g-4">
-            <!-- Logo Card -->
+            <!-- Logo Card: Gambar Logo + Penjelasan Makna Logo -->
             <div class="col-lg-6 fade-in">
                 <div class="info-card logo-card">
                     <div class="logo-container mb-3">
+                        <!-- Gambar Logo KSR PMI -->
                         <img src="Gambar/logo KSR.png" alt="Logo KSR">
                     </div>
-                    <h3>Makna Logo</h3>
+                    <h3>Makna Logo</h3> <!-- Subheading: Penjelasan Logo -->
                     <p>
+                        <!-- Penjelasan detail tentang makna setiap elemen logo (perisai, warna, tulisan, dll) -->
                         Lambang UKM KSR PMI Politeknik Negeri Jember berbentuk perisai dengan delapan sudut lancip yang melambangkan prinsip dasar pertama kali yang dicetuskan di Indonesia, termasuk nilai Ketuhanan. Warna putih melambangkan kenetralan, tulisan "KSR PMI" sebagai identitas relawan, dan lambang serta tulisan POLIJE sebagai identitas lembaga yang menaungi.
                     </p>
                 </div>
             </div>
 
-            <!-- Visi & Misi -->
+            <!-- Visi & Misi: Menampilkan tujuan jangka panjang (Visi) & langkah-langkah (Misi) -->
             <div class="col-lg-6 d-flex flex-column gap-4">
+                <!-- Visi Card: Tujuan akhir organisasi -->
                 <div class="info-card visi-card fade-in">
-                    <h3>VISI</h3>
+                    <h3>VISI</h3> <!-- Subheading: Visi -->
                     <p>
+                        <!-- Penjelasan singkat visi: Terwujudnya organisasi berkualitas dengan anggota berakhlak baik -->
                         Terwujudnya UKM KSR PMI Politeknik Negeri Jember sebagai organisasi kemanusiaan yang beranggota dengan akhlak, profesional, dan solidaritas.
                     </p>
                 </div>
 
+                <!-- Misi Card: Langkah-langkah mencapai visi -->
                 <div class="info-card misi-card fade-in">
-                    <h3>MISI</h3>
+                    <h3>MISI</h3> <!-- Subheading: Misi -->
                     <ul>
+                        <!-- List misi: 5 poin fokus utama organisasi -->
                         <li>Mengutamakan adab daripada ilmu.</li>
                         <li>Mengembangkan ilmu kepalangmerahan anggota.</li>
                         <li>Meningkatkan kerjasama dan kedisiplinan anggota.</li>
@@ -915,10 +937,11 @@
         </div>
     </div>
 
-    <div class="section-divider"></div>
+    <div class="section-divider"></div> <!-- Garis dekoratif pemisah section -->
 
     <!-- ============================================
          LEADER SECTION (Ketua & Wakil)
+         Menampilkan profil & tugas Ketua Umum dan Wakil Ketua organisasi
          ============================================ -->
     <div class="container py-5">
         <!-- Ketua Umum -->
@@ -974,26 +997,36 @@
     <!-- ============================================
          KEPENGURUSAN SECTION
          ============================================ -->
+    <!-- ============================================
+         KEPENGURUSAN SECTION
+         Menampilkan struktur organisasi: Pembina, Ketua, Wakil, Sekretaris, Bendahara
+         Foto + nama setiap anggota pengurus dengan scroll animation
+         ============================================ -->
     <section class="kepengurusan-section">
         <div class="container">
-            <h2 class="kepengurusan-title">KEPENGURUSAN</h2>
+            <h2 class="kepengurusan-title">KEPENGURUSAN</h2> <!-- Heading: Struktur Organisasi -->
             <div class="kepengurusan-container">
                 <div class="kepengurusan-grid">
-                    <!-- PEMBINA (Card Besar Tengah) -->
+                    <!-- PEMBINA (Card Besar Tengah): Dosen pembina organisasi -->
                     <div class="kepengurusan-card pembina-card scroll-effect">
+                        <!-- Foto Pembina dengan scroll animation -->
                         <img class="pembina-photo" src="FOTOKSR/Pembina (2).heic" alt="Pembina">
-                        <h3>PEMBINA</h3>
-                        <p><strong>Nama:</strong> Niyalatul Muna, S.Kom.,M.T</p>
+                        <h3>PEMBINA</h3> <!-- Posisi: Pembina -->
+                        <p><strong>Nama:</strong> Niyalatul Muna, S.Kom.,M.T</p> <!-- Nama Pembina -->
                     </div>
 
-                    <!-- KETUA & WAKIL -->
+                    <!-- KETUA & WAKIL KETUA: Pemimpin organisasi -->
                     <div class="kepengurusan-row scroll-effect">
+                        <!-- Card Ketua -->
                         <div class="kepengurusan-card">
+                            <!-- Foto Ketua -->
                             <img src="FOTOKSR/Ketua.heic" alt="Ketua">
-                            <h3>KETUA</h3>
-                            <p><strong>Nama:</strong> Amanda Areta</p>
+                            <h3>KETUA</h3> <!-- Posisi: Ketua -->
+                            <p><strong>Nama:</strong> Amanda Areta</p> <!-- Nama Ketua -->
                         </div>
+                        <!-- Card Wakil Ketua -->
                         <div class="kepengurusan-card">
+                            <!-- Foto Wakil Ketua -->
                             <img src="FOTOKSR/Wakil.heic" alt="Wakil">
                             <h3>WAKIL KETUA</h3>
                             <p><strong>Nama:</strong> Ananda Okta Randini</p>
@@ -1276,22 +1309,29 @@
 
     <!-- ============================================
          FOOTER
+         Bagian akhir halaman: Info organisasi, social media, kontak, & lokasi (maps)
          ============================================ -->
-    <footer>
+    <footer> <!-- Footer tag: Bagian paling bawah halaman -->
         <div class="container">
             <div class="row footer-content">
+                <!-- Kolom 1: Informasi Singkat Organisasi -->
                 <div class="col-lg-4 mb-4">
-                    <h3>KSR PMI POLIJE</h3>
+                    <h3>KSR PMI POLIJE</h3> <!-- Heading: Nama Organisasi -->
                     <p>
+                        <!-- Penjelasan singkat tentang KSR PMI POLIJE di footer -->
                         Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember. Kami berkomitmen melayani masyarakat dengan sepenuh hati.
                     </p>
+                    <!-- Social Media Links -->
                     <div class="social-links">
+                        <!-- Link Instagram -->
                         <a href="https://www.instagram.com/ksrpmipolije/" class="social-icon" target="_blank">
                             <i class="bi bi-instagram"></i>
                         </a>
+                        <!-- Link Facebook -->
                         <a href="https://www.facebook.com/ksrpmipolije" class="social-icon" target="_blank">
                             <i class="bi bi-facebook"></i>
                         </a>
+                        <!-- Link YouTube -->
                         <a href="https://www.youtube.com/@ksrpmipolije" class="social-icon" target="_blank">
                             <i class="bi bi-youtube"></i>
                         </a>

@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html> <!-- Mendefinisikan tipe dokumen sebagai HTML5 -->
+<html lang="id"> <!-- Tag pembuka HTML utama, setting bahasa Indonesia -->
 <head>
+    <!-- Metadata biar browser support huruf/simbol khusus (UTF-8) -->
     <meta charset="UTF-8">
+    
+    <!-- Setting Viewport: Wajib biar web responsif/rapi pas dibuka di HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Judul yang muncul di Tab Browser paling atas -->
     <title>Blog - KSR PMI POLIJE</title>
 
+    <!-- Link ke CSS Bootstrap (Library buat layout biar rapi otomatis) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link ke Font Awesome (Library buat ikon-ikon variasi) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link ke Bootstrap Icons (Library ikon tambahan khusus Bootstrap) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
+    
     <style>
         /* Variabel CSS global (root). Simpen warna di sini biar ganti tema gampang */
         :root {
@@ -527,26 +537,61 @@
             }
         }
     </style>
+<!-- Penutup tag HEAD: Batas akhir konfigurasi meta/style -->
 </head>
+
+<!-- Pembuka tag BODY: Mulai dari sini semua elemen visual ditampilkan di layar -->
 <body>
+
+    <!-- Wrapper Header: Pembungkus utama header untuk styling background penuh -->
     <div class="header-wrapper">
+        <!-- Container: Membatasi lebar konten agar rata tengah (tidak mepet pinggir layar) -->
         <div class="container">
+            <!-- Header Content: Wadah flexbox untuk mengatur posisi logo dan navbar -->
             <div class="header-content">
+                
+                <!-- Header Logos: Grup untuk menampung gambar-gambar logo di kiri -->
                 <div class="header-logos">
-                    <a href="index.html"><img src="LogoKSR.jpg" alt="PMI Logo"></a>
-                    <a href="index.html"><img src="LogoPolije.jpg" alt="POLIJE Logo"></a>
-                    <a href="index.html"><img src="logoPMI.png" alt="KSR PMI Logo"></a>
+                    <!-- Link Logo 1: Klik gambar lari ke index.html -->
+                    <a href="index.html">
+                        <!-- Menampilkan gambar LogoKSR.jpg -->
+                        <img src="LogoKSR.jpg" alt="PMI Logo">
+                    </a>
+                    <!-- Link Logo 2: Klik gambar lari ke index.html -->
+                    <a href="index.html">
+                        <!-- Menampilkan gambar LogoPolije.jpg -->
+                        <img src="LogoPolije.jpg" alt="POLIJE Logo">
+                    </a>
+                    <!-- Link Logo 3: Klik gambar lari ke index.html -->
+                    <a href="index.html">
+                        <!-- Menampilkan gambar logoPMI.png -->
+                        <img src="logoPMI.png" alt="KSR PMI Logo">
+                    </a>
                 </div>
+                
+                <!-- Navbar: Memulai komponen navigasi Bootstrap. expand-lg: Menu muncul penuh di layar besar -->
                 <nav class="navbar navbar-expand-lg">
+                    <!-- Tombol Toggler: Tombol garis tiga yang hanya muncul di layar HP (kecil) -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <!-- Ikon Toggler: Garis tiga pada tombol menu HP -->
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    
+                    <!-- Collapse Area: Bagian menu yang akan disembunyikan/dimunculkan tombol di HP -->
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                        <!-- List Menu: ms-auto membuat menu terdorong ke kanan mentok -->
+                        <ul class="navbar-nav ms-auto"> 
+                            <!-- Item Menu: Beranda -->
+                            <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                            <!-- Item Menu: Tentang -->
                             <li class="nav-item"><a class="nav-link" href="Tentang-Ksr.html">Tentang</a></li>
+                            <!-- Item Menu: Layanan -->
                             <li class="nav-item"><a class="nav-link" href="Layanan.html">Layanan</a></li>
+                            <!-- Item Menu: Blog. Class 'active' menandakan user sedang di halaman ini -->
                             <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                            <!-- Item Menu: Jadwal -->
                             <li class="nav-item"><a class="nav-link" href="timeline.html">Jadwal</a></li>
+                            <!-- Item Menu: Pendaftaran -->
                             <li class="nav-item"><a class="nav-link" href="pendaftaran.html">Pendaftaran</a></li>
                         </ul>
                     </div>
@@ -555,52 +600,99 @@
         </div>
     </div>
 
+    <!-- Section Blog: Memulai area konten utama halaman -->
     <section class="blog-section">
+        <!-- Container: Menjaga konten tetap di tengah -->
         <div class="container">
+            <!-- Blog Title: Wadah judul halaman -->
             <div class="blog-title">
+                <!-- Judul Utama Halaman (Heading 1) -->
                 <h1>BLOG KSR PMI</h1>
+                <!-- Deskripsi singkat di bawah judul -->
                 <p>Berita, artikel, dan cerita terbaru dari KSR PMI POLIJE</p>
             </div>
 
+            <!-- Blog Grid: Layout grid untuk menyusun kartu artikel -->
             <div class="blog-grid">
+                
+                <!-- KARTU ARTIKEL 1 -->
+                <!-- onclick: Menjalankan fungsi JS 'toggleExpand' saat kartu diklik -->
                 <div class="blog-card" onclick="toggleExpand(this)">
+                    <!-- Wrapper Gambar Kartu -->
                     <div class="blog-card-image">
+                        <!-- Menampilkan thumbnail artikel 1 -->
                         <img src="FotoBeranda/crousel1.JPG" alt="Blog 1">
                     </div>
+                    <!-- Wrapper Konten Teks Kartu -->
                     <div class="blog-card-content">
+                        <!-- Judul Artikel -->
                         <h3>Kegiatan Rutin KSR</h3>
+                        <!-- Tanggal Artikel -->
                         <div class="blog-card-meta">1 Desember 2024</div>
+                        <!-- Paragraf Pembuka: Teks ini selalu terlihat -->
                         <p>Mengikuti kegiatan sosial dan kemanusiaan untuk membantu masyarakat yang membutuhkan pertolongan dalam bidang kesehatan dan kepalangmerahan. KSR PMI POLIJE secara konsisten melakukan kegiatan rutin setiap minggu untuk memberikan edukasi kesehatan kepada komunitas lokal. Tim kami yang berdedikasi bekerja tanpa henti untuk memastikan bahwa setiap individu mendapatkan akses ke informasi kesehatan yang berkualitas dan pertolongan pertama yang tepat saat dibutuhkan.</p>
+                        
+                        <!-- Paragraf Tersembunyi 1: class 'full-content' disembunyikan CSS, muncul saat expand -->
                         <p class="full-content">Kegiatan rutin kami meliputi berbagai program seperti pengecekan kesehatan gratis, pelatihan pertolongan pertama, donor darah, dan edukasi tentang gaya hidup sehat. Setiap anggota KSR PMI POLIJE berkomitmen untuk memberikan pelayanan terbaik dengan sepenuh hati. Kami juga bekerja sama dengan berbagai institusi kesehatan dan organisasi masyarakat untuk memaksimalkan dampak positif dari setiap kegiatan yang kami lakukan.</p>
+                        <!-- Paragraf Tersembunyi 2 -->
                         <p class="full-content">Partisipasi masyarakat sangat penting bagi kami. Melalui feedback dan masukan dari komunitas, kami terus meningkatkan kualitas layanan dan menciptakan program-program baru yang lebih relevan dengan kebutuhan masyarakat. Bergabunglah dengan kami dan jadilah bagian dari gerakan kemanusiaan yang mengubah hidup.</p>
+                        
+                        <!-- Tombol Baca Selengkapnya -->
+                        <!-- stopPropagation: Mencegah klik tombol memicu klik pada kartu (double action) -->
                         <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
+                <!-- KARTU ARTIKEL 2 -->
+                <!-- onclick: Menjalankan fungsi JS 'toggleExpand' saat kartu diklik -->
                 <div class="blog-card" onclick="toggleExpand(this)">
+                    <!-- Wrapper Gambar Kartu -->
                     <div class="blog-card-image">
+                        <!-- Menampilkan thumbnail artikel 2 -->
                         <img src="FotoBeranda/crousel2.JPG" alt="Blog 2">
                     </div>
+                    <!-- Wrapper Konten Teks Kartu -->
                     <div class="blog-card-content">
+                        <!-- Judul Artikel -->
                         <h3>Program Edukasi Kesehatan</h3>
+                        <!-- Tanggal Artikel -->
                         <div class="blog-card-meta">28 November 2024</div>
+                        <!-- Paragraf Pembuka -->
                         <p>Memberikan edukasi dan pelatihan tentang kesehatan dan pertolongan pertama kepada anggota dan masyarakat umum. Program ini dirancang untuk meningkatkan kesadaran kesehatan masyarakat dan memberikan keterampilan dasar dalam penanganan situasi darurat medis. Melalui workshop, seminar, dan pelatihan langsung, kami membantu masyarakat memahami pentingnya pencegahan penyakit dan gaya hidup sehat.</p>
+                        
+                        <!-- Paragraf Tersembunyi 1 -->
                         <p class="full-content">Materi edukasi kami mencakup berbagai topik penting seperti pengenalan penyakit menular, vaksinasi, kesehatan mental, gizi seimbang, dan teknik pertolongan pertama yang benar. Instruktur kami adalah profesional berpengalaman di bidang kesehatan dan kepalangmerahan yang siap berbagi ilmu dengan penuh dedikasi. Setiap peserta akan mendapatkan sertifikat kehadiran dan materials edukatif untuk dibawa pulang.</p>
+                        <!-- Paragraf Tersembunyi 2 -->
                         <p class="full-content">Dengan mengikuti program edukasi ini, Anda tidak hanya mendapatkan pengetahuan yang berharga tetapi juga menjadi bagian dari komunitas yang peduli terhadap kesehatan. Kami meyakini bahwa masyarakat yang terinformasi adalah masyarakat yang lebih sehat dan produktif. Daftarkan diri Anda sekarang dan jadilah penggiat kesehatan bersama KSR PMI POLIJE.</p>
+                        
+                        <!-- Tombol Baca Selengkapnya -->
                         <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
+                <!-- KARTU ARTIKEL 3 -->
+                <!-- onclick: Menjalankan fungsi JS 'toggleExpand' saat kartu diklik -->
                 <div class="blog-card" onclick="toggleExpand(this)">
+                    <!-- Wrapper Gambar Kartu -->
                     <div class="blog-card-image">
+                        <!-- Menampilkan thumbnail artikel 3 -->
                         <img src="FotoBeranda/crousel3.jpg" alt="Blog 3">
                     </div>
+                    <!-- Wrapper Konten Teks Kartu -->
                     <div class="blog-card-content">
+                        <!-- Judul Artikel -->
                         <h3>Kunjungan Membawa Berkah</h3>
+                        <!-- Tanggal Artikel -->
                         <div class="blog-card-meta">25 November 2024</div>
+                        <!-- Paragraf Pembuka -->
                         <p>Mengunjungi masyarakat dan memberikan bantuan dalam bentuk edukasi kesehatan dan perhatian kepada mereka yang membutuhkan. Kegiatan kunjungan ini merupakan manifestasi dari komitmen kami untuk melayani dengan sepenuh hati. Kami percaya bahwa kesehatan adalah hak setiap orang, dan melalui program ini kami berusaha menjangkau komunitas yang mungkin terisolasi atau kurang mendapat akses ke layanan kesehatan yang memadai.</p>
+                        
+                        <!-- Paragraf Tersembunyi 1 -->
                         <p class="full-content">Setiap kunjungan kami lakukan dengan persiapan yang matang. Tim kami membawa peralatan kesehatan lengkap, obat-obatan esensial, dan bahan edukasi untuk diberikan kepada masyarakat lokal. Kami tidak hanya memberikan bantuan medis tetapi juga menjalin hubungan yang bermakna dengan warga, mendengarkan cerita mereka, dan memahami kebutuhan spesifik mereka.</p>
+                        <!-- Paragraf Tersembunyi 2 -->
                         <p class="full-content">Dampak dari program "Kunjungan Membawa Berkah" sudah terbukti meningkatkan kesadaran kesehatan di berbagai daerah. Banyak warga yang awalnya tidak mengerti pentingnya pemeriksaan kesehatan rutin kini menjadi lebih aktif menjaga kesehatan mereka. Jika Anda ingin bergabung dalam kegiatan mulia ini, hubungi kami dan mari bersama-sama membawa berkah kesehatan untuk semua.</p>
+                        
+                        <!-- Tombol Baca Selengkapnya -->
                         <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
@@ -608,55 +700,78 @@
         </div>
     </section>
 
+    <!-- Footer: Bagian bawah. Style inline untuk background maroon dan teks putih -->
     <footer style="background: var(--dark-maroon); color: var(--white); padding: 60px 0 20px;">
+        <!-- Container Footer -->
         <div class="container">
+            <!-- Row: Baris untuk membagi kolom footer -->
             <div class="row footer-content">
+                
+                <!-- KOLOM 1: Judul dan Deskripsi -->
+                <!-- col-lg-4: Lebar 4 kolom (dari total 12) di layar besar -->
                 <div class="col-lg-4 mb-4">
+                    <!-- Judul Footer -->
                     <h3>KSR PMI POLIJE</h3>
+                    <!-- Deskripsi Footer -->
                     <p>
                         Unit Kegiatan Mahasiswa yang berfokus pada kegiatan kemanusiaan dan kepalangmerahan di Politeknik Negeri Jember. Kami berkomitmen melayani masyarakat dengan sepenuh hati.
                     </p>
+                    
+                    <!-- Social Links: Wadah ikon sosmed -->
                     <div class="social-links">
+                        <!-- Link Instagram -->
                         <a href="https://www.instagram.com/ksrpmipolije/" class="social-icon" target="_blank">
                             <i class="bi bi-instagram"></i>
                         </a>
+                        <!-- Link Facebook -->
                         <a href="https://www.facebook.com/ksrpmipolije" class="social-icon" target="_blank">
                             <i class="bi bi-facebook"></i>
                         </a>
+                        <!-- Link Youtube -->
                         <a href="https://www.youtube.com/@ksrpmipolije" class="social-icon" target="_blank">
                             <i class="bi bi-youtube"></i>
                         </a>
                     </div>
                 </div>
 
+                <!-- KOLOM 2: Informasi Kontak -->
                 <div class="col-lg-4 mb-4">
                     <h4>Kontak</h4>
+                    <!-- Alamat + Icon Map -->
                     <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
+                    <!-- Telepon + Icon Phone -->
                     <p><i class="bi bi-telephone-fill me-2"></i> 0831-2345-6789</p>
+                    <!-- Email + Icon Envelope -->
                     <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
                 </div>
 
+                <!-- KOLOM 3: Peta Lokasi -->
                 <div class="col-lg-4 mb-4">
                     <h4>Lokasi</h4>
-                    <div class="maps-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.468!2d113.7237!3d-8.160127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695d3f6788267%3A0x1af6c33b0cb5b4ab!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4m8!4m7!1m0!1m5!1m1!1s0x2dd695d3f6788267:0x1af6c33b0cb5b4ab!2m2!1d113.7237458!2d-8.1601271?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" 
+                    <!-- Wrapper Peta: Style inline untuk radius sudut dan bayangan -->
+                    <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                        <!-- Iframe: Embed Google Maps -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4700380570753!2d113.7244395103106!3d-8.155306181663118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69541b5529c1d%3A0x8a9bf208ba6d4d5e!2sTefa%20Cafe!5e0!3m2!1sid!2sid!4v1764291558998!5m2!1sid!2sid" 
                         width="100%" height="180" allowfullscreen="" loading="lazy" style="border: none;">
                         </iframe>
                     </div>
                 </div>
             </div>
 
+            <!-- Bagian Bawah Footer: Copyright & Credit -->
             <div class="footer-divider">
+                <!-- Teks Copyright -->
                 <p style="margin: 0;">
                     © 2025 KSR PMI Politeknik Negeri Jember. All Rights Reserved.
                 </p>
+                <!-- Teks Credit Developer -->
                 <p style="margin: 5px 0 0 0;">
                     Designed by Kelompok 3D Nakama
                 </p>
             </div>
         </div>
     </footer>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
