@@ -103,9 +103,16 @@
             height: auto;
         }
 
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
         .main-image {
             width: 100%;
-            margin-bottom: 30px;
             border-radius: 10px;
             overflow: hidden;
         }
@@ -116,10 +123,16 @@
             display: block;
         }
 
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         .title-section {
-            text-align: center;
+            text-align: left;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .title-section h1 {
@@ -142,7 +155,7 @@
             color: white;
             font-size: 14px;
             line-height: 1.6;
-            text-align: center;
+            text-align: left;
             margin-bottom: 25px;
             font-style: italic;
         }
@@ -407,6 +420,19 @@
                 padding: 20px;
             }
 
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .title-section {
+                text-align: center;
+            }
+
+            .subtitle {
+                text-align: center;
+            }
+
             .title-section h1,
             .title-section h2 {
                 font-size: 28px;
@@ -471,21 +497,27 @@
                 <img src="Gambar/logo KSR.png" alt="Palang Merah Indonesia">
             </div>
 
-            <!-- Main Image -->
-            <div class="main-image">
-                <img src="x/aab.png" alt="Desa Binaan KM-POLIJE">
-            </div>
+            <!-- Content Wrapper: Foto dan Teks Bersebelahan -->
+            <div class="content-wrapper">
+                <!-- Main Image -->
+                <div class="main-image">
+                    <img src="x/aab.png" alt="Desa Binaan KM-POLIJE">
+                </div>
 
-            <!-- Title -->
-            <div class="title-section">
-                <h2>DELEGASI PKKMB</h2>
-            </div>
+                <!-- Text Content -->
+                <div class="text-content">
+                    <!-- Title -->
+                    <div class="title-section">
+                        <h2>DELEGASI PKKMB</h2>
+                    </div>
 
-            <!-- Description -->
-            <div class="description">
-                <p>
-                    Kali ini kami UKM KSR melaksanakan kegiatan Delegasi PKKMB 2024 POLIJE. Kegiatan ini dilaksanakan di POLITEKNIK NEGERI JEMBER, bertujuan untuk memberi pemahaman dan pengertian fungsi korps sukarelawan dan bagaimana cara kerjanya.
-                </p>
+                    <!-- Description -->
+                    <div class="description">
+                        <p>
+                            Kali ini kami UKM KSR melaksanakan kegiatan Delegasi PKKMB 2024 POLIJE. Kegiatan ini dilaksanakan di POLITEKNIK NEGERI JEMBER, bertujuan untuk memberi pemahaman dan pengertian fungsi korps sukarelawan dan bagaimana cara kerjanya.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Back to Timeline Button -->
@@ -520,7 +552,7 @@
                 <div class="col-lg-4 mb-4">
                     <h4>Kontak</h4>
                     <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
-                    <p><i class="bi bi-telephone-fill me-2"></i> 0831-2345-6789</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +6282256222154</p>
                     <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
                 </div>
 

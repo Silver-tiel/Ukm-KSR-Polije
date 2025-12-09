@@ -201,6 +201,44 @@
             color: var(--dark-maroon);
         }
 
+        /* --- Tentang Kami Button --- */
+        .tentang-kami-btn {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 12px 35px;
+            background-color: var(--dark-maroon);
+            color: white;
+            text-decoration: none;
+            border: 2px solid var(--dark-maroon);
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tentang-kami-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.3s;
+            z-index: 1;
+        }
+
+        .tentang-kami-btn:hover::before {
+            left: 100%;
+        }
+
+        .tentang-kami-btn:hover {
+            background-color: rgba(90,20,20,0.9);
+            box-shadow: 0 8px 24px rgba(179,0,0,0.4);
+            transform: translateY(-3px);
+        }
+
         /* --- Berita Section --- */
         .berita-section {
             padding: 60px 0;
@@ -235,28 +273,69 @@
 
         /* --- Kartu Berita --- */
         .news-card {
-            background: white;
+            position: relative;
+            width: 100%;
+            height: 280px;
             border-radius: 12px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            height: 100%;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
 
         .news-card img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
+            object-position: center;
+            transition: transform 0.4s ease;
+            display: block;
         }
 
         .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(107, 23, 23, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(179,0,0,0.4);
         }
 
         .news-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
+        }
+
+        .news-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .news-card:hover .news-overlay {
+            opacity: 1;
+        }
+
+        .news-icon {
+            width: 60px;
+            height: 60px;
+            background: #b30000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .news-card:hover .news-icon {
+            background: var(--white);
+            color: #b30000;
+            transform: scale(1.1);
         }
 
         /* --- GALERI SECTION STYLES --- */
@@ -654,7 +733,7 @@
             <div class="layanan-title">
                 <h2>KAMI ADALAH ORGANISASI UKM KSR POLIJE</h2>
                 <p style="font-size: 1rem; color: #666; margin-bottom: 20px;">KSR PMI Unit POLIJE merupakan salah satu UKM di Politeknik Negeri Jember yang bergerak di bidang kemanusiaan dan kepalangmerahan.</p>
-                <a href="Tentang-Ksr.html" style="display: inline-block; margin-bottom: 40px; padding: 10px 30px; background-color: var(--dark-maroon); color: white; text-decoration: none; border: 2px solid var(--dark-maroon); border-radius: 5px; font-weight: bold; transition: all 0.3s;">TENTANG KAMI</a>
+                <a href="Tentang-Ksr.html" class="tentang-kami-btn">TENTANG KAMI</a>
             </div>
 
             <div class="layanan-container">
@@ -693,6 +772,11 @@
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
                             <img src="FotoBeranda/crousel1.JPG" alt="Berita 1">
+                            <div class="news-overlay">
+                                <div class="news-icon">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -702,6 +786,11 @@
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
                             <img src="FotoBeranda/crousel2.JPG" alt="Berita 2">
+                            <div class="news-overlay">
+                                <div class="news-icon">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -711,6 +800,11 @@
                     <a href="blog.html" style="text-decoration: none;">
                         <div class="news-card">
                             <img src="FotoBeranda/crousel3.jpg" alt="Berita 3">
+                            <div class="news-overlay">
+                                <div class="news-icon">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -814,7 +908,7 @@
                 <div class="col-lg-4 mb-4">
                     <h4>Kontak</h4>
                     <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
-                    <p><i class="bi bi-telephone-fill me-2"></i> 0831-2345-6789</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +6282256222154</p>
                     <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
                 </div>
 

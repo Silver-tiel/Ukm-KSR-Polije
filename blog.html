@@ -638,8 +638,7 @@
                         <p class="full-content">Partisipasi masyarakat sangat penting bagi kami. Melalui feedback dan masukan dari komunitas, kami terus meningkatkan kualitas layanan dan menciptakan program-program baru yang lebih relevan dengan kebutuhan masyarakat. Bergabunglah dengan kami dan jadilah bagian dari gerakan kemanusiaan yang mengubah hidup.</p>
                         
                         <!-- Tombol Baca Selengkapnya -->
-                        <!-- stopPropagation: Mencegah klik tombol memicu klik pada kartu (double action) -->
-                        <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
+                        <a href="#" class="read-more" onclick="openArticleModal(1); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
@@ -666,7 +665,7 @@
                         <p class="full-content">Dengan mengikuti program edukasi ini, Anda tidak hanya mendapatkan pengetahuan yang berharga tetapi juga menjadi bagian dari komunitas yang peduli terhadap kesehatan. Kami meyakini bahwa masyarakat yang terinformasi adalah masyarakat yang lebih sehat dan produktif. Daftarkan diri Anda sekarang dan jadilah penggiat kesehatan bersama KSR PMI POLIJE.</p>
                         
                         <!-- Tombol Baca Selengkapnya -->
-                        <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
+                        <a href="#" class="read-more" onclick="openArticleModal(2); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
 
@@ -693,7 +692,7 @@
                         <p class="full-content">Dampak dari program "Kunjungan Membawa Berkah" sudah terbukti meningkatkan kesadaran kesehatan di berbagai daerah. Banyak warga yang awalnya tidak mengerti pentingnya pemeriksaan kesehatan rutin kini menjadi lebih aktif menjaga kesehatan mereka. Jika Anda ingin bergabung dalam kegiatan mulia ini, hubungi kami dan mari bersama-sama membawa berkah kesehatan untuk semua.</p>
                         
                         <!-- Tombol Baca Selengkapnya -->
-                        <a href="#" class="read-more" onclick="toggleExpand(this.closest('.blog-card')); event.stopPropagation(); event.preventDefault();">Baca Selengkapnya →</a>
+                        <a href="#" class="read-more" onclick="openArticleModal(3); event.preventDefault();">Baca Selengkapnya →</a>
                     </div>
                 </div>
             </div>
@@ -740,7 +739,7 @@
                     <!-- Alamat + Icon Map -->
                     <p><i class="bi bi-geo-alt-fill me-2"></i> Polije Mastrip Jalan Aselole</p>
                     <!-- Telepon + Icon Phone -->
-                    <p><i class="bi bi-telephone-fill me-2"></i> 0831-2345-6789</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +6282256222154</p>
                     <!-- Email + Icon Envelope -->
                     <p><i class="bi bi-envelope-fill me-2"></i> HALO.PMI@GMAIL.COM</p>
                 </div>
@@ -772,36 +771,90 @@
         </div>
     </footer>
     
+    <!-- MODAL POPUP UNTUK ARTIKEL LENGKAP -->
+    <div id="articleModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 15px; max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+            
+            <!-- Tombol Tutup Modal (X) -->
+            <button onclick="closeArticleModal()" style="position: absolute; top: 15px; right: 15px; background: var(--dark-maroon); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 2001; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            
+            <!-- Konten Modal -->
+            <div style="padding: 40px;">
+                <!-- Gambar Artikel -->
+                <img id="modalImage" src="" alt="Article" style="width: 100%; border-radius: 12px; margin-bottom: 25px;">
+                
+                <!-- Judul Artikel -->
+                <h2 id="modalTitle" style="font-size: 2rem; font-weight: 900; color: var(--dark-maroon); margin-bottom: 15px; text-transform: uppercase;"></h2>
+                
+                <!-- Tanggal Artikel -->
+                <div id="modalMeta" style="font-size: 0.9rem; color: #999; margin-bottom: 25px; font-weight: 500;"></div>
+                
+                <!-- Konten Artikel Lengkap -->
+                <div id="modalContent" style="font-size: 1rem; color: #333; line-height: 1.8; text-align: justify;"></div>
+            </div>
+        </div>
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Fungsi buat Buka/Tutup kartu blog (dipanggil pas kartu diklik)
-        function toggleExpand(card) {
-            // 1. Loop semua kartu blog yang ada
-            document.querySelectorAll('.blog-card').forEach(c => {
-                // Kalo bukan kartu yang lagi diklik, hapus class 'expanded' (biar nutup)
-                if (c !== card) {
-                    c.classList.remove('expanded');
-                }
-            });
-
-            // 2. Toggle class 'expanded' di kartu yang diklik (kalo buka jadi tutup, tutup jadi buka)
-            card.classList.toggle('expanded');
-
-            // 3. Kalo kartu jadi kebuka, scroll otomatis biar posisinya enak dilihat
-            if (card.classList.contains('expanded')) {
-                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Data artikel lengkap (dictionary/object)
+        const articlesData = {
+            1: {
+                title: "Kegiatan Rutin KSR",
+                image: "FotoBeranda/crousel1.JPG",
+                date: "1 Desember 2024",
+                content: "<p>Mengikuti kegiatan sosial dan kemanusiaan untuk membantu masyarakat yang membutuhkan pertolongan dalam bidang kesehatan dan kepalangmerahan. KSR PMI POLIJE secara konsisten melakukan kegiatan rutin setiap minggu untuk memberikan edukasi kesehatan kepada komunitas lokal. Tim kami yang berdedikasi bekerja tanpa henti untuk memastikan bahwa setiap individu mendapatkan akses ke informasi kesehatan yang berkualitas dan pertolongan pertama yang tepat saat dibutuhkan.</p><p>Kegiatan rutin kami meliputi berbagai program seperti pengecekan kesehatan gratis, pelatihan pertolongan pertama, donor darah, dan edukasi tentang gaya hidup sehat. Setiap anggota KSR PMI POLIJE berkomitmen untuk memberikan pelayanan terbaik dengan sepenuh hati. Kami juga bekerja sama dengan berbagai institusi kesehatan dan organisasi masyarakat untuk memaksimalkan dampak positif dari setiap kegiatan yang kami lakukan.</p><p>Partisipasi masyarakat sangat penting bagi kami. Melalui feedback dan masukan dari komunitas, kami terus meningkatkan kualitas layanan dan menciptakan program-program baru yang lebih relevan dengan kebutuhan masyarakat. Bergabunglah dengan kami dan jadilah bagian dari gerakan kemanusiaan yang mengubah hidup.</p>"
+            },
+            2: {
+                title: "Program Edukasi Kesehatan",
+                image: "FotoBeranda/crousel2.JPG",
+                date: "28 November 2024",
+                content: "<p>Memberikan edukasi dan pelatihan tentang kesehatan dan pertolongan pertama kepada anggota dan masyarakat umum. Program ini dirancang untuk meningkatkan kesadaran kesehatan masyarakat dan memberikan keterampilan dasar dalam penanganan situasi darurat medis. Melalui workshop, seminar, dan pelatihan langsung, kami membantu masyarakat memahami pentingnya pencegahan penyakit dan gaya hidup sehat.</p><p>Materi edukasi kami mencakup berbagai topik penting seperti pengenalan penyakit menular, vaksinasi, kesehatan mental, gizi seimbang, dan teknik pertolongan pertama yang benar. Instruktur kami adalah profesional berpengalaman di bidang kesehatan dan kepalangmerahan yang siap berbagi ilmu dengan penuh dedikasi. Setiap peserta akan mendapatkan sertifikat kehadiran dan materials edukatif untuk dibawa pulang.</p><p>Dengan mengikuti program edukasi ini, Anda tidak hanya mendapatkan pengetahuan yang berharga tetapi juga menjadi bagian dari komunitas yang peduli terhadap kesehatan. Kami meyakini bahwa masyarakat yang terinformasi adalah masyarakat yang lebih sehat dan produktif. Daftarkan diri Anda sekarang dan jadilah penggiat kesehatan bersama KSR PMI POLIJE.</p>"
+            },
+            3: {
+                title: "Kunjungan Membawa Berkah",
+                image: "FotoBeranda/crousel3.jpg",
+                date: "25 November 2024",
+                content: "<p>Mengunjungi masyarakat dan memberikan bantuan dalam bentuk edukasi kesehatan dan perhatian kepada mereka yang membutuhkan. Kegiatan kunjungan ini merupakan manifestasi dari komitmen kami untuk melayani dengan sepenuh hati. Kami percaya bahwa kesehatan adalah hak setiap orang, dan melalui program ini kami berusaha menjangkau komunitas yang mungkin terisolasi atau kurang mendapat akses ke layanan kesehatan yang memadai.</p><p>Setiap kunjungan kami lakukan dengan persiapan yang matang. Tim kami membawa peralatan kesehatan lengkap, obat-obatan esensial, dan bahan edukasi untuk diberikan kepada masyarakat lokal. Kami tidak hanya memberikan bantuan medis tetapi juga menjalin hubungan yang bermakna dengan warga, mendengarkan cerita mereka, dan memahami kebutuhan spesifik mereka.</p><p>Dampak dari program \"Kunjungan Membawa Berkah\" sudah terbukti meningkatkan kesadaran kesehatan di berbagai daerah. Banyak warga yang awalnya tidak mengerti pentingnya pemeriksaan kesehatan rutin kini menjadi lebih aktif menjaga kesehatan mereka. Jika Anda ingin bergabung dalam kegiatan mulia ini, hubungi kami dan mari bersama-sama membawa berkah kesehatan untuk semua.</p>"
             }
+        };
+
+        // Fungsi buat buka modal popup dengan artikel lengkap
+        function openArticleModal(articleId) {
+            const article = articlesData[articleId];
+            if (!article) return;
+            
+            // Set konten modal
+            document.getElementById('modalImage').src = article.image;
+            document.getElementById('modalTitle').textContent = article.title;
+            document.getElementById('modalMeta').textContent = article.date;
+            document.getElementById('modalContent').innerHTML = article.content;
+            
+            // Tampilkan modal
+            document.getElementById('articleModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Lock scroll
         }
 
-        // Listener: Kalo user klik di mana aja di halaman...
-        document.addEventListener('click', function(event) {
-            // Cari kartu yang lagi kebuka
-            const expandedCard = document.querySelector('.blog-card.expanded');
-            // Kalo ada yg kebuka DAN yang diklik itu BUKAN bagian dari kartu tsb...
-            if (expandedCard && !expandedCard.contains(event.target)) {
-                // Tutup kartunya (hapus class expanded)
-                expandedCard.classList.remove('expanded');
+        // Fungsi buat tutup modal
+        function closeArticleModal() {
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Unlock scroll
+        }
+
+        // Close modal saat klik di area gelap (outside modal)
+        document.getElementById('articleModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeArticleModal();
+            }
+        });
+
+        // Close modal saat tekan tombol ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeArticleModal();
             }
         });
     </script>
